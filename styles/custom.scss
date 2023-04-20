@@ -1,0 +1,36 @@
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.w100{
+    width: 100%;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.space-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.plr20{
+    padding: 0 20px; 
+}
+
+.mt50{
+    margin-top: 50px;
+}
+
+.mt30{
+    margin-top: 30px;
+}

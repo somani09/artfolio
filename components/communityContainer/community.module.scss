@@ -1,0 +1,80 @@
+.communityContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: solid black 2px;
+}
+
+.jtc{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.jtcInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    border: solid black 2px;
+    text-align: center;
+    padding: 10px;
+}
+
+.jtcInfoHeader{
+    font-size: 50px;
+    margin: 10px;
+}
+
+.jtcInfoText{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.jtcImage{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    border: solid black 2px;
+}
+
+.uta{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100px ;
+}
+
+.utaInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    border: solid black 2px;
+    text-align: center;
+    padding: 10px;
+}
+
+.utaInfoHeader{
+    font-size: 50px;
+    margin: 10px;
+}
+
+.utaInfoText{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.utaImage{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    border: solid black 2px;
+}
