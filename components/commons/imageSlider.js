@@ -3,7 +3,7 @@ import styles from './imageSlider.module.scss'
 
 const ImageSlider = ({data}) => {
   return (
-   <div>hello</div>
+   <div className={styles.imageSlider}>hello</div>
   )
 }
 
