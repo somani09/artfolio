@@ -1,0 +1,31 @@
+@use '../../../styles/somani.module.scss' as somani;
+
+
+
+.imageSlider{
+    
+    height: 100%;
+    width: 100%;
+    
+    
+    .imageBox{
+        @include somani.row-center;
+        height: 80%;
+        border: 1px solid black;
+        width: 400px;
+        margin: 20px;
+        flex-shrink: 0;
+        border-radius: 10px;
+    }
+}
+
+.vertical{
+    @include somani.row-center;
+    flex-wrap: wrap;
+    overflow-x:auto;
+}
+
+.horizontal{
+    @include somani.row-center-horizontally;
+    overflow-y:auto;
+}
