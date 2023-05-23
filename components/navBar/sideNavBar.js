@@ -14,23 +14,23 @@ const SideNavBar = () => {
       <div className={styles.navButtonArea}>
         {!navOpen?<AiOutlineBars  className={styles.navButton} onClick={()=>setNavOpen(true)}/>:<CgClose  className={styles.navButton} onClick={()=>setNavOpen(false)}/>}
       </div>
-     {navOpen && <div className={styles.navArea}>
+     <div className={`${styles.navArea} ${navOpen?styles.open:styles.close}`}>
           <Link href="/">
-              <div className={`${styles.link} ${router.pathname == "/" ? styles.active : ""}`}>Home</div>
+              <div  onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/" ? styles.active : ""}`}>Home</div>
           </Link>
 
           <Link href="/artists">
-              <div className={`${styles.link} ${isArtist ? styles.active : ""}`}>Artists</div>
+              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${isArtist ? styles.active : ""}`}>Artists</div>
           </Link>
 
           <Link href="/about">
-              <div className={`${styles.link} ${router.pathname == "/about" ? styles.active : ""}`}>About</div>
+              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/about" ? styles.active : ""}`}>About</div>
           </Link>
 
           <Link href="/community">
-              <div className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
+              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
-      </div>}
+      </div>
       {navOpen && <div className={styles.navAreaBack} onClick={()=>setNavOpen(false)} ></div>}
       
         
