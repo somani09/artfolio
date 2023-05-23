@@ -5,7 +5,7 @@ import styles from './navBar.module.scss'
 const NavBar = () => {
 
   const router = useRouter();
-
+  const isArtist = router.pathname.startsWith('/artist');
   return (
     <div className={styles.navbarContainer}>
 
@@ -17,7 +17,7 @@ const NavBar = () => {
           </Link>
 
           <Link href="/artists">
-              <div className={`${styles.link} ${router.pathname == "/artists" ? styles.active : ""}`}>Artists</div>
+              <div className={`${styles.link} ${isArtist ? styles.active : ""}`}>Artists</div>
           </Link>
 
           <Link href="/about">
