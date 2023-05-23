@@ -1,0 +1,81 @@
+@use '../../../styles/somani.module.scss' as somani;
+
+.carousel{
+    @include somani.row_center_horizontally;
+    width: 100%;
+    position: relative;
+    height: 250px;
+
+    .leftKey{
+        position: absolute;
+        top:40%;
+        left:20px;
+        height: 50px;
+        width: 50px;
+        z-index: 20;
+        cursor: pointer;
+    }
+    .rightKey{
+        position: absolute;
+        top:40%;
+        right:20px;
+        height: 50px;
+        width: 50px;
+        z-index: 20;
+        cursor: pointer;
+    }
+    
+    .card{
+        @include somani.row_center;
+        height: 250px;
+        width: 400px;
+        border: 1px solid black;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        object-fit: cover;
+        z-index: 0;
+        opacity: 0;
+        transition: 500ms;
+    }
+    .card_center{
+        opacity: 1;
+        transform: scale(1);
+        z-index: 9;
+    }
+    .card_left{
+        transform: translateX(-125%) scale(0.8);
+        transition: 500ms;
+        opacity: 0.5;
+
+    }
+    .card_left_out{
+        transform: translateX(-200%) scale(0.8);
+        transition: 500ms;
+        opacity: 0;
+
+    }
+    .card_right{
+        transform: translateX(125%) scale(0.8);
+        transition: 500ms;
+        opacity: 0.5;
+    }
+    .card_right_out{
+        transform: translateX(200%) scale(0.8);
+        transition: 500ms;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 771px){
+    .carousel{
+        .card{
+            width:90%;
+        }
+
+    }
+}
