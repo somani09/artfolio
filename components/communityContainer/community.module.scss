@@ -10,28 +10,20 @@
     width: 100%;
 }
 
-.jtcInfo{
+.info{
     @include column_center;
     text-align: center;
     width: 40%;
     padding: 10px;
     border: solid black 2px;
-}
-
-.jtcInfoHeader{
-    font-size: 50px;
-    margin: 10px;
-}
-
-.jtcInfoText{
-    font-size: 25px;
-    font-weight: 400;
+    border-radius: 10px;
 }
 
 .jtcImage{ 
     @include row_center;
     width: 55%;
     border: solid black 2px;
+    border-radius: 10px;
 }
 
 .uta{
@@ -41,21 +33,14 @@
     margin-top: 100px ;
 }
 
-.utaInfo{
-    @include column_center;
-    text-align: center;
-    width: 40%;
-    padding: 10px;
-    border: solid black 2px;
-}
 
-.utaInfoHeader{
-    font-size: 50px;
+.infoHeader{
+    font-size: $sectionsHeading_xlg;
     margin: 10px;
 }
 
-.utaInfoText{
-    font-size: 25px;
+.infoText{
+    font-size: $paraText_xlg;
     font-weight: 400;
 }
 
@@ -63,4 +48,62 @@
     @include row_center;
     width: 55%;
     border: solid black 2px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1440px){
+    .infoHeader{
+        font-size: $sectionsHeading_lg;
+    }
+    
+    .infoText{
+        font-size: $paraText_lg;
+    }
+}
+
+@media screen and (max-width: 768px){
+    
+    .communityContainer{
+        margin-top: 100px;
+    }
+    .jtc{
+        @include column_center_vertically;
+        width: 100%;
+    }
+    .info{
+        width: 70%;
+    }
+    .infoHeader{
+        font-size: $sectionsHeading_md;
+    }
+    
+    .infoText{
+        font-size: $paraText_md;
+    }
+    .jtcImage{
+        margin-top: 20px;
+        width: 70%;
+        aspect-ratio: 4/3;
+    }
+    .uta{
+        @include column_center_vertically;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .utaImage{
+        width: 70%;
+        aspect-ratio: 4/3;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width: 425px){
+    .infoHeader{
+        font-size: $sectionsHeading_sm;
+    }
+    
+    .infoText{
+        font-size: $paraText_sm;
+    }
 }
