@@ -9,13 +9,17 @@ const ArtistsContainer = () => {
 
   return (
     <div className={styles.artistContainer}>
-        {
-          dummyArray.map(artist => (
-            <Link className={styles.individualArtistCard} href={`/artists/${artist}`}>
-              <div ><ArtistCard/></div>
-            </Link>
-          ))
-        }
+        <div className={styles.sectionHeading}>Artists</div>
+        <div className={styles.artistsCardArea}>
+          {
+            dummyArray.map(artist => (
+              <Link className={styles.individualArtistCard} href={`/artists/${artist}`}>
+                <div ><ArtistCard/></div>
+              </Link>
+            ))
+          }
+        </div>
+        
     </div>
   )
 }
