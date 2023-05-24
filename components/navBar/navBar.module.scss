@@ -1,56 +1,53 @@
+@use '../../styles/somani.module.scss' as somani;
+
+
+
 .navbarContainer{
-    display: none;
+    @include somani.row_center_horizontally;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    padding: 10px 50px;
+
+    .logo{
+        display: flex;
+        justify-content: flex-start;
+        width: 25%;
+        font-family:  'MedievalSharp', cursive;
+        font-weight: 800;
+        font-size: 55px;
+        opacity: 60%;
+        text-shadow: 3px 3px #535450;
+    }
+    
+    .pageLinks{
+        @include somani.row_center_horizontally;
+        justify-content: space-between;
+        width: 50%;
+        padding: 0 20px ;  
+    }
+    
+    .login{
+        display: flex;
+        justify-content: flex-end;
+        width: 25%;
+    }
+    
+    .link{
+        cursor: pointer;
+    }
+    
+    .active{
+        color: red;
+        font-weight: 900;
+        font-size: 20px;
+    }
+
 }
 
-@media screen and (min-width: 769px){
+@media screen and (max-width: 771px){
     .navbarContainer{
-        width: 100%;
-        height: 100px;
-        // background-color: beige;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 50px;
-
-        .logo{
-            width: 25%;
-            display: flex;
-            justify-content: flex-start;
-            font-family:  'MedievalSharp', cursive;
-            font-weight: 800;
-            font-size: 55px;
-            opacity: 60%;
-            text-shadow: 3px 3px #535450;
-        }
-        
-        .pageLinks{
-            width: 50%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            // margin: 20px;
-            padding: 0 20px ;
-            // border: black solid 2px;
-            
-        }
-        
-        .login{
-            width: 25%;
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-        .link{
-            cursor: pointer;
-        }
-        
-        .active{
-            color: red;
-            font-weight: 900;
-            font-size: 20px;
-        }
-
+        display: none;
     }
 }
+
