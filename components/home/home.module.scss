@@ -1,12 +1,12 @@
-@use '../../styles/somani.module.scss' as somani;
+@use '../../customStyles/index.module' as *;
 
 .home{
-    @include somani.flex_column;
+    @include flex_column;
     align-items: center;
 }
 
 .carousel{
-    @include somani.column_center_vertically;
+    @include column_center_vertically;
     justify-content: space-evenly;
     height: 350px;
     width: 100%;
@@ -14,14 +14,14 @@
 }
 
 .topPicks{
-    @include somani.column_center;
+    @include column_center;
     height: 300px;
     width: 100%;
     margin: 20px;
 }
 
 .recent{
-    @include somani.column_center;
+    @include column_center;
     height: 300px;
     width: 100%;
     margin: 20px;

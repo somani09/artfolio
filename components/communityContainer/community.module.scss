@@ -1,17 +1,17 @@
-@use '../../styles/somani.module.scss' as somani;
+@use '../../customStyles/index.module' as *;
 
 .communityContainer{
-    @include somani.column_center;
+    @include column_center;
 }
 
 .jtc{
-    @include somani.flex_row;
+    @include flex_row;
     justify-content: space-between;
     width: 100%;
 }
 
 .jtcInfo{
-    @include somani.column_center;
+    @include column_center;
     text-align: center;
     width: 40%;
     padding: 10px;
@@ -29,20 +29,20 @@
 }
 
 .jtcImage{ 
-    @include somani.row_center;
+    @include row_center;
     width: 55%;
     border: solid black 2px;
 }
 
 .uta{
-    @include somani.flex_row;
+    @include flex_row;
     justify-content: space-between;
     width: 100%;
     margin-top: 100px ;
 }
 
 .utaInfo{
-    @include somani.column_center;
+    @include column_center;
     text-align: center;
     width: 40%;
     padding: 10px;
@@ -60,7 +60,7 @@
 }
 
 .utaImage{ 
-    @include somani.row_center;
+    @include row_center;
     width: 55%;
     border: solid black 2px;
 }

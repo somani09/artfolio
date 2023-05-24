@@ -1,7 +1,7 @@
-@use '../../styles/somani.module.scss' as somani;
+@use '../../customStyles/index.module' as *;
 
 .sideNavBar{
-    @include somani.flex_row;
+    @include flex_row;
     position: relative;
     .logo{
         display: flex;
@@ -33,7 +33,7 @@
     .navArea{
         padding-top: 100px;
         padding-left: 20px;
-        @include somani.flex_column;
+        @include flex_column;
         align-items:flex-start;
         background-color: rgba(224, 228, 212,0.4);
         position: fixed;

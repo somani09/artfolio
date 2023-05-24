@@ -1,4 +1,4 @@
-@use '../../../styles/somani.module.scss' as somani;
+@use '../../../customStyles/index.module' as *;
 
 
 
@@ -9,7 +9,7 @@
     
     
     .imageBox{
-        @include somani.row_center;
+        @include row_center;
         height:80%;
         border: 1px solid black;
         width: 400px;
@@ -23,13 +23,13 @@
 }
 
 .vertical{
-    @include somani.row_center;
+    @include row_center;
     flex-wrap: wrap;
     overflow-x:auto;
 }
 
 .horizontal{
-    @include somani.row_center_horizontally;
+    @include row_center_horizontally;
     overflow-y:auto;
 }
 

@@ -1,7 +1,7 @@
-@use '../../../styles/somani.module.scss' as somani;
+@use '../../../customStyles/index.module' as *;
 
 .carousel{
-    @include somani.row_center_horizontally;
+    @include row_center_horizontally;
     width: 100%;
     position: relative;
     height: 250px;
@@ -26,7 +26,7 @@
     }
     
     .card{
-        @include somani.row_center;
+        @include row_center;
         height: 250px;
         width: 400px;
         border: 1px solid black;

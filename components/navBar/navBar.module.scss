@@ -1,9 +1,9 @@
-@use '../../styles/somani.module.scss' as somani;
+@use '../../customStyles/index.module' as *;
 
 
 
 .navbarContainer{
-    @include somani.row_center_horizontally;
+    @include row_center_horizontally;
     justify-content: space-between;
     width: 100%;
     height: 100px;
@@ -21,7 +21,7 @@
     }
     
     .pageLinks{
-        @include somani.row_center_horizontally;
+        @include row_center_horizontally;
         justify-content: space-between;
         width: 50%;
         padding: 0 20px ;  
