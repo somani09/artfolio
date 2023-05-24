@@ -9,7 +9,7 @@
     
     
     .imageBox{
-        @include somani.row-center;
+        @include somani.row_center;
         height: 80%;
         border: 1px solid black;
         width: 400px;
@@ -20,12 +20,21 @@
 }
 
 .vertical{
-    @include somani.row-center;
+    @include somani.row_center;
     flex-wrap: wrap;
     overflow-x:auto;
 }
 
 .horizontal{
-    @include somani.row-center-horizontally;
+    @include somani.row_center_horizontally;
     overflow-y:auto;
+}
+
+
+@media screen and (max-width: 771px){
+    .imageSlider{
+        .imageBox{
+            width: 90%;
+        }
+    }
 }

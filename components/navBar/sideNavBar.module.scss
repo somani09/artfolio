@@ -1,0 +1,91 @@
+@use '../../styles/somani.module.scss' as somani;
+
+.sideNavBar{
+    @include somani.flex_row;
+    position: relative;
+    .logo{
+        display: flex;
+        justify-content: flex-start;
+        font-family:  'MedievalSharp', cursive;
+        font-weight: 800;
+        font-size: 55px;
+        opacity: 60%;
+        text-shadow: 3px 3px #535450;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform:  translateX(-50%);
+    }
+
+    .navButtonArea{
+        position: fixed;
+        top:40px;
+        left:10px;
+        z-index: 100;
+
+        .navButton{
+            height: 30px;
+            width: 30px;
+        }
+        
+    }
+
+    .navArea{
+        padding-top: 100px;
+        padding-left: 20px;
+        @include somani.flex_column;
+        align-items:flex-start;
+        background-color: rgba(224, 228, 212,0.4);
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: 95;
+        height: 100vh;
+        width: 50%;
+        transition: 500ms;
+        opacity: 1;
+
+        .link{
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        
+        .active{
+            color: red;
+            font-weight: 900;
+            font-size: 20px;
+        }
+        
+    }
+    .open{
+        opacity: 1;
+        transform: scale(1);
+        transition: 500ms;
+        border-radius: 10px;
+    }
+    .close{
+        transform: translateX(-50%) ;
+        transition: 1000ms;
+        opacity: 0.0;
+        border-radius: 80%;
+
+    }
+
+    .navAreaBack{
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: 90;
+        height: 100vh;
+        width: 100vw;
+        filter: blur(15px);
+        -webkit-filter: blur(15px);
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+@media screen and (min-width: 769px){
+    .sideNavBar{
+        display: none;
+    }
+}

@@ -9,10 +9,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 300px;
+    justify-content: space-evenly;
+    height: 350px;
     width: 100%;
-    border : solid black 2px;
+    // border : solid black 2px;
     margin: 20px;
 }
 
@@ -36,4 +36,10 @@
     width: 100%;
     // border : solid black 2px;
     margin: 20px;
+}
+
+@media screen and (max-width: 771px){
+    .carousel{
+        margin-top: 60px;
+    }
 }
