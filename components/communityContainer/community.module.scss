@@ -1,27 +1,21 @@
+@use '../../styles/somani.module.scss' as somani;
+
 .communityContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    // border: solid black 2px;
+    @include somani.column_center;
 }
 
 .jtc{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    @include somani.flex_row;
     justify-content: space-between;
+    width: 100%;
 }
 
 .jtcInfo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    border: solid black 2px;
+    @include somani.column_center;
     text-align: center;
+    width: 40%;
     padding: 10px;
+    border: solid black 2px;
 }
 
 .jtcInfoHeader{
@@ -35,30 +29,24 @@
 }
 
 .jtcImage{ 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include somani.row_center;
     width: 55%;
     border: solid black 2px;
 }
 
 .uta{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    @include somani.flex_row;
     justify-content: space-between;
+    width: 100%;
     margin-top: 100px ;
 }
 
 .utaInfo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    border: solid black 2px;
+    @include somani.column_center;
     text-align: center;
+    width: 40%;
     padding: 10px;
+    border: solid black 2px;
 }
 
 .utaInfoHeader{
@@ -72,9 +60,7 @@
 }
 
 .utaImage{ 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include somani.row_center;
     width: 55%;
     border: solid black 2px;
 }

@@ -10,12 +10,15 @@
     
     .imageBox{
         @include somani.row_center;
-        height: 80%;
+        height:80%;
         border: 1px solid black;
         width: 400px;
         margin: 20px;
         flex-shrink: 0;
         border-radius: 10px;
+    }
+    .inVertical{
+        height:300px;
     }
 }
 

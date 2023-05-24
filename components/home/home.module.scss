@@ -1,40 +1,29 @@
+@use '../../styles/somani.module.scss' as somani;
+
 .home{
-    display: flex;
-    flex-direction: column;
+    @include somani.flex_column;
     align-items: center;
-    // padding: 30px;
 }
 
 .carousel{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include somani.column_center_vertically;
     justify-content: space-evenly;
     height: 350px;
     width: 100%;
-    // border : solid black 2px;
     margin: 20px;
 }
 
 .topPicks{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include somani.column_center;
     height: 300px;
     width: 100%;
-    // border : solid black 2px;
     margin: 20px;
 }
 
 .recent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include somani.column_center;
     height: 300px;
     width: 100%;
-    // border : solid black 2px;
     margin: 20px;
 }
 
