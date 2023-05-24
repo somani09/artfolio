@@ -1,9 +1,9 @@
-@use '../../styles/somani.module.scss' as somani;
+@use '../../customStyles/index.module' as *;
 
 
 
 .navbarContainer{
-    @include somani.row_center_horizontally;
+    @include row_center_horizontally;
     justify-content: space-between;
     width: 100%;
     height: 100px;
@@ -12,16 +12,16 @@
     .logo{
         display: flex;
         justify-content: flex-start;
-        width: 25%;
         font-family:  'MedievalSharp', cursive;
+        font-size: $font_logo_xlg;
         font-weight: 800;
-        font-size: 55px;
         opacity: 60%;
         text-shadow: 3px 3px #535450;
+        width: 25%;
     }
     
     .pageLinks{
-        @include somani.row_center_horizontally;
+        @include row_center_horizontally;
         justify-content: space-between;
         width: 50%;
         padding: 0 20px ;  
@@ -35,17 +35,33 @@
     
     .link{
         cursor: pointer;
+        font-size: $font_link_xlg;
+        font-weight: 400;
+
     }
     
     .active{
-        color: red;
-        font-weight: 900;
-        font-size: 20px;
+        color: $active_link;
+        font-weight: 800;
+        // font-size: 20px;
     }
 
 }
 
-@media screen and (max-width: 771px){
+@media screen and (max-width: 1440px){
+    .navbarContainer{
+        .logo{
+          font-size: $font_logo_lg;
+        }
+        .link{
+            font-size: $font_link_lg;
+        }
+    }
+}
+
+
+//tablet
+@media screen and (max-width: 768px){
     .navbarContainer{
         display: none;
     }

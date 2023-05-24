@@ -1,7 +1,7 @@
-@use '../../../styles/somani.module.scss' as somani;
+@use '../../../customStyles/index.module' as *;
 
 .carousel{
-    @include somani.row_center_horizontally;
+    @include row_center_horizontally;
     width: 100%;
     position: relative;
     height: 250px;
@@ -26,9 +26,9 @@
     }
     
     .card{
-        @include somani.row_center;
-        height: 250px;
+        @include row_center;
         width: 400px;
+        aspect-ratio: 16 / 9;
         border: 1px solid black;
         border-radius: 10px;
         position: absolute;
@@ -71,7 +71,7 @@
     }
 }
 
-@media screen and (max-width: 771px){
+@media screen and (max-width: 768px){
     .carousel{
         .card{
             width:90%;

@@ -37,7 +37,7 @@ const Carousel = ({data}) => {
       setCenterIndex(prev=>mod(prev+1,dataLength));
       setLeftIndex(prev=>mod(prev+1,dataLength));
       setLeftOutIndex(prev=>mod(prev+1,dataLength));
-    }, 5000);
+    }, 3000);
   
     return () => {
       

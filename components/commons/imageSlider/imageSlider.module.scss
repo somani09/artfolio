@@ -1,4 +1,4 @@
-@use '../../../styles/somani.module.scss' as somani;
+@use '../../../customStyles/index.module' as *;
 
 
 
@@ -9,35 +9,42 @@
     
     
     .imageBox{
-        @include somani.row_center;
-        height:80%;
+        @include row_center;
+        // height:80%;
         border: 1px solid black;
         width: 400px;
+        aspect-ratio: 16 / 9;
         margin: 20px;
         flex-shrink: 0;
         border-radius: 10px;
     }
     .inVertical{
-        height:300px;
+        // height:300px;
     }
 }
 
 .vertical{
-    @include somani.row_center;
+    @include row_center;
     flex-wrap: wrap;
     overflow-x:auto;
 }
 
 .horizontal{
-    @include somani.row_center_horizontally;
+    @include row_center_horizontally;
     overflow-y:auto;
 }
+
+@media screen and (max-width: 1440px){
+
+}
+
 
 
 @media screen and (max-width: 771px){
     .imageSlider{
         .imageBox{
             width: 90%;
+
         }
     }
 }

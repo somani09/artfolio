@@ -30,8 +30,10 @@ const SideNavBar = () => {
           <Link href="/community">
               <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
+          <div className={`${styles.login} ${styles.link}`} >login details</div>
       </div>
-      {navOpen && <div className={styles.navAreaBack} onClick={()=>setNavOpen(false)} ></div>}
+
+      <div className={`${styles.navAreaBack} ${navOpen?styles.navAreaBackOpen:styles.navAreaBackClose}`} onClick={()=>setNavOpen(false)} ></div>
       
         
       <div className={styles.logo}>Gallery</div>  
