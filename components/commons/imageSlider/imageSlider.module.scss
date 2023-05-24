@@ -10,15 +10,16 @@
     
     .imageBox{
         @include row_center;
-        height:80%;
+        // height:80%;
         border: 1px solid black;
         width: 400px;
+        aspect-ratio: 16 / 9;
         margin: 20px;
         flex-shrink: 0;
         border-radius: 10px;
     }
     .inVertical{
-        height:300px;
+        // height:300px;
     }
 }
 
@@ -33,11 +34,17 @@
     overflow-y:auto;
 }
 
+@media screen and (max-width: 1440px){
+
+}
+
+
 
 @media screen and (max-width: 771px){
     .imageSlider{
         .imageBox{
             width: 90%;
+
         }
     }
 }

@@ -8,27 +8,80 @@
 .carousel{
     @include column_center_vertically;
     justify-content: space-evenly;
-    height: 350px;
     width: 100%;
     margin: 20px;
+    .carouselContainer{
+        width: 100%;
+        position: relative;
+    }
+    .artist{
+        padding-bottom: 10px;
+    }
 }
 
 .topPicks{
     @include column_center;
-    height: 300px;
     width: 100%;
     margin: 20px;
 }
 
 .recent{
     @include column_center;
-    height: 300px;
     width: 100%;
     margin: 20px;
 }
 
-@media screen and (max-width: 771px){
+.sectionHeading{
+    font-size: $sectionsHeading_xlg;
+}
+@media screen and (max-width: 1440px){
+    .sectionHeading{
+        font-size: $sectionsHeading_lg;
+    }
+}
+
+
+@media screen and (max-width: 768px){
     .carousel{
-        margin-top: 60px;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 80px;
+        position: relative;
+        margin-bottom: 40px;
+        .artist{
+            position: absolute;
+            top:0;
+        }
+        .carouselContainer{
+            width: 100%;
+            position: absolute;
+            top:12vw;
+        }
+    }
+    .topPicks{
+    }
+    .sectionHeading{
+        font-size: $sectionsHeading_md;
+    }
+}
+
+//phone
+@media screen and (max-width: 425px){
+    .carousel{
+        margin-top: 80px;
+        .artist{
+            padding-bottom: 0;
+
+        }
+        .carouselContainer{
+            width: 100%;
+            position: absolute;
+            top:10px;
+        }
+    }
+    .topPicks{
+    }
+    .sectionHeading{
+        font-size: $sectionsHeading_sm;
     }
 }

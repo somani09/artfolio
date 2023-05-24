@@ -30,7 +30,7 @@ const NavBar = () => {
           
         </div>
 
-        <div className={styles.login} >login details</div>
+        <div className={`${styles.login} ${styles.link}`} >login details</div>
     
     </div>
   )

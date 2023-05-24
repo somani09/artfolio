@@ -1,5 +1,7 @@
 @use '../../customStyles/index.module' as *;
 
+
+
 .artistContainer{
     display: flex;
     justify-content: center;
@@ -58,8 +60,17 @@
     margin:20px;
 }
 
-@media screen and (max-width: 771px){
+@media screen and (max-width: 1440px){
+
+}
+
+// tablet
+@media screen and (max-width: 768px){
     .individualArtistCard{
         width:90%;
     }
+}
+//phone
+@media screen and (max-width: 425px){
+
 }

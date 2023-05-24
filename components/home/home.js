@@ -23,15 +23,17 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.carousel}>
-        <div>Artists</div>
-        <Carousel data={carouselData} />
+        <div className={`${styles.artist} ${styles.sectionHeading}`}>Artists</div>
+        <div className={styles.carouselContainer}>
+          <Carousel data={carouselData} />
+        </div>
       </div>
       <div className={styles.topPicks}>
-        <div>Top Picks</div>
+        <div className={styles.sectionHeading}>Top Picks</div>
         <ImageSlider data={topPickData} />  
       </div>
       <div className={styles.recent}>
-        <div>Recent Uploads</div>
+        <div className={styles.sectionHeading}>Recent Uploads</div>
         <ImageSlider data={recentData} />  
       </div>
     </div>

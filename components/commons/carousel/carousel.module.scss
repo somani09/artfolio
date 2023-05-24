@@ -27,8 +27,8 @@
     
     .card{
         @include row_center;
-        height: 250px;
         width: 400px;
+        aspect-ratio: 16 / 9;
         border: 1px solid black;
         border-radius: 10px;
         position: absolute;
@@ -71,7 +71,7 @@
     }
 }
 
-@media screen and (max-width: 771px){
+@media screen and (max-width: 768px){
     .carousel{
         .card{
             width:90%;
