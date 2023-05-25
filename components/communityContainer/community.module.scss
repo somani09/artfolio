@@ -89,10 +89,11 @@
     .image{
         width: 70%;
         aspect-ratio: 1/1;
-        order: 1;
     }
     .jtcImage{
         margin-top: 20px;
+        order: 1;
+        
     }
     .uta{
         @include column_center_vertically;
@@ -100,7 +101,7 @@
         margin-top: 20px;
     }
     .utaImage{
-        margin-top: 20px;
+        margin-bottom: 20px;
         
     }
 
