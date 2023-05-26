@@ -4,13 +4,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const ArtistCard = ({data}) => {
-
+  const imageStyle = {
+    borderRadius: '10px',
+    objectFit: "cover"
+  };
   return (
     <div className={`${styles.individualArtistCard}`}>
       <Link  href={data.link} className={styles.link}>
         <Image  
-          className={styles.image}
           src={data.image} 
+          style={imageStyle}
+          fill
           />
       </Link>
       <div className={styles.artistNameArea}>

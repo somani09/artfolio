@@ -40,30 +40,36 @@
     opacity: 0;
     transition: 500ms;
     transform: translateX(-300%) scale(0);  
+    display: none;
 }
 .card_center{
+    display: flex;
     opacity: 1;
     transform: scale(1);
     z-index: 9;
 }
 .card_left{
+    display: flex;
     transform: translateX(-125%) scale(0.8);
     transition: 500ms;
     opacity: 0.7;
 
 }
 .card_left_out{
+    display: flex;
     transform: translateX(-250%) scale(0.6);
     transition: 500ms;
     opacity: 0.3;
 
 }
 .card_right{
+    display: flex;
     transform: translateX(125%) scale(0.8);
     transition: 500ms;
     opacity: 0.7;
 }
 .card_right_out{
+    display: flex;
     transform: translateX(250%) scale(0.6);
     transition: 500ms;
     opacity: 0.3;

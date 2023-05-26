@@ -28,21 +28,21 @@ const Carousel = ({data}) => {
 
   let timer;
 
-  // useEffect(() => {
+  useEffect(() => {
     
-  //   clearTimeout(timer);
-  //   timer = setTimeout(() => {
-  //     setRightOutIndex(prev=>mod(prev+1,dataLength));
-  //     setRightIndex(prev=>mod(prev+1,dataLength));
-  //     setCenterIndex(prev=>mod(prev+1,dataLength));
-  //     setLeftIndex(prev=>mod(prev+1,dataLength));
-  //     setLeftOutIndex(prev=>mod(prev+1,dataLength));
-  //   }, 3000);
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      setRightOutIndex(prev=>mod(prev+1,dataLength));
+      setRightIndex(prev=>mod(prev+1,dataLength));
+      setCenterIndex(prev=>mod(prev+1,dataLength));
+      setLeftIndex(prev=>mod(prev+1,dataLength));
+      setLeftOutIndex(prev=>mod(prev+1,dataLength));
+    }, 3000);
   
-  //   return () => {
+    return () => {
       
-  //   }
-  // }, [centerIndex])
+    }
+  }, [centerIndex])
 
 
   const onleftKey = () =>{

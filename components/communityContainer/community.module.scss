@@ -85,18 +85,21 @@
         width: 70%;
     }
     .infoHeader{
-        font-size: $sectionsHeading_md;
+        font-size: $font_xlg;
     }
     
     .infoText{
-        font-size: $paraText_md;
+        font-size: $font_md2;
     }
     .jtcText{
         order: 2;
         margin-top: 20px;
     }
+    .imageArea{
+        width: 90%;
+    }
     .image{
-        width: 70%;
+        width: 100%;
         aspect-ratio: 1/1;
     }
     .jtcImage{
@@ -118,10 +121,13 @@
 
 @media screen and (max-width: 425px){
     .infoHeader{
-        font-size: $sectionsHeading_sm;
+        font-size: $font_md2;
     }
     
     .infoText{
-        font-size: $paraText_sm;
+        font-size: $font_md1;
+    }
+    .info{
+        width: 90%;
     }
 }

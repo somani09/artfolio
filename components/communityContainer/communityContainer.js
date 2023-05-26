@@ -4,6 +4,10 @@ import jtcImage from '../../public/assets/jtc.jpg'
 import utaImage from '../../public/assets/uta.jpg'
 import Image from 'next/image'
 const CommunityContainer = () => {
+    const imageStyle = {
+        borderRadius: '10px',
+        objectFit: "cover"
+      };
   return (
     <div className={styles.communityContainer}>
         <div className={styles.jtc}>
@@ -16,8 +20,9 @@ const CommunityContainer = () => {
             </div>
             <div className={`${styles.jtcImage} ${styles.imageArea}`}>
                 <Image  
-                    className={styles.image}
-                    src={jtcImage} 
+                    src={jtcImage}
+                    style={imageStyle}
+                    fill
                     />
             </div>
         </div>
@@ -25,8 +30,9 @@ const CommunityContainer = () => {
         <div className={styles.uta}>
             <div className={`${styles.utaImage} ${styles.imageArea}`}>
                 <Image  
-                    className={styles.image}
                     src={utaImage} 
+                    style={imageStyle}
+                    fill
                     />
             </div>
             <div className={styles.info}>

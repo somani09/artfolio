@@ -16,6 +16,10 @@ const ArtistDetails = () => {
     console.log("inside route number - ", router.query.artistName);
     var artistDetails = ["image1","image2","image3","image4","image5","image6","image7","image8"]
     var type = 'vertical'
+    const imageStyle = {
+        borderRadius: '10px',
+        objectFit: "cover"
+      };
     return (
         // `row w100 space-between`
     <div className={styles.artistDetails}>
@@ -24,8 +28,9 @@ const ArtistDetails = () => {
             <div className={styles.artistImageContact}>
                 <div className={styles.artistImage}>
                     <Image  
-                        className={styles.image}
                         src={individualArtistData.image} 
+                        style={imageStyle}
+                        fill
                         />
                 </div>
                 
