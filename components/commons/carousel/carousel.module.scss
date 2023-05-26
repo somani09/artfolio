@@ -3,8 +3,9 @@
 .carousel{
     @include row_center_horizontally;
     width: 100%;
-    position: relative;
-    height: 250px;
+    position: absolute;
+    // height: 250px;
+    height: inherit;
 
     .leftKey{
         position: absolute;

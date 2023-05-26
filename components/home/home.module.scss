@@ -3,6 +3,7 @@
 .home{
     @include flex_column;
     align-items: center;
+    position: relative;
 }
 
 .carousel{
@@ -10,13 +11,18 @@
     justify-content: space-evenly;
     width: 100%;
     margin: 20px;
-    
+    height:  calc(300px *(4/3));
+    position: relative;
     .carouselContainer{
         width: 100%;
-        position: relative;
+        position: absolute;
+        top: 30px;
+        height: inherit;
+
     }
     .artist{
-        padding-bottom: 80px;
+        position: absolute;
+        top: 0
     }
 }
 
@@ -24,7 +30,7 @@
     @include column_center;
     width: 100%;
     margin: 20px;
-    padding-top: 80px;
+    // padding-top: 80px;
 }
 
 .recent{
@@ -48,22 +54,19 @@
 @media screen and (max-width: 768px){
     .carousel{
         width: 100%;
-        aspect-ratio: 16 / 9;
-        margin-top: 50vw;
+        margin-top: 150px;
         position: relative;
         margin-bottom: 40px;
+        height:  calc(110vw *(4/3));
         .artist{
-            position: absolute;
             top:0;
         }
         .carouselContainer{
             width: 100%;
-            position: absolute;
-            top:12vw;
-            padding-top: 100px;
         }
     }
     .topPicks{
+        margin-top: -10px;
     }
     .sectionHeading{
         font-size: $sectionsHeading_md;
@@ -72,21 +75,20 @@
 
 //phone
 @media screen and (max-width: 425px){
-    .carousel{
-        margin-top: 80px;
-        .artist{
-            padding-bottom: 0;
+    // .carousel{
+    //     .artist{
+    //         padding-bottom: 0;
 
-        }
-        .carouselContainer{
-            width: 100%;
-            position: absolute;
-            top:10px;
-        }
-    }
-    .topPicks{
-    }
-    .sectionHeading{
-        font-size: $sectionsHeading_sm;
-    }
+    //     }
+    //     .carouselContainer{
+    //         width: 100%;
+    //         position: absolute;
+    //         top:10px;
+    //     }
+    // }
+    // .topPicks{
+    // }
+    // .sectionHeading{
+    //     font-size: $sectionsHeading_sm;
+    // }
 }
