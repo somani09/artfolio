@@ -2,6 +2,7 @@
 
 .communityContainer{
     @include column_center;
+    padding: 20px;
 }
 
 .jtc{
@@ -15,16 +16,23 @@
     text-align: center;
     width: 55%;
     padding: 10px;
-    border: solid black 2px;
     border-radius: 10px;
 }
 
-.image{
+.imageArea{
     @include row_center;
+    position: relative;
     width: 40%;
-    border: solid black 2px;
     border-radius: 10px;
     aspect-ratio: 1/1;
+}
+
+.image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit:cover;
 }
 
 .jtcImage{ 
