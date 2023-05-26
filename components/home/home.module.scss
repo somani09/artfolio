@@ -10,12 +10,13 @@
     justify-content: space-evenly;
     width: 100%;
     margin: 20px;
+    
     .carouselContainer{
         width: 100%;
         position: relative;
     }
     .artist{
-        padding-bottom: 10px;
+        padding-bottom: 80px;
     }
 }
 
@@ -23,6 +24,7 @@
     @include column_center;
     width: 100%;
     margin: 20px;
+    padding-top: 80px;
 }
 
 .recent{
@@ -33,6 +35,8 @@
 
 .sectionHeading{
     font-size: $sectionsHeading_xlg;
+    color: $sectionHeading_color;
+
 }
 @media screen and (max-width: 1440px){
     .sectionHeading{
@@ -45,7 +49,7 @@
     .carousel{
         width: 100%;
         aspect-ratio: 16 / 9;
-        margin-top: 80px;
+        margin-top: 50vw;
         position: relative;
         margin-bottom: 40px;
         .artist{
@@ -56,6 +60,7 @@
             width: 100%;
             position: absolute;
             top:12vw;
+            padding-top: 100px;
         }
     }
     .topPicks{

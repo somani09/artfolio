@@ -2,12 +2,13 @@ import React from 'react'
 import ImageSlider from '../commons/imageSlider/imageSlider'
 import styles from './home.module.scss'
 import Carousel from '../commons/carousel/carousel'
-
-
+import {artistData} from '../../data/artistsData'
+import {topPickData} from '../../data/topPicksData'
+import {recentData} from '../../data/recentData'
 const Home = () => {
-
-  var topPickData = ["image1","image2","image3","image4","image5","image6","image7","image8"]
-  var recentData = ["image1","image2","image3","image4","image5","image6","image7","image8"]
+  console.log( artistData);
+  // var topPickData = ["image1","image2","image3","image4","image5","image6","image7","image8"]
+  // var recentData = ["image1","image2","image3","image4","image5","image6","image7","image8"]
   var carouselData = [
     {id:1 , image:'image1'},
     {id:2 , image:'image2'},
@@ -25,7 +26,7 @@ const Home = () => {
       <div className={styles.carousel}>
         <div className={`${styles.artist} ${styles.sectionHeading}`}>Artists</div>
         <div className={styles.carouselContainer}>
-          <Carousel data={carouselData} />
+          <Carousel data={artistData} />
         </div>
       </div>
       <div className={styles.topPicks}>
