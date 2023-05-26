@@ -9,16 +9,15 @@
 .carousel{
     @include column_center_vertically;
     justify-content: space-evenly;
+    position: relative;
     width: 100%;
     margin: 20px;
-    height:  calc(300px *(4/3));
-    position: relative;
+    height:  calc(300px *(5/4));
     .carouselContainer{
         width: 100%;
         position: absolute;
         top: 30px;
         height: inherit;
-
     }
     .artist{
         position: absolute;
@@ -30,7 +29,6 @@
     @include column_center;
     width: 100%;
     margin: 20px;
-    // padding-top: 80px;
 }
 
 .recent{
@@ -53,17 +51,9 @@
 
 @media screen and (max-width: 768px){
     .carousel{
-        width: 100%;
         margin-top: 150px;
-        position: relative;
         margin-bottom: 40px;
-        height:  calc(110vw *(4/3));
-        .artist{
-            top:0;
-        }
-        .carouselContainer{
-            width: 100%;
-        }
+        height:  calc(110vw *(5/4));
     }
     .topPicks{
         margin-top: -10px;
@@ -75,20 +65,5 @@
 
 //phone
 @media screen and (max-width: 425px){
-    // .carousel{
-    //     .artist{
-    //         padding-bottom: 0;
 
-    //     }
-    //     .carouselContainer{
-    //         width: 100%;
-    //         position: absolute;
-    //         top:10px;
-    //     }
-    // }
-    // .topPicks{
-    // }
-    // .sectionHeading{
-    //     font-size: $sectionsHeading_sm;
-    // }
 }

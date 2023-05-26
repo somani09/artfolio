@@ -2,6 +2,14 @@ import React from 'react'
 import styles from './artists.module.scss'
 import { useRouter } from 'next/router';
 import ImageSlider from '../commons/imageSlider/imageSlider';
+import {individualArtistData} from '../../data/individualArtistData'
+import {recentData} from '../../data/recentData'
+import Image from 'next/image';
+import {RiUnsplashFill} from 'react-icons/ri'
+import {RiInstagramLine} from 'react-icons/ri'
+import {SiGmail} from 'react-icons/si'
+import {RiFacebookBoxLine} from 'react-icons/ri'
+
 
 const ArtistDetails = () => {
     const router = useRouter();
@@ -15,18 +23,42 @@ const ArtistDetails = () => {
 
             <div className={styles.artistImageContact}>
                 <div className={styles.artistImage}>
-                    artist Image
+                    <Image  
+                        className={styles.image}
+                        src={individualArtistData.image} 
+                        />
+                </div>
+                
+            </div>
+            <div className={styles.detailsContact}>
+                <div className={styles.details}>
+                    <div className={styles.detailsInfo}>
+                        <span className={styles.detailsHeading}>Name : </span>{individualArtistData.name}
+                    </div>
+                    <div className={styles.detailsInfo}>
+                        <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
+                    </div>
+                    <div className={styles.detailsInfo}>
+                        <span className={styles.detailsHeading}>About : </span>{individualArtistData.about}</div>
+                    <div className={styles.detailsInfo}>
+                        <span className={styles.detailsHeading}>Art Styles  : </span>{individualArtistData.styles}
+                    </div>
                 </div>
                 <div className={styles.contacts}>
-                    Artist Contacts
-                </div>
+                        <div className={styles.contactHeading}>Connect With the Artist</div>   
+                        <div className={styles.contactIcons}>
+                            <RiUnsplashFill className={styles.icons} />
+                            <RiInstagramLine className={styles.icons}/>
+                            <SiGmail className={styles.icons}/>
+                            <RiFacebookBoxLine className={styles.icons}/>
+                        </div>
+                </div>  
             </div>
-
-            <div className={styles.details}>detials</div>
+           
         </div>
         <div className={styles.imagesArea}>
             <div className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</div>
-            <ImageSlider data={artistDetails} type={'vertical'}/>
+            <ImageSlider data={recentData} type={'vertical'}/>
         </div>
     </div>
   )

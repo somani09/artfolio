@@ -66,8 +66,8 @@ const Carousel = ({data}) => {
 
   return (
     <div className={styles.carousel} >
-      <BiChevronsLeft  className={styles.leftKey} onClick={()=>onleftKey()} />
-      <BiChevronsRight className={styles.rightKey} onClick={onRightKey}/>
+      <BiChevronsLeft  className={`${styles.leftKey} ${styles.key}`} onClick={()=>onleftKey()} />
+      <BiChevronsRight className={`${styles.rightKey} ${styles.key}`} onClick={onRightKey}/>
       {data.map((card,i) =>{
         let className = null;
         if (card.id === centerIndex) {
