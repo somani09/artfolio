@@ -7,11 +7,12 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-
 }
 
 .sectionHeading{
     font-size: $sectionsHeading_xlg;
+    color: $sectionHeading_color;
+    margin-bottom: 20px;
 }
 
 .artistsCardArea{
@@ -22,12 +23,39 @@
 
 .individualArtistCard{
    @include row_center;
+   position: relative;
    flex-shrink: 0;
     width: 300px;
-    aspect-ratio: 3/4;
-    margin: 20px;
-    border: solid black 2px;
-    border-radius: 10px
+    aspect-ratio: $aspect_ratio_artist_card;
+    margin: 30px;
+    border-radius: 10px;
+    transition: 200ms;
+
+    &:hover {
+        transform:  scale(1.2);
+        transition: 200ms;
+      }
+}
+
+.link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.artistNameArea{
+    @include row_center_horizontally;
+    position: absolute;
+    height: 8%;
+    width: 70%;
+    bottom:50px;
+    right: 0;
+    background-color: #F5F5F5;
+    border-radius: 5px 0 0 5px;
+}
+.artistName{
+    position: relative;
+    left:10px
 }
 
 .artistDetails{
@@ -40,35 +68,76 @@
     @include flex_row;
     justify-content: space-between;
     width: 100%;
+    padding: 20px;
 }
 
 .artistImageContact{
     @include column_center_vertically;
-    width: 35%;
+    width: 40%;
 }
 
 .artistImage{
     @include row_center;
-    width: 100%;
-    aspect-ratio: 4/3;
-    border: solid black 2px;
+    position: relative;
+    width: 80%;
+    aspect-ratio: $aspect_ratio_artist_card;
     border-radius: 10px;
+}
+
+.image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit:cover;
 }
 
 .contacts{
-    @include row_center;
+    @include column_center_vertically;
+    justify-content: space-around;
     width: 100%;
-    height:30%;   
-    margin-top: 50px;
-    border: solid black 2px;
+    height:70px;   
+    margin-top: 20px;
     border-radius: 10px;
 }
 
+.contactIcons{
+    @include row_center_vertically;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.contactHeading{
+    font-size: $font_md2;
+    font-weight: 800;
+}
+
+.icons{
+    width: 30px;
+    height: 30px;
+}
+
+
 .details{
-    @include row_center;
-    width: 60%;
-    border: solid black 2px;
+    @include flex_column;
+    align-items: flex-start;
     border-radius: 10px;
+    padding-top: 20px;
+}
+
+.detailsContact{
+    @include column_center_vertically;
+    width: 55%;
+    // justify-content: space-between;
+}
+
+.detailsInfo{
+    margin: 5px;
+    font-size: $font_md1;
+}
+
+.detailsHeading{
+    font-size: $font_md2;
 }
 
 .showCase{
@@ -97,20 +166,27 @@
     .artistContainer{
         margin-top: 100px;
     }
-    .individualArtistCard{
-        width:40%;
-    }
+
     .sectionHeading{
         font-size: $sectionsHeading_md;
     }
 
+    .individualArtistCard{
+        width:40%;
+        &:hover {
+        transform:  scale(1.1);
+      }
+    }
+    
     .artistDetails{
         margin-top: 100px;
     }
 
     .artistInfoArea{
         @include column_center_vertically;
-        width: 100%;
+        padding: unset;
+        margin-top: 30px;
+
     }
 
     .artistImageContact{
@@ -119,8 +195,6 @@
     
     .artistImage{
         width: 60%;
-        aspect-ratio: 2/3;
-        border: solid black 2px;
         border-radius: 10px;
     }
     
@@ -129,11 +203,24 @@
         height:100px;   
         margin: 10px 0;
     }
+
+    .contactIcons{
+        @include row_center_vertically;
+        justify-content: space-around;
+        width: 70%;
+    }
     
     .details{
         width: 80%;
         aspect-ratio: 2/1;
     }
+
+    .detailsContact{
+        @include column_center_vertically;
+        width: 100%;
+        justify-content: unset;
+    }
+
 }
 //phone
 @media screen and (max-width: 425px){

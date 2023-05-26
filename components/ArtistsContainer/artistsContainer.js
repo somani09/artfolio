@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import React from 'react'
 import ArtistCard from './artistCard';
 import styles from './artists.module.scss'
+import {artistData} from '../../data/artistsData'
 
 const ArtistsContainer = () => {
 
@@ -12,10 +12,8 @@ const ArtistsContainer = () => {
         <div className={styles.sectionHeading}>Artists</div>
         <div className={styles.artistsCardArea}>
           {
-            dummyArray.map(artist => (
-              <Link className={styles.individualArtistCard} href={`/artists/${artist}`}>
-                <div ><ArtistCard/></div>
-              </Link>
+            artistData.map(artist => (
+                <ArtistCard data={artist}/>
             ))
           }
         </div>

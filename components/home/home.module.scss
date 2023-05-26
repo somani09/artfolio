@@ -3,19 +3,25 @@
 .home{
     @include flex_column;
     align-items: center;
+    position: relative;
 }
 
 .carousel{
     @include column_center_vertically;
     justify-content: space-evenly;
+    position: relative;
     width: 100%;
     margin: 20px;
+    height:  calc(300px *(5/4));
     .carouselContainer{
         width: 100%;
-        position: relative;
+        position: absolute;
+        top: 30px;
+        height: inherit;
     }
     .artist{
-        padding-bottom: 10px;
+        position: absolute;
+        top: 0
     }
 }
 
@@ -33,6 +39,8 @@
 
 .sectionHeading{
     font-size: $sectionsHeading_xlg;
+    color: $sectionHeading_color;
+
 }
 @media screen and (max-width: 1440px){
     .sectionHeading{
@@ -43,22 +51,12 @@
 
 @media screen and (max-width: 768px){
     .carousel{
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        margin-top: 80px;
-        position: relative;
+        margin-top: 150px;
         margin-bottom: 40px;
-        .artist{
-            position: absolute;
-            top:0;
-        }
-        .carouselContainer{
-            width: 100%;
-            position: absolute;
-            top:12vw;
-        }
+        height:  calc(110vw *(5/4));
     }
     .topPicks{
+        margin-top: -10px;
     }
     .sectionHeading{
         font-size: $sectionsHeading_md;
@@ -67,21 +65,5 @@
 
 //phone
 @media screen and (max-width: 425px){
-    .carousel{
-        margin-top: 80px;
-        .artist{
-            padding-bottom: 0;
 
-        }
-        .carouselContainer{
-            width: 100%;
-            position: absolute;
-            top:10px;
-        }
-    }
-    .topPicks{
-    }
-    .sectionHeading{
-        font-size: $sectionsHeading_sm;
-    }
 }

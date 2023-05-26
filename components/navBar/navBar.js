@@ -9,7 +9,9 @@ const NavBar = () => {
   return (
     <div className={styles.navbarContainer}>
 
-        <div className={styles.logo}>Gallery</div>  
+        <div className={styles.logo}>
+          <div className={styles.logoText}>Gallery</div> 
+        </div>  
 
         <div className={styles.pageLinks}>
           <Link href="/">

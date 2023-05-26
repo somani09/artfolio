@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './sideNavBar.module.scss'
+import styles from './navBar.module.scss'
 import {AiOutlineBars} from 'react-icons/ai'
 import {CgClose} from 'react-icons/cg'
 import Link from 'next/link'
@@ -36,7 +36,9 @@ const SideNavBar = () => {
       <div className={`${styles.navAreaBack} ${navOpen?styles.navAreaBackOpen:styles.navAreaBackClose}`} onClick={()=>setNavOpen(false)} ></div>
       
         
-      <div className={styles.logo}>Gallery</div>  
+      <div className={styles.logo}>
+        <div className={styles.logoText}>Gallery</div>  
+      </div>  
 
     </div>
   )

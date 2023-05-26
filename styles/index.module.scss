@@ -1,3 +1,8 @@
+@use '/customStyles/index.module' as *;
+.sectionHeadingColor{
+  color: $sectionHeading_color;
+}
+
 .main {
   display: flex;
   flex-direction: column;

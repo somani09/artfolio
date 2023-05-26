@@ -2,6 +2,7 @@
 
 .communityContainer{
     @include column_center;
+    padding: 20px;
 }
 
 .jtc{
@@ -15,16 +16,23 @@
     text-align: center;
     width: 55%;
     padding: 10px;
-    border: solid black 2px;
     border-radius: 10px;
 }
 
-.image{
+.imageArea{
     @include row_center;
+    position: relative;
     width: 40%;
-    border: solid black 2px;
     border-radius: 10px;
     aspect-ratio: 1/1;
+}
+
+.image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit:cover;
 }
 
 .jtcImage{ 
@@ -41,6 +49,7 @@
 
 .infoHeader{
     font-size: $sectionsHeading_xlg;
+    color:$sectionHeading_color;
     margin: 10px;
 }
 
@@ -76,23 +85,27 @@
         width: 70%;
     }
     .infoHeader{
-        font-size: $sectionsHeading_md;
+        font-size: $font_xlg;
     }
     
     .infoText{
-        font-size: $paraText_md;
+        font-size: $font_md2;
     }
     .jtcText{
         order: 2;
         margin-top: 20px;
     }
+    .imageArea{
+        width: 90%;
+    }
     .image{
-        width: 70%;
+        width: 100%;
         aspect-ratio: 1/1;
-        order: 1;
     }
     .jtcImage{
         margin-top: 20px;
+        order: 1;
+        
     }
     .uta{
         @include column_center_vertically;
@@ -100,7 +113,7 @@
         margin-top: 20px;
     }
     .utaImage{
-        margin-top: 20px;
+        margin-bottom: 20px;
         
     }
 
@@ -108,10 +121,13 @@
 
 @media screen and (max-width: 425px){
     .infoHeader{
-        font-size: $sectionsHeading_sm;
+        font-size: $font_md2;
     }
     
     .infoText{
-        font-size: $paraText_sm;
+        font-size: $font_md1;
+    }
+    .info{
+        width: 90%;
     }
 }

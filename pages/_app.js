@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
     <>
       <NavBar />
       <SideNavBar />
-      <div className='w100 plr20 mt30'>
+      <div className='w100'>
       <Component {...pageProps} />
       </div>
       <Footer/>
