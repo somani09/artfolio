@@ -15,7 +15,8 @@
     height:  calc(300px *(5/4));
     .carouselContainer{
         width: 100%;
-        position: absolute;
+        // position: absolute;
+        position: relative;
         top: 30px;
         height: inherit;
     }
