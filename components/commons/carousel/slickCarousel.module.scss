@@ -1,0 +1,77 @@
+@use '../../../customStyles/index.module' as *;
+
+.carousel{
+    margin:10px 0;
+}
+
+.card{
+    @include row_center;
+    position: relative;
+    width: 250px;
+    aspect-ratio: $aspect_ratio_artist_card;
+    border-radius: 10px;
+    margin:10px 0;
+    &:hover {
+
+    }
+
+    -webkit-mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+    -webkit-mask-size: 800%;
+    mask-size: 800%;
+    -webkit-mask-position: 0;
+    mask-position: 0;
+
+    &:hover {
+        transition: mask-position 1s ease,-webkit-mask-position 1s ease;
+        -webkit-mask-position: 120%;
+        mask-position: 120%;
+        opacity: 1;
+    }
+
+    &:not(:hover) {
+        transition: mask-position 0.75s ease,-webkit-mask-position 0.75s ease;
+        -webkit-mask-position: 0;
+        mask-position: 0;
+        opacity: 1;
+    } 
+}
+
+.link{
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.artistNameArea{
+    @include row_center_horizontally;
+    position: absolute;
+    height: 8%;
+    width: 70%;
+    bottom:50px;
+    right: 0;
+    background-color: #F5F5F5;
+    border-radius: 5px 0 0 5px;
+}
+.artistName{
+    position: relative;
+    left:10px
+}
+
+.key{
+    position: absolute;
+    top:40%;
+    height: 50px;
+    width: 50px;
+    z-index: 20;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.leftKey{
+    left:20px;    
+}
+.rightKey{
+    right:20px;
+}
