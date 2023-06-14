@@ -128,3 +128,15 @@ a {
   // border-radius: 6px;
   transition: all 1s ease-in-out;
 }
+
+.slick-slide > div {
+  // width: 80%;
+  // margin-top: 50px;
+  // margin: auto;
+  // height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding: 0px;
+  // background: red;
+}

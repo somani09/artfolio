@@ -15,13 +15,13 @@
     height:  calc(300px *(5/4));
     .carouselContainer{
         width: 100%;
-        position: absolute;
-        top: 30px;
+        position: relative;
+        // top: 30px;
         height: inherit;
     }
     .artist{
-        position: absolute;
-        top: 0
+        position: relative;
+        top: 0;
     }
 }
 

@@ -5,13 +5,14 @@ import Carousel from '../commons/carousel/carousel'
 import {artistData} from '../../data/artistsData'
 import {topPickData} from '../../data/topPicksData'
 import {recentData} from '../../data/recentData'
+import SlickCarousel from '../commons/carousel/slickCarousel'
 const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.carousel}>
         <div className={`${styles.artist} ${styles.sectionHeading}`}>Artists</div>
         <div className={styles.carouselContainer}>
-          <Carousel data={artistData} />
+          <SlickCarousel data={artistData} />
         </div>
       </div>
       <div className={styles.topPicks}>
