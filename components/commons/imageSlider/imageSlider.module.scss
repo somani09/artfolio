@@ -16,8 +16,8 @@
     margin: 20px;
     flex-shrink: 0;
     border-radius: 10px;
-    transition:.5s ease-in-out;
-
+    transition:.3s ease-in-out;
+    cursor: pointer;
     .artistNameContainer{
         position: absolute;
         bottom: 50px;
@@ -27,7 +27,7 @@
         // transform: rotate(-10deg);
         z-index: 10;
         opacity: 0;
-        transition:.5s ease-in-out;
+        transition:.3s ease-in-out;
 
     }
 
@@ -39,7 +39,7 @@
         text-align: center;
         opacity: 0;
         transform: translate(-50%,-50%) ;
-        transition:.5s ease-in-out;
+        transition:.3s ease-in-out;
 
     }
 
@@ -60,7 +60,7 @@
             width: 5px;
             height: 0;
             @include logoBackgroundVertical;
-            transition:.5s ease-in-out;
+            transition:.3s ease-in-out;
 
         }
 
@@ -71,7 +71,7 @@
             width: 0;
             height: 5px;
             @include logoBackground;
-            transition:.5s ease-in-out;
+            transition:.3s ease-in-out;
         }
 
         .rightBorder{
@@ -81,7 +81,7 @@
             width: 5px;
             height: 0;
             @include logoBackgroundVertical;
-            transition:.5s ease-in-out;
+            transition:.3s ease-in-out;
         }
 
         .bottomBorder{
@@ -91,7 +91,7 @@
             width: 0;
             height: 5px;
             @include logoBackground;
-            transition:.5s ease-in-out;
+            transition:.3s ease-in-out;
         }
     }
 
@@ -99,8 +99,8 @@
     &:hover{
         animation: heartBeat .5s forwards;
         .artistNameContainer{
-            transition:.5s ease-in-out;
-            transition-delay: .5s;
+            transition:.3s ease-in-out;
+            transition-delay: .4s;
 
             transform: rotate(-10deg);
             opacity: 1;
@@ -108,35 +108,35 @@
         }
         .artistName{
             opacity: .8;
-            transition:.5s ease-in-out;
-            transition-delay: .5s;
+            transition:.3s ease-in-out;
+            transition-delay: .4s;
             transform: translate(-50%,-50%) rotate(10deg);
         }
 
         .leftBorder{
             height: 80px;
-            transition:  .5s ease-in-out;
-            transition-delay: .5s;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
         }
 
         
         .topBorder{
             width: 90%;
-            transition:  .5s ease-in-out;
-            transition-delay: .5s;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
         }
 
         .rightBorder{
             height: 80px;
-            transition:  .5s ease-in-out;
-            transition-delay: .5s;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
         }
 
         
         .bottomBorder{
             width: 90%;
-            transition:  .5s ease-in-out;
-            transition-delay: .5s;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
         }
 
 

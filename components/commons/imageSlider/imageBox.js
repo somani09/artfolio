@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './imageSlider.module.scss'
 import Image from 'next/image'
-const ImageBox = ({data,type}) => {
+const ImageBox = ({data,type,from}) => {
   const imageStyle = {
     borderRadius: '10px',
     objectFit: "cover",
@@ -14,15 +14,15 @@ const ImageBox = ({data,type}) => {
           src={data.image} 
           style={imageStyle}
         />
-      <div className={styles.artistNameContainer}>
+     {from!='showCase' && <div className={styles.artistNameContainer}>
         <div className={styles.artistName}>artist Name</div>
-      </div>
-      <div className={styles.box}>
+      </div>}
+      {from!='showCase' && <div className={styles.box}>
           <span className={styles.leftBorder}></span>
           <span className={styles.topBorder}></span>
           <span className={styles.bottomBorder}></span>
           <span className={styles.rightBorder}></span>
-      </div>
+      </div>}
     </div>
   )
 }
