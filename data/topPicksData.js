@@ -13,13 +13,13 @@ export const topPickData = [
     {
         id:1,
         image:image1,
-        artistName:'',
+        artistName:'abcd',
         category:'',
     },
     {
         id:2,
         image:image2,
-        artistName:'',
+        artistName:'efgh',
         category:'',
     },
     {

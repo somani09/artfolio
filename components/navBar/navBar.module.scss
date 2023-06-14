@@ -44,10 +44,68 @@
     padding: 0 20px ;  
 }
 
-.login{
+.logArea{
     display: flex;
     justify-content: flex-end;
     width: 25%;
+}
+
+
+
+
+/* CSS */
+.signButton {
+    width: 30%;
+    margin: 0 20px;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.signButton:after {
+  content: "";
+  @include logoBackground;
+  opacity: 0.4;
+//   background-color: #ffe54c;
+border-radius: 2px;
+
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 5px;
+  left: 5px;
+  transition: 0.2s;
+}
+
+.signButton:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .signButton {
+    padding: 13px 20px 13px;
+  }
+}
+
+.signin{
+    display: flex;
+    justify-content: center;
+}
+
+
+.signup{
+    display: flex;
+    justify-content: center;
 }
 
 .link{
@@ -171,6 +229,22 @@
 
     }
 
+    .logArea{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .signButton{
+        margin: 5px 0;
+        width: 150px;
+    }
+
+    .signup{
+        margin-top: 20px;
+    }
+
 }
 
 
@@ -182,8 +256,7 @@
         }
         .navArea{
             .link{
-            font-size: $font_link_sm;
-                
+            font-size: $font_link_sm;  
             }
         }
     }

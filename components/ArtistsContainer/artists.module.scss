@@ -79,7 +79,7 @@
 .artistImage{
     @include row_center;
     position: relative;
-    width: 80%;
+    width: 70%;
     aspect-ratio: $aspect_ratio_artist_card;
     border-radius: 10px;
 }
@@ -126,7 +126,7 @@
 }
 
 .detailsContact{
-    @include column_center_vertically;
+    @include column_center;
     width: 55%;
     // justify-content: space-between;
 }

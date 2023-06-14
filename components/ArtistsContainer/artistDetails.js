@@ -63,7 +63,7 @@ const ArtistDetails = () => {
         </div>
         <div className={styles.imagesArea}>
             <div className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</div>
-            <ImageSlider data={recentData} type={'vertical'}/>
+            <ImageSlider data={recentData} type={'vertical'} from={'showCase'}/>
         </div>
     </div>
   )

@@ -16,6 +16,135 @@
     margin: 20px;
     flex-shrink: 0;
     border-radius: 10px;
+    transition:.3s ease-in-out;
+    cursor: pointer;
+    .artistNameContainer{
+        position: absolute;
+        bottom: 50px;
+        width:40%;
+        height: 90px;
+        background-color:rgb(255, 255, 255, 0.5);
+        // transform: rotate(-10deg);
+        z-index: 10;
+        opacity: 0;
+        transition:.3s ease-in-out;
+
+    }
+
+    .artistName{
+        position: absolute;
+        width: max-content;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        opacity: 0;
+        transform: translate(-50%,-50%) ;
+        transition:.3s ease-in-out;
+
+    }
+
+    .box{
+        position: absolute;
+        bottom: 50px;
+        width:40%;
+        height: 90px;
+        background-color: transparent;
+        z-index: 11;
+        opacity: 1;
+        transform: rotate(10deg);
+
+        .leftBorder{
+            position: absolute;
+            bottom:0;
+            left:0;
+            width: 5px;
+            height: 0;
+            @include logoBackgroundVertical;
+            transition:.3s ease-in-out;
+
+        }
+
+        .topBorder{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 0;
+            height: 5px;
+            @include logoBackground;
+            transition:.3s ease-in-out;
+        }
+
+        .rightBorder{
+            position: absolute;
+            top:0;
+            right:0;
+            width: 5px;
+            height: 0;
+            @include logoBackgroundVertical;
+            transition:.3s ease-in-out;
+        }
+
+        .bottomBorder{
+            position: absolute;
+            bottom:0;
+            right:0;
+            width: 0;
+            height: 5px;
+            @include logoBackground;
+            transition:.3s ease-in-out;
+        }
+    }
+
+    
+    &:hover{
+        animation: heartBeat .5s forwards;
+        .artistNameContainer{
+            transition:.3s ease-in-out;
+            transition-delay: .4s;
+
+            transform: rotate(-10deg);
+            opacity: 1;
+
+        }
+        .artistName{
+            opacity: .8;
+            transition:.3s ease-in-out;
+            transition-delay: .4s;
+            transform: translate(-50%,-50%) rotate(10deg);
+        }
+
+        .leftBorder{
+            height: 80px;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
+        }
+
+        
+        .topBorder{
+            width: 90%;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
+        }
+
+        .rightBorder{
+            height: 80px;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
+        }
+
+        
+        .bottomBorder{
+            width: 90%;
+            transition:  .3s ease-in-out;
+            transition-delay: .4s;
+        }
+
+
+    }
+
+    &:not(:hover){
+        animation: zoomOut .5s forwards;
+    }
 }
 
 .image{
@@ -24,6 +153,10 @@
     height: 100%;
     border-radius: 10px;
     object-fit:cover;
+}
+
+.artistName{
+    z-index: 10;
 }
 
 .vertical{
@@ -47,3 +180,30 @@
 
     }
 }
+
+@keyframes heartBeat {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+      transform: scale(1.05);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+}
+
+

@@ -1,3 +1,18 @@
 $active_link:#aa4b6b;
 
 $sectionHeading_color:#005C97;
+
+@mixin logoBackground{
+    background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1565C0, #b92b27);
+}
+
+@mixin logoBackgroundVertical{
+    background: -webkit-linear-gradient( #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient( #1565C0, #b92b27);
+}
+
+@mixin logoBackgroundReducedOpacity{
+    background: -webkit-linear-gradient(to right, rgb(21, 101, 192,0.5), rgb(185, 43, 39,0.5));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(21, 101, 192,0.5), rgb(185, 43, 39,0.5));
+}

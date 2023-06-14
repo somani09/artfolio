@@ -1,0 +1,245 @@
+@use '../../customStyles/index.module' as *;
+$primary: #01234b;
+$dark: #000;
+
+
+
+
+.outer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100vw;
+    height: 100vh;
+    z-index: 190;
+    background-color: rgb(128, 128, 128, 0.3);
+}
+
+.signForm{
+    position: fixed;
+    @include column_center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:50%;
+    border-radius: 10px;
+
+    @include logoBackgroundReducedOpacity;
+
+    z-index: 200;
+    padding: 20px;
+}
+
+.closeButton{
+    position: absolute;
+    top:20px;
+    right:20px;
+}
+
+.greetings{
+    font-size:$font_lg;
+    margin: 20px;
+}
+
+.logArea{
+    @include row_center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.usingEmail{
+    @include column_center;
+    width: 50%;
+    border-right: 2px solid black;
+}
+
+.usingServices{
+    @include column_center;
+    width: 50%;
+}
+
+.inputArea{
+    margin:10px;
+    height: 30px;
+
+}
+
+.inp{
+  position: relative;
+  margin: 20px;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 3px;
+  overflow: hidden;
+
+  .label{
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    font-size: 16px;
+    color: rgba($dark,.5);
+    font-weight: 500;
+    transform-origin: 0 0;
+    transform: translate3d(0,0,0);
+    transition: all .2s ease;
+    pointer-events: none;
+  }
+  .focus-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($dark,.05);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  input{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 16px 12px 0 12px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 400;
+    background: rgba($dark,.02);
+    box-shadow: inset 0 -1px 0 rgba($dark,.3);
+    color: $dark;
+    transition: all .15s ease;
+
+    &:hover{
+      background: rgba($dark,.04);
+      box-shadow: inset 0 -1px 0 rgba($dark,.5);
+    }
+    
+    &:not(:placeholder-shown)
+      + .label{
+        color: rgba($dark,.5);
+        transform: translate3d(0,-12px,0) scale(.75);
+    }
+    &:focus{
+      background: rgba($dark,.05);
+      outline: none;
+      box-shadow: inset 0 -2px 0 $primary;
+      + .label{
+        color: $primary;
+        transform: translate3d(0,-12px,0) scale(.75);
+        + .focus-bg{
+          transform: scaleX(1);
+          transition: all .1s ease;
+            }
+        }
+    }
+}}
+
+
+/* CSS */
+.submit {
+    height: 50px;
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    border-radius: 8px;
+    border-style: none;
+    // box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-weight: 500;
+    padding: 0 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .submit:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+    transition-duration: .1s;
+  }
+  
+  @media (min-width: 768px) {
+    .submit {
+      padding: 0 2.6rem;
+    }
+  }
+
+.requestText{
+    margin: 20px;
+    color: $sectionHeading_color;
+    font-size: $font_lg;
+  }
+
+.services{
+    width:max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+  .serviceIconsWrapper{
+    padding: 10px;
+    border-radius: 2px;
+    background-color:  rgb(245, 245, 245,0.5);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:5px;
+  }
+
+  .icons{
+    width:20px;
+    height:20px;
+    margin-right: 5px;
+  }
+
+  .facebook{
+    // background-color: #01234b;
+    color: #01234b;
+  }
+
+  .open{
+    opacity: 1;
+    transition: 1000ms;
+    border-radius: 10px;
+    z-index: 190;
+}
+.close{
+    transition: 1000ms;
+    opacity: 0.0;
+    z-index: -10;
+}
+
+@media screen and (max-width: 768px){
+  .signForm{
+    width: 80%;
+  }
+  .logArea{
+    @include column_center;
+  } 
+  .usingEmail{
+    @include column_center;
+    width: 90%;
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
+
+  .usingServices{
+    @include column_center;
+    width: 90%;
+ }
+ .submit{
+  margin-bottom: 30px;
+ }
+
+}
+
+@media screen and (max-width: 425px){
+  .signForm{
+    width: 90%;
+  }
+}

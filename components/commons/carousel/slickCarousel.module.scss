@@ -60,7 +60,8 @@
 
 .key{
     position: absolute;
-    top:40%;
+    top:50%;
+    transform: translateY(-50%);
     height: 50px;
     width: 50px;
     z-index: 20;
@@ -74,4 +75,14 @@
 }
 .rightKey{
     right:20px;
+}
+
+@media screen and (max-width: 768px){
+    .carousel{
+    }
+
+    .card{
+        width:90%;
+        margin: 0 10px;
+    }
 }
