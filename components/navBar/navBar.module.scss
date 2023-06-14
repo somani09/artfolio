@@ -93,7 +93,7 @@ border-radius: 2px;
 
 @media (min-width: 768px) {
   .signButton {
-    // padding: 13px 50px 13px;
+    padding: 13px 20px 13px;
   }
 }
 
@@ -229,6 +229,22 @@ border-radius: 2px;
 
     }
 
+    .logArea{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .signButton{
+        margin: 5px 0;
+        width: 150px;
+    }
+
+    .signup{
+        margin-top: 20px;
+    }
+
 }
 
 
@@ -240,8 +256,7 @@ border-radius: 2px;
         }
         .navArea{
             .link{
-            font-size: $font_link_sm;
-                
+            font-size: $font_link_sm;  
             }
         }
     }

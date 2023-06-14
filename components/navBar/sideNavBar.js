@@ -4,9 +4,13 @@ import {AiOutlineBars} from 'react-icons/ai'
 import {CgClose} from 'react-icons/cg'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import SignInUp from '../signInUp/signInUp'
 const SideNavBar = () => {
   const[navOpen, setNavOpen] = useState(false);
-  
+  let fromSignIn = "signIn";
+  let fromSignUp = "signUp";
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [from, setFrom] = useState(null);
   const router = useRouter();
   const isArtist = router.pathname.startsWith('/artist');
   return (
@@ -30,11 +34,15 @@ const SideNavBar = () => {
           <Link href="/community">
               <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
-          <div className={`${styles.login} ${styles.link}`} >login details</div>
+          <div className={styles.logArea}>
+            <button className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignIn);}} >Log In</button>
+            <button className={`${styles.signup}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignUp);}} >Sign Up</button>
+          </div>
       </div>
 
       <div className={`${styles.navAreaBack} ${navOpen?styles.navAreaBackOpen:styles.navAreaBackClose}`} onClick={()=>setNavOpen(false)} ></div>
       
+      <SignInUp from={from} setShowSignIn={setShowSignIn} showSignIn={showSignIn} />
         
       <div className={styles.logo}>
         <div className={styles.logoText}>Gallery</div>  

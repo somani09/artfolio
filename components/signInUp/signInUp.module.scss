@@ -12,7 +12,7 @@ $dark: #000;
     transform: translate(-50%,-50%);
     width: 100vw;
     height: 100vh;
-    z-index: 90;
+    z-index: 190;
     background-color: rgb(128, 128, 128, 0.3);
 }
 
@@ -27,7 +27,7 @@ $dark: #000;
 
     @include logoBackgroundReducedOpacity;
 
-    z-index: 100;
+    z-index: 200;
     padding: 20px;
 }
 
@@ -206,10 +206,40 @@ $dark: #000;
     opacity: 1;
     transition: 1000ms;
     border-radius: 10px;
-    z-index: 90;
+    z-index: 190;
 }
 .close{
     transition: 1000ms;
     opacity: 0.0;
     z-index: -10;
+}
+
+@media screen and (max-width: 768px){
+  .signForm{
+    width: 80%;
+  }
+  .logArea{
+    @include column_center;
+  } 
+  .usingEmail{
+    @include column_center;
+    width: 90%;
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
+
+  .usingServices{
+    @include column_center;
+    width: 90%;
+ }
+ .submit{
+  margin-bottom: 30px;
+ }
+
+}
+
+@media screen and (max-width: 425px){
+  .signForm{
+    width: 90%;
+  }
 }
