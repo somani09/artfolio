@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './artists.module.scss'
+import styles from './artist.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 

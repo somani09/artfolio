@@ -13,9 +13,10 @@ const ImageBox = ({data,type,from}) => {
           fill
           src={data.image} 
           style={imageStyle}
+          alt={data.description || data.alt_description}
         />
      {from!='showCase' && <div className={styles.artistNameContainer}>
-        <div className={styles.artistName}>artist Name</div>
+        <div className={styles.artistName}>{data.user.name}</div>
       </div>}
       {from!='showCase' && <div className={styles.box}>
           <span className={styles.leftBorder}></span>

@@ -55,6 +55,7 @@
 
 /* CSS */
 .signButton {
+    @include row_center;
     width: 30%;
     margin: 0 20px;
     letter-spacing: 1px;

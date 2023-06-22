@@ -1,0 +1,52 @@
+@use '../../customStyles/index.module' as *;
+
+
+
+.artistContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.sectionHeading{
+    font-size: $sectionsHeading_xlg;
+    color: $sectionHeading_color;
+    margin-bottom: 20px;
+}
+
+
+.artistsCardArea{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 1440px){
+    
+    .sectionHeading{
+        font-size: $sectionsHeading_lg;
+    }
+}
+
+// tablet
+@media screen and (max-width: 768px){
+    
+    .artistContainer{
+        margin-top: 100px;
+    }
+
+    
+    .sectionHeading{
+        font-size: $sectionsHeading_md;
+    }
+}
+//phone
+@media screen and (max-width: 425px){
+    
+    .sectionHeading{
+        font-size: $sectionsHeading_sm;
+    }
+}

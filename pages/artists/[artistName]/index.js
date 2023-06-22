@@ -1,27 +1,53 @@
 import React from 'react'
-import styles from './artists.module.scss'
+import styles from './artist.module.scss'
 import { useRouter } from 'next/router';
-import ImageSlider from '../commons/imageSlider/imageSlider';
-import {individualArtistData} from '../../data/individualArtistData'
-import {recentData} from '../../data/recentData'
+import ImageSlider from '@/components/commons/imageSlider/imageSlider';
+import { individualArtistData } from '@/data/individualArtistData';
+import {recentData} from '../../../data/recentData'
 import Image from 'next/image';
 import {RiUnsplashFill} from 'react-icons/ri'
 import {RiInstagramLine} from 'react-icons/ri'
 import {SiGmail} from 'react-icons/si'
 import {RiFacebookBoxLine} from 'react-icons/ri'
+import { filterUserData } from '@/utils/filterData';
+import axios from 'axios';
 
+export async function getServerSideProps(context){
+    const {params} = context;
+    const key = process.env.API_KEY;
+    const baseURL = process.env.BASE_URL;
+    // console.log("Params =", params)
+    const userURL = `${baseURL}users/${params.artistName}?client_id=${key}`;
+    const userData = await axios.get(userURL)
+    const filteredUserData = filterUserData(userData.data);
+    console.log("url= ", userURL);
+    console.log("data=", filteredUserData)
+    return {
+        props: {
+            userData:  filteredUserData,
 
-const ArtistDetails = () => {
+        },
+        //revalidate: 60, // Revalidate and regenerate the page every 60 seconds
+      };
+
+}
+
+// export async function getStaticPaths(){
+//     return{
+//         paths: [],
+//         fallback: true,
+//     }
+// }
+
+const Artist = ({userData}) => {
     const router = useRouter();
-    console.log("inside route number - ", router.query.artistName);
-    var artistDetails = ["image1","image2","image3","image4","image5","image6","image7","image8"]
     var type = 'vertical'
     const imageStyle = {
         borderRadius: '10px',
         objectFit: "cover"
       };
+    console.log("data in artist=",  userData)
     return (
-        // `row w100 space-between`
     <div className={styles.artistDetails}>
         <div className={styles.artistInfoArea}>
 
@@ -38,13 +64,13 @@ const ArtistDetails = () => {
             <div className={styles.detailsContact}>
                 <div className={styles.details}>
                     <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>Name : </span>{individualArtistData.name}
+                        <span className={styles.detailsHeading}>Name : </span>{userData.name}
                     </div>
-                    <div className={styles.detailsInfo}>
+                    {/* <div className={styles.detailsInfo}>
                         <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
-                    </div>
+                    </div> */}
                     <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>About : </span>{individualArtistData.about}</div>
+                        <span className={styles.detailsHeading}>About : </span>{userData.bio}</div>
                     <div className={styles.detailsInfo}>
                         <span className={styles.detailsHeading}>Art Styles  : </span>{individualArtistData.styles}
                     </div>
@@ -52,8 +78,8 @@ const ArtistDetails = () => {
                 <div className={styles.contacts}>
                         <div className={styles.contactHeading}>Connect With the Artist</div>   
                         <div className={styles.contactIcons}>
-                            <RiUnsplashFill className={styles.icons} />
-                            <RiInstagramLine className={styles.icons}/>
+                            <a href={userData.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
+                            <a href={userData.instagram_username?`https://www.instagram.com/${userData.instagram_username}`:null}><RiInstagramLine className={styles.icons}/></a>
                             <SiGmail className={styles.icons}/>
                             <RiFacebookBoxLine className={styles.icons}/>
                         </div>
@@ -69,4 +95,4 @@ const ArtistDetails = () => {
   )
 }
 
-export default ArtistDetails
+export default Artist
