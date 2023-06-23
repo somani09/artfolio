@@ -10,18 +10,19 @@ const ArtistCard = ({data}) => {
   };
   const link = `/artists/${data.username}`;
   return (
-    <div className={`${styles.individualArtistCard}`}>
+    <figure className={`${styles.individualArtistCard}`}>
       <Link  href={link} className={styles.link}>
         <Image  
           src={data.image} 
           style={imageStyle}
           fill
+          alt={`${data.name} Profile Picture`}
           />
       </Link>
       <div className={styles.artistNameArea}>
         <div className={styles.artistName} >{data.name}</div>  
       </div>  
-    </div>
+    </figure>
   )
 }
 

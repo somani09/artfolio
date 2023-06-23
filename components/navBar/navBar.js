@@ -11,13 +11,13 @@ const NavBar = () => {
   const router = useRouter();
   const isArtist = router.pathname.startsWith('/artist');
   return (
-    <div className={styles.navbarContainer}>
+    <header className={styles.navbarContainer}>
 
         <div className={styles.logo}>
-          <div className={styles.logoText}>Gallery</div> 
+          <h1 className={styles.logoText}>Gallery</h1> 
         </div>  
 
-        <div className={styles.pageLinks}>
+        <nav className={styles.pageLinks}>
           <Link href="/">
               <div className={`${styles.link} ${router.pathname == "/" ? styles.active : ""}`}>Home</div>
           </Link>
@@ -34,7 +34,7 @@ const NavBar = () => {
               <div className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
           
-        </div>
+        </nav>
 
 
         <div className={styles.logArea}>
@@ -46,7 +46,7 @@ const NavBar = () => {
         <SignInUp from={from} setShowSignIn={setShowSignIn} showSignIn={showSignIn} />
 
     
-    </div>
+    </header>
   )
 }
 

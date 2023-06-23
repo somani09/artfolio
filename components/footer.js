@@ -6,9 +6,9 @@ import { AiFillCopyrightCircle } from 'react-icons/ai'
 
 const Footer = () => {
   return (
-    <div id="footer" className={styles.footer}>
+    <footer id="footer" className={styles.footer}>
         Copyright &nbsp; <AiFillCopyrightCircle />&nbsp; 2023  Vaibhav Somani
-    </div>
+    </footer>
   )
 }
 

@@ -4,8 +4,7 @@ import TapedPaper from '../commons/tapedPaper/tapedPaper'
 const Error404 = () => {
 
   return (
-    <div className={styles.error404}>
-        <div className={styles.background}></div>
+    <section className={styles.error404}>
         <div className={styles.frame}>
             <TapedPaper>
                 <div className={styles.message}>
@@ -17,7 +16,7 @@ const Error404 = () => {
             </TapedPaper>
             
         </div>
-    </div>
+    </section>
   )
 }
 

@@ -8,6 +8,7 @@ import SideNavBar from '@/components/navBar/sideNavBar'
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <div className="background"></div>
       <NavBar />
       <SideNavBar />
       <div className='w100'>

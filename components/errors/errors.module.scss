@@ -8,7 +8,7 @@
 .error404{
     position: relative;
     top: 0;
-    z-index: -1;
+    z-index: -10;
     @include row_center;
     text-align: center;
     height: 90vh;
@@ -18,14 +18,7 @@
     // background-size: cover
 }
 
-.background{
-    position: fixed;
-    top: -50px;
-    width: 100vw;
-    height: calc(100vh + 50px) ;
-    background-image: url("../../public/assets/wallMayBe.jpg");
-    background-size: cover
-}
+
 
 .errorMessage404{
     @include column_center;

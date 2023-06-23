@@ -12,7 +12,7 @@ $dark: #000;
     transform: translate(-50%,-50%);
     width: 100vw;
     height: 100vh;
-    z-index: 190;
+    z-index: 200;
     background-color: rgb(128, 128, 128, 0.3);
 }
 
@@ -27,7 +27,7 @@ $dark: #000;
 
     @include logoBackgroundReducedOpacity;
 
-    z-index: 200;
+    z-index: 210;
     padding: 20px;
 }
 
@@ -206,7 +206,7 @@ $dark: #000;
     opacity: 1;
     transition: 1000ms;
     border-radius: 10px;
-    z-index: 190;
+    z-index: 200;
 }
 .close{
     transition: 1000ms;

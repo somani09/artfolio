@@ -14,11 +14,11 @@ const SideNavBar = () => {
   const router = useRouter();
   const isArtist = router.pathname.startsWith('/artist');
   return (
-    <div className={styles.sideNavBar}>
+    <header className={styles.sideNavBar}>
       <div className={styles.navButtonArea}>
         {!navOpen?<AiOutlineBars  className={styles.navButton} onClick={()=>setNavOpen(true)}/>:<CgClose  className={styles.navButton} onClick={()=>setNavOpen(false)}/>}
       </div>
-     <div className={`${styles.navArea} ${navOpen?styles.open:styles.close}`}>
+     <nav className={`${styles.navArea} ${navOpen?styles.open:styles.close}`}>
           <Link href="/">
               <div  onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/" ? styles.active : ""}`}>Home</div>
           </Link>
@@ -38,17 +38,17 @@ const SideNavBar = () => {
             <button className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignIn);}} >Log In</button>
             <button className={`${styles.signup}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignUp);}} >Sign Up</button>
           </div>
-      </div>
+      </nav>
 
       <div className={`${styles.navAreaBack} ${navOpen?styles.navAreaBackOpen:styles.navAreaBackClose}`} onClick={()=>setNavOpen(false)} ></div>
       
       <SignInUp from={from} setShowSignIn={setShowSignIn} showSignIn={showSignIn} />
         
       <div className={styles.logo}>
-        <div className={styles.logoText}>Gallery</div>  
+        <h1 className={styles.logoText}>Gallery</h1>  
       </div>  
 
-    </div>
+    </header>
   )
 }
 

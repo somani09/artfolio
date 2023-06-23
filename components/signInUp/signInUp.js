@@ -7,11 +7,11 @@ const SignInUp = ({from, setShowSignIn, showSignIn}) => {
     let fromSignIn = "signIn";
     let fromSignUp = "signUp";
     return (
-        <div>
+        <section>
             <div className={`${styles.outer} ${showSignIn==true?styles.open:styles.close} `} onClick={()=>setShowSignIn(false)}></div>
             <div className={`${styles.signForm} ${showSignIn==true?styles.open:styles.close}`}>
                 <button className={styles.closeButton} onClick={()=>setShowSignIn(false)}><CgCloseR size={30} /></button>
-                <div className={styles.greetings}>Hello there</div>
+                <p className={styles.greetings}>Hello there</p>
                 <div className={styles.logArea}>
                     <div className={styles.usingEmail}>
                         {/* <div className={styles.inputArea}>
@@ -26,20 +26,20 @@ const SignInUp = ({from, setShowSignIn, showSignIn}) => {
                                 <span class={styles.input__label}>password</span>
                             </label>
                         </div>    */}
-                    <label for="inp" className={styles.inp}>
+                    <label htmlFor="inp" className={styles.inp}>
                         <input type="email" id="inp" placeholder="&nbsp;"/>
-                        <span className={styles.label}>Email</span>
+                        <h1 className={styles.label}>Email</h1>
                         <span className={styles.focus_bg}></span>
                     </label>
-                    <label for="inp" className={styles.inp}>
+                    <label htmlFor="inp" className={styles.inp}>
                         <input type="pasword" id="inp" placeholder="&nbsp;"/>
-                        <span className={styles.label}>password</span>
+                        <h2 className={styles.label}>password</h2>
                         <span className={styles.focus_bg}></span>
                     </label>
                     <button className={styles.submit}>{from==fromSignIn?"Sign In":"Sign Up"}</button>
                     </div>
                     <div className={styles.usingServices}>
-                        <div className={styles.requestText}>Sign {from==fromSignIn?"in":"up"} with</div>
+                        <p className={styles.requestText}>Sign {from==fromSignIn?"in":"up"} with</p>
                         <div className={styles.services}>
                             <button className={styles.serviceIconsWrapper}><FcGoogle className={`${styles.google} ${styles.icons}`}/> <span className={styles.serviceText}>Google</span> </button>
                             <button className={styles.serviceIconsWrapper}><ImFacebook2 className={`${styles.facebook} ${styles.icons}`}/> <span className={styles.serviceText}>Facebook</span></button>
@@ -48,7 +48,7 @@ const SignInUp = ({from, setShowSignIn, showSignIn}) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

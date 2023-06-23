@@ -45,28 +45,29 @@ export default function HomePage({topPicks, recent, artistList}) {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <meta name="Gallery App" content="Personal Gallery project to practice Next Js" />
+        <title>Gallery</title>
+        <meta name="Gallery-App" content="Personal Gallery project to practice Next Js" />
+        <meta name="description" content="Landing page / Home page for the project" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <div className={styles.home}>
-        <div className={styles.carousel}>
-          <div className={`${styles.artist} ${styles.sectionHeading}`}>Artists</div>
-          <div className={styles.carouselContainer}>
-            {artistList.status==200?<SlickCarousel data={artistList.data} />:<Errors />}
-            
-          </div>
-        </div>
-        <div className={styles.topPicks}>
-          <div className={styles.sectionHeading}>Top Picks</div>
-          {topPicks.status==200?<ImageSlider data={topPicks.data} /> :<Errors />}
-        </div>
-        <div className={styles.recent}>
-          <div className={styles.sectionHeading}>Recent Uploads</div>
-          {recent.status==200?<ImageSlider data={recent.data} />  :<Errors />}
-        </div>
+          <section className={styles.carousel}>
+            <h1 className={`${styles.artist} ${styles.sectionHeading}`}>Artists</h1>
+            <div className={styles.carouselContainer}>
+              {artistList.status==200?<SlickCarousel data={artistList.data} />:<Errors />}
+              
+            </div>
+          </section>
+          <section className={styles.topPicks}>
+            <h1 className={styles.sectionHeading}>Top Picks</h1>
+            {topPicks.status==200?<ImageSlider data={topPicks.data} /> :<Errors />}
+          </section>
+          <section className={styles.recent}>
+            <h1 className={styles.sectionHeading}>Recent Uploads</h1>
+            {recent.status==200?<ImageSlider data={recent.data} />  :<Errors />}
+          </section>
         </div>
       </main>
     </>

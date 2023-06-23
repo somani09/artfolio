@@ -6,6 +6,7 @@ import { generateRandomWord } from '@/utils/generateRandomWord';
 import { filterArtistListData } from '@/utils/filterData';
 import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
+import Head from 'next/head';
 
 const numberOfArtists = 5;
 
@@ -30,18 +31,26 @@ export async function getServerSideProps() {
 
 const Artists = ({artistList}) => {
   return (
-    artistList.status==200?
-    <section  id="artists" className={styles.artistContainer}>
-      <h1 className={styles.sectionHeading}>Artists</h1>
-      <div className={styles.artistsCardArea}>
-        {
-          artistList.data.map(artist => (
-              <ArtistCard key={artist.id} data={artist}/>
-          ))
-        }
-      </div>
+    <>
+      <Head>
+        <title>Artists</title>
+        <meta name="description" content="Artist Page - displays all the Artists on the platform" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      {artistList.status==200?
+      <section  id="artists" className={styles.artistContainer}>
+        <h1 className={styles.sectionHeading}>Artists</h1>
+        <div className={styles.artistsCardArea}>
+          {
+            artistList.data.map(artist => (
+                <ArtistCard key={artist.id} data={artist}/>
+            ))
+          }
+        </div>
+      
+      </section>:<Error404 />}
+    </>
     
-    </section>:<Error404 />
   )
 }
 
