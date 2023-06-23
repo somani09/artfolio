@@ -12,6 +12,7 @@ import {RiFacebookBoxLine} from 'react-icons/ri'
 import { filterSliderData, filterUserData } from '@/utils/filterData';
 import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
+import Head from 'next/head';
 
 const photosPerPage = 10
 
@@ -45,51 +46,63 @@ const Artist = ({user, photos}) => {
         objectFit: "cover"
       };
     return (
+        <>
+        <Head>
+            <title>{user.data.name}</title>
+            <meta name="description" content="Artist Page - displays information about an artist" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+        {
         user.status==200?
-    <div className={styles.artistDetails}>
-        <div className={styles.artistInfoArea}>
+        <section className={styles.artistDetails}>
+            <div className={styles.artistInfoArea}>
+    
+                <div className={styles.artistImageContact}>
+                    <figure className={styles.artistImage}>
+                        <Image  
+                            src={individualArtistData.image} 
+                            style={imageStyle}
+                            fill
+                            alt={`${user.data.name} Profile Picture`}
+                            />
+                    </figure>
+                    
+                </div>
+                <div className={styles.detailsContact}>
+                    <div className={styles.details}>
+                        <p className={styles.detailsInfo}>
+                            <span className={styles.detailsHeading}>Name : </span>{user.data.name}
+                        </p>
+                        {/* <div className={styles.detailsInfo}>
+                            <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
+                        </div> */}
+                        <p className={styles.detailsInfo}>
+                            <span className={styles.detailsHeading}>About : </span>{user.data.bio}</p>
+                        <p className={styles.detailsInfo}>
+                            <span className={styles.detailsHeading}>Art Styles  : </span>{individualArtistData.styles}
+                        </p>
+                    </div>
+                    <div className={styles.contacts}>
+                            <h1 className={styles.contactHeading}>Connect With the Artist</h1>   
+                            <div className={styles.contactIcons}>
+                                <a href={user.data.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
+                                <a href={user.data.instagram_username?`https://www.instagram.com/${user.data.instagram_username}`:null} target="_blank"><RiInstagramLine className={styles.icons}/></a>
+                                <SiGmail className={styles.icons}/>
+                                <RiFacebookBoxLine className={styles.icons}/>
+                            </div>
+                    </div>  
+                </div>
+               
+            </div>
+            <div className={styles.imagesArea}>
+                <h1 className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</h1>
+                <ImageSlider data={photos.data} type={'vertical'} from={'showCase'}/>
+            </div>
+        </section>:<Error404/>
+        }
+        </>
+        
 
-            <div className={styles.artistImageContact}>
-                <div className={styles.artistImage}>
-                    <Image  
-                        src={individualArtistData.image} 
-                        style={imageStyle}
-                        fill
-                        />
-                </div>
-                
-            </div>
-            <div className={styles.detailsContact}>
-                <div className={styles.details}>
-                    <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>Name : </span>{user.data.name}
-                    </div>
-                    {/* <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
-                    </div> */}
-                    <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>About : </span>{user.data.bio}</div>
-                    <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>Art Styles  : </span>{individualArtistData.styles}
-                    </div>
-                </div>
-                <div className={styles.contacts}>
-                        <div className={styles.contactHeading}>Connect With the Artist</div>   
-                        <div className={styles.contactIcons}>
-                            <a href={user.data.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
-                            <a href={user.data.instagram_username?`https://www.instagram.com/${user.data.instagram_username}`:null} target="_blank"><RiInstagramLine className={styles.icons}/></a>
-                            <SiGmail className={styles.icons}/>
-                            <RiFacebookBoxLine className={styles.icons}/>
-                        </div>
-                </div>  
-            </div>
-           
-        </div>
-        <div className={styles.imagesArea}>
-            <div className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</div>
-            <ImageSlider data={photos.data} type={'vertical'} from={'showCase'}/>
-        </div>
-    </div>:<Error404/>
   )
 }
 

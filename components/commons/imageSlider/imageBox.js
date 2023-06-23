@@ -13,7 +13,7 @@ const ImageBox = ({data,type,from}) => {
   }
 
   return (
-    <div onClick={()=>openImage(data.picLink)} className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
+    <figure onClick={()=>openImage(data.picLink)} className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
       <Image  
           fill
           src={data.image} 
@@ -29,7 +29,7 @@ const ImageBox = ({data,type,from}) => {
           <span className={styles.bottomBorder}></span>
           <span className={styles.rightBorder}></span>
       </div>}
-    </div>
+    </figure>
   )
 }
 
