@@ -8,7 +8,8 @@ import Image from 'next/image';
 import {RiUnsplashFill} from 'react-icons/ri'
 import {RiInstagramLine} from 'react-icons/ri'
 import {SiGmail} from 'react-icons/si'
-import {RiFacebookBoxLine} from 'react-icons/ri'
+import {CgWebsite} from 'react-icons/cg'
+import {AiOutlineTwitter} from 'react-icons/ai'
 import { filterSliderData, filterUserData } from '@/utils/filterData';
 import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
@@ -86,9 +87,21 @@ const Artist = ({user, photos}) => {
                             <h1 className={styles.contactHeading}>Connect With the Artist</h1>   
                             <div className={styles.contactIcons}>
                                 <a href={user.data.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
-                                <a href={user.data.instagram_username?`https://www.instagram.com/${user.data.instagram_username}`:null} target="_blank"><RiInstagramLine className={styles.icons}/></a>
-                                <SiGmail className={styles.icons}/>
-                                <RiFacebookBoxLine className={styles.icons}/>
+                                {user.data.instagram_username && 
+                                <a href={`https://www.instagram.com/${user.data.instagram_username}`} target="_blank">
+                                    <RiInstagramLine className={styles.icons}/>
+                                </a>}
+                                {user.data.twitter_username && 
+                                <a href={`https://twitter.com/${user.data.twitter_username}`} target="_blank">
+                                    <AiOutlineTwitter className={styles.icons}/>
+                                </a>}
+                                {user.data.portfolio_url && 
+                                <a href={user.data.portfolio_url} target="_blank"> 
+                                    <CgWebsite className={styles.icons} />
+                                </a>
+
+                                }
+                                
                             </div>
                     </div>  
                 </div>
