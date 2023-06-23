@@ -9,22 +9,27 @@ import {RiUnsplashFill} from 'react-icons/ri'
 import {RiInstagramLine} from 'react-icons/ri'
 import {SiGmail} from 'react-icons/si'
 import {RiFacebookBoxLine} from 'react-icons/ri'
-import { filterUserData } from '@/utils/filterData';
-import axios from 'axios';
+import { filterSliderData, filterUserData } from '@/utils/filterData';
+import { getData } from '@/services/getData';
+import Error404 from '@/components/errors/error404';
+
+const photosPerPage = 10
 
 export async function getServerSideProps(context){
     const {params} = context;
     const key = process.env.API_KEY;
     const baseURL = process.env.BASE_URL;
-    // console.log("Params =", params)
-    const userURL = `${baseURL}users/${params.artistName}?client_id=${key}`;
-    const userData = await axios.get(userURL)
-    const filteredUserData = filterUserData(userData.data);
-    console.log("url= ", userURL);
-    console.log("data=", filteredUserData)
+    const userURL = `${baseURL}/users/${params.artistName}?client_id=${key}`;
+    const user = await getData(userURL, filterUserData);
+    const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
+    const photos = await getData(photosURL, filterSliderData);
+
+
+    
     return {
         props: {
-            userData:  filteredUserData,
+            user:  user,
+            photos: photos
 
         },
         //revalidate: 60, // Revalidate and regenerate the page every 60 seconds
@@ -32,22 +37,15 @@ export async function getServerSideProps(context){
 
 }
 
-// export async function getStaticPaths(){
-//     return{
-//         paths: [],
-//         fallback: true,
-//     }
-// }
-
-const Artist = ({userData}) => {
+const Artist = ({user, photos}) => {
     const router = useRouter();
     var type = 'vertical'
     const imageStyle = {
         borderRadius: '10px',
         objectFit: "cover"
       };
-    console.log("data in artist=",  userData)
     return (
+        user.status==200?
     <div className={styles.artistDetails}>
         <div className={styles.artistInfoArea}>
 
@@ -64,13 +62,13 @@ const Artist = ({userData}) => {
             <div className={styles.detailsContact}>
                 <div className={styles.details}>
                     <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>Name : </span>{userData.name}
+                        <span className={styles.detailsHeading}>Name : </span>{user.data.name}
                     </div>
                     {/* <div className={styles.detailsInfo}>
                         <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
                     </div> */}
                     <div className={styles.detailsInfo}>
-                        <span className={styles.detailsHeading}>About : </span>{userData.bio}</div>
+                        <span className={styles.detailsHeading}>About : </span>{user.data.bio}</div>
                     <div className={styles.detailsInfo}>
                         <span className={styles.detailsHeading}>Art Styles  : </span>{individualArtistData.styles}
                     </div>
@@ -78,8 +76,8 @@ const Artist = ({userData}) => {
                 <div className={styles.contacts}>
                         <div className={styles.contactHeading}>Connect With the Artist</div>   
                         <div className={styles.contactIcons}>
-                            <a href={userData.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
-                            <a href={userData.instagram_username?`https://www.instagram.com/${userData.instagram_username}`:null}><RiInstagramLine className={styles.icons}/></a>
+                            <a href={user.data.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
+                            <a href={user.data.instagram_username?`https://www.instagram.com/${user.data.instagram_username}`:null} target="_blank"><RiInstagramLine className={styles.icons}/></a>
                             <SiGmail className={styles.icons}/>
                             <RiFacebookBoxLine className={styles.icons}/>
                         </div>
@@ -89,9 +87,9 @@ const Artist = ({userData}) => {
         </div>
         <div className={styles.imagesArea}>
             <div className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</div>
-            <ImageSlider data={recentData} type={'vertical'} from={'showCase'}/>
+            <ImageSlider data={photos.data} type={'vertical'} from={'showCase'}/>
         </div>
-    </div>
+    </div>:<Error404/>
   )
 }
 

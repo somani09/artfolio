@@ -3,7 +3,7 @@ function generateRandomWord() {
                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
   
     let word = '';
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       const randomIndex = Math.floor(Math.random() * letters.length);
       word += letters[randomIndex];
     }

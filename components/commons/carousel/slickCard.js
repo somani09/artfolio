@@ -9,7 +9,7 @@ const SlickCard = ({data}) => {
   };
   const link = `/artists/${data.username}`;
   return (
-    <div className={`${styles.card}`}>
+    <div id={data.id} className={`${styles.card}`}>
       <Link  href={link} className={styles.link}>
         <Image 
           src={data.image}

@@ -7,8 +7,13 @@ const ImageBox = ({data,type,from}) => {
     objectFit: "cover",
     zIndex:9
   };
+
+  const openImage = (picLink)=>{
+    window.open(picLink, "_blank")
+  }
+
   return (
-    <div className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
+    <div onClick={()=>openImage(data.picLink)} className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
       <Image  
           fill
           src={data.image} 
