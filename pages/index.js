@@ -8,6 +8,7 @@ import { generateRandomWord } from '@/utils/generateRandomWord'
 import { filterArtistListData, filterSliderData } from '@/utils/filterData'
 import { getData } from '@/services/getData'
 import Errors from '@/components/errors/errors'
+import { faker } from '@faker-js/faker'
 const inter = Inter({ subsets: ['latin'] })
 
 const numberOfImages = 2;
@@ -24,7 +25,7 @@ export async function getServerSideProps() {
   const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
   const recent = await getData(recentURL, filterSliderData);
 
-  const randomName = generateRandomWord();
+  const randomName = faker.person.middleName();
   const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
   const artistList = await getData(artistListURL, filterArtistListData );
 

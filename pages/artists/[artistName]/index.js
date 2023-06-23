@@ -14,6 +14,8 @@ import { filterSliderData, filterUserData } from '@/utils/filterData';
 import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
 import Head from 'next/head';
+import { faker } from '@faker-js/faker';
+import { getRandomInt } from '@/utils/getRandomInt';
 
 const photosPerPage = 10
 
@@ -45,11 +47,26 @@ const Artist = ({user, photos}) => {
     const imageStyle = {
         borderRadius: '10px',
         objectFit: "cover"
-      };
+    };
+
+
+    const getFakeBio = ()=>{
+        const fakeBio =  faker.person.bio() + ", " + faker.person.bio()  + " | " + faker.person.jobTitle() + " | " + "(NOTE: Data created using faker API to populate this area. Real person on unsplash is not accountable for this random information.)"
+        return fakeBio;
+    }
+    const getStyles = ()=>{
+        let something="";
+        let count=getRandomInt(1,6);
+        for(let i=1; i<=count; i++)
+            something+=faker.music.genre()+" | "
+
+        return something + "(made using faker API)"
+    }
+
     return (
         <>
         <Head>
-            <title>{user.data.name}</title>
+            <title>{user.data!=null?user.data.name:"User Does Not Exist"}</title>
             <meta name="description" content="Artist Page - displays information about an artist" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
@@ -78,9 +95,9 @@ const Artist = ({user, photos}) => {
                             <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
                         </div> */}
                         <p className={styles.detailsInfo}>
-                            <span className={styles.detailsHeading}>About : </span>{user.data.bio}</p>
+                            <span className={styles.detailsHeading}>About : </span>{user.data.bio||getFakeBio()}</p>
                         <p className={styles.detailsInfo}>
-                            <span className={styles.detailsHeading}>Art Styles  : </span>{individualArtistData.styles}
+                            <span className={styles.detailsHeading}>Art Styles  : </span>{getStyles()}
                         </p>
                     </div>
                     <div className={styles.contacts}>
