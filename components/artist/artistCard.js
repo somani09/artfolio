@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './artists.module.scss'
+import styles from './artist.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -8,9 +8,10 @@ const ArtistCard = ({data}) => {
     borderRadius: '10px',
     objectFit: "cover"
   };
+  const link = `/artists/${data.username}`;
   return (
     <div className={`${styles.individualArtistCard}`}>
-      <Link  href={data.link} className={styles.link}>
+      <Link  href={link} className={styles.link}>
         <Image  
           src={data.image} 
           style={imageStyle}
@@ -18,7 +19,7 @@ const ArtistCard = ({data}) => {
           />
       </Link>
       <div className={styles.artistNameArea}>
-        <div className={styles.artistName} >{data.artistName}</div>  
+        <div className={styles.artistName} >{data.name}</div>  
       </div>  
     </div>
   )

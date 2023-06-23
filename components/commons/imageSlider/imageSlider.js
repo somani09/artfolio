@@ -7,8 +7,8 @@ const ImageSlider = ({data,type,from}) => {
     
   return (
    <div className={`${styles.imageSlider} ${type==='vertical'?styles.vertical:styles.horizontal}` } >
-      {data.map((image) => (
-        <ImageBox data={image} type={type} from={from} />
+      {data.map((imageData) => (
+        <ImageBox key={imageData.id} data={imageData} type={type} from={from} />
       ))}
    </div>
   )

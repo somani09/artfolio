@@ -1,4 +1,4 @@
-@use '../../customStyles/index.module' as *;
+@use '/customStyles/index.module' as *;
 
 .home{
     @include flex_column;

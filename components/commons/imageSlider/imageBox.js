@@ -7,15 +7,21 @@ const ImageBox = ({data,type,from}) => {
     objectFit: "cover",
     zIndex:9
   };
+
+  const openImage = (picLink)=>{
+    window.open(picLink, "_blank")
+  }
+
   return (
-    <div className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
+    <div onClick={()=>openImage(data.picLink)} className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
       <Image  
           fill
           src={data.image} 
           style={imageStyle}
+          alt={data.description || data.alt_description}
         />
      {from!='showCase' && <div className={styles.artistNameContainer}>
-        <div className={styles.artistName}>artist Name</div>
+        <div className={styles.artistName}>{data.user.name}</div>
       </div>}
       {from!='showCase' && <div className={styles.box}>
           <span className={styles.leftBorder}></span>
