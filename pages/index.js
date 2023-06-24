@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 const numberOfImages = 5;
 const numberOfArtists = 5;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   const key = process.env.API_KEY;
   const baseURL = process.env.BASE_URL;
@@ -36,7 +36,7 @@ export async function getServerSideProps() {
       recent: recent,
       artistList: artistList,
     },
-    //revalidate: 60, // Revalidate and regenerate the page every 60 seconds
+    revalidate: 86400, 
   };
 }
 
