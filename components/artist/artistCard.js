@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './artist.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
+import { unsplashLoader } from '@/utils/unsplashLoader';
 
 const ArtistCard = ({data}) => {
   const imageStyle = {
@@ -13,9 +14,11 @@ const ArtistCard = ({data}) => {
     <figure className={`${styles.individualArtistCard}`}>
       <Link  href={link} className={styles.link}>
         <Image  
-          src={data.image} 
+          loader={unsplashLoader} 
+          src={data.profile_image}
           style={imageStyle}
           fill
+          quality={75}
           alt={`${data.name} Profile Picture`}
           />
       </Link>
