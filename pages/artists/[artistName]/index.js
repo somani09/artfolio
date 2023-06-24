@@ -20,7 +20,7 @@ import { unsplashLoader } from '@/utils/unsplashLoader';
 
 const photosPerPage = 10
 
-export async function getServerSideProps(context){
+export async function getStaticProps(context){
     const {params} = context;
     const key = process.env.API_KEY;
     const baseURL = process.env.BASE_URL;
@@ -37,10 +37,20 @@ export async function getServerSideProps(context){
             photos: photos
 
         },
-        //revalidate: 60, // Revalidate and regenerate the page every 60 seconds
+        revalidate: 86400,
       };
 
 }
+
+export async function getStaticPaths() {
+    return {
+        paths: [],
+
+        // See the fallback section below 
+        fallback: true
+    };
+}
+
 
 const Artist = ({user, photos}) => {
     const router = useRouter();
