@@ -21,21 +21,26 @@
     .artistNameContainer{
         position: absolute;
         bottom: 50px;
-        width:40%;
-        height: 90px;
+        width:200px;
+        height: 100px;
         background-color:rgb(255, 255, 255, 0.5);
         // transform: rotate(-10deg);
         z-index: 10;
         opacity: 0;
         transition:.3s ease-in-out;
-
+        padding: 0 10px
     }
 
     .artistName{
-        position: absolute;
-        width: max-content;
+        flex: 1;
+        align-items: center;
+        position: relative;
+        // width: 90%;
         left: 50%;
         top: 50%;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
         text-align: center;
         opacity: 0;
         transform: translate(-50%,-50%) ;
@@ -46,16 +51,17 @@
     .box{
         position: absolute;
         bottom: 50px;
-        width:40%;
-        height: 90px;
+        width:200px;
+        height: 100px;
         background-color: transparent;
         z-index: 11;
         opacity: 1;
         transform: rotate(10deg);
+        // background-color: aqua;
 
         .leftBorder{
             position: absolute;
-            bottom:0;
+            bottom:-10px;
             left:0;
             width: 5px;
             height: 0;
@@ -67,7 +73,7 @@
         .topBorder{
             position: absolute;
             top:0;
-            left:0;
+            left:-20px;
             width: 0;
             height: 5px;
             @include logoBackground;
@@ -76,7 +82,7 @@
 
         .rightBorder{
             position: absolute;
-            top:0;
+            top: -10px;
             right:0;
             width: 5px;
             height: 0;
@@ -87,7 +93,7 @@
         .bottomBorder{
             position: absolute;
             bottom:0;
-            right:0;
+            right:-20px;
             width: 0;
             height: 5px;
             @include logoBackground;
@@ -114,27 +120,27 @@
         }
 
         .leftBorder{
-            height: 80px;
+            height: 100px;
             transition:  .3s ease-in-out;
             transition-delay: .4s;
         }
 
         
         .topBorder{
-            width: 90%;
+            width: 210px;
             transition:  .3s ease-in-out;
             transition-delay: .4s;
         }
 
         .rightBorder{
-            height: 80px;
+            height: 100px;
             transition:  .3s ease-in-out;
             transition-delay: .4s;
         }
 
         
         .bottomBorder{
-            width: 90%;
+            width: 210px;
             transition:  .3s ease-in-out;
             transition-delay: .4s;
         }

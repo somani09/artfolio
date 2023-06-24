@@ -1,16 +1,28 @@
 import React from 'react'
 import styles from './community.module.scss'
-import jtcImage from '../../public/assets/jtc.jpg'
 import utaImage from '../../public/assets/uta.jpg'
 import Image from 'next/image'
 import Head from 'next/head'
 import { joinTheCommunity, unleashTheArtist } from '@/data/communityData'
+import { unsplashLoader } from '@/utils/unsplashLoader'
 
 const Community = () => {
     const imageStyle = {
         borderRadius: '10px',
         objectFit: "cover"
-      };
+    };
+    
+    const openImage = (picLink)=>{
+      window.open(picLink, "_blank")
+    }
+  
+    
+    const jtcImage = "https://images.unsplash.com/photo-1572947650440-e8a97ef053b2"
+    const jtcLink = "https://unsplash.com/photos/UCNaGWn4EfU"
+    // const jtcImage =  "https://images.unsplash.com/photo-1545518514-ce8448f542b3?"
+    // const jtcLink = "https://unsplash.com/photos/LtkVWpOPK9w"
+    const utaImage = "https://images.unsplash.com/photo-1529066792305-5e4efa40fde9?"
+    const utaLink = "https://unsplash.com/photos/0rlfiRSdVzU"
   return (
     <>
       <Head>
@@ -24,8 +36,10 @@ const Community = () => {
                 <h1  className={styles.infoHeader}>Join The Community</h1>
                 <p  className={styles.infoText}>{joinTheCommunity}</p>
             </div>
-            <figure className={`${styles.jtcImage} ${styles.imageArea}`}>
+            <figure onClick={()=>openImage(jtcLink)} className={`${styles.jtcImage} ${styles.imageArea}`}>
                 <Image  
+                    loader={unsplashLoader}
+                    quality={75} 
                     src={jtcImage}
                     style={imageStyle}
                     fill
@@ -35,8 +49,10 @@ const Community = () => {
         </div>
 
         <div className={styles.uta}>
-            <figure className={`${styles.utaImage} ${styles.imageArea}`}>
+            <figure onClick={()=>openImage(utaLink)} className={`${styles.utaImage} ${styles.imageArea}`}>
                 <Image  
+                    loader={unsplashLoader}
+                    quality={75} 
                     src={utaImage} 
                     style={imageStyle}
                     fill

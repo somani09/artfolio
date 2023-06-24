@@ -16,6 +16,7 @@ import Error404 from '@/components/errors/error404';
 import Head from 'next/head';
 import { faker } from '@faker-js/faker';
 import { getRandomInt } from '@/utils/getRandomInt';
+import { unsplashLoader } from '@/utils/unsplashLoader';
 
 const photosPerPage = 10
 
@@ -78,9 +79,11 @@ const Artist = ({user, photos}) => {
                 <div className={styles.artistImageContact}>
                     <figure className={styles.artistImage}>
                         <Image  
-                            src={individualArtistData.image} 
+                            loader={unsplashLoader} 
+                            src={user.data.profile_image} 
                             style={imageStyle}
                             fill
+                            quality={75}
                             alt={`${user.data.name} Profile Picture`}
                             />
                     </figure>
@@ -91,9 +94,6 @@ const Artist = ({user, photos}) => {
                         <p className={styles.detailsInfo}>
                             <span className={styles.detailsHeading}>Name : </span>{user.data.name}
                         </p>
-                        {/* <div className={styles.detailsInfo}>
-                            <span className={styles.detailsHeading}>Age : </span>{individualArtistData.age}
-                        </div> */}
                         <p className={styles.detailsInfo}>
                             <span className={styles.detailsHeading}>About : </span>{user.data.bio||getFakeBio()}</p>
                         <p className={styles.detailsInfo}>

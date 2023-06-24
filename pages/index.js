@@ -11,7 +11,7 @@ import Errors from '@/components/errors/errors'
 import { faker } from '@faker-js/faker'
 const inter = Inter({ subsets: ['latin'] })
 
-const numberOfImages = 2;
+const numberOfImages = 5;
 const numberOfArtists = 5;
 
 export async function getServerSideProps() {

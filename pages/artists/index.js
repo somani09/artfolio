@@ -7,6 +7,7 @@ import { filterArtistListData } from '@/utils/filterData';
 import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
 import Head from 'next/head';
+import { faker } from '@faker-js/faker';
 
 const numberOfArtists = 5;
 
@@ -15,7 +16,7 @@ export async function getServerSideProps() {
   const key = process.env.API_KEY;
   const baseURL = process.env.BASE_URL;
 
-  const randomName = generateRandomWord();
+  const randomName = faker.person.middleName();
   const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
   const artistList = await getData(artistListURL, filterArtistListData );
 

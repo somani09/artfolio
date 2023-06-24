@@ -7,7 +7,7 @@ const getData = async (URL, filter) =>{
         return {data: filter(data), errors:null ,status }
     }
     catch(errors){
-        console.log("error contains-",errors.response)
+        // console.log("error contains-",errors.response)
         return{data: null, errors:errors.response.data.errors, status:errors.response.status}
     }
 }

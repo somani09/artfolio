@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './slickCarousel.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import { unsplashLoader } from '@/utils/unsplashLoader'
 const SlickCard = ({data}) => {
   const imageStyle = {
     borderRadius: '10px',
@@ -12,9 +13,12 @@ const SlickCard = ({data}) => {
     <figure id={data.id} className={`${styles.card}`}>
       <Link  href={link} className={styles.link}>
         <Image 
-          src={data.image}
+          loader={unsplashLoader} 
+          src={data.profile_image}
           style={imageStyle}
           fill
+          quality={75}
+          alt={`${data.name} Profile Picture`}
         />
       </Link>
       <div className={styles.artistNameArea}>
