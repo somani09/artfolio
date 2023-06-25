@@ -2,12 +2,9 @@ import React from 'react'
 import styles from './artist.module.scss'
 import { useRouter } from 'next/router';
 import ImageSlider from '@/components/commons/imageSlider/imageSlider';
-import { individualArtistData } from '@/data/individualArtistData';
-import {recentData} from '../../../data/recentData'
 import Image from 'next/image';
 import {RiUnsplashFill} from 'react-icons/ri'
 import {RiInstagramLine} from 'react-icons/ri'
-import {SiGmail} from 'react-icons/si'
 import {CgWebsite} from 'react-icons/cg'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import { filterSliderData, filterUserData } from '@/utils/filterData';
@@ -20,7 +17,7 @@ import { unsplashLoader } from '@/utils/unsplashLoader';
 
 const photosPerPage = 10
 
-export async function getStaticProps(context){
+export async function getServerSideProps(context){
     const {params} = context;
     const key = process.env.API_KEY;
     const baseURL = process.env.BASE_URL;
@@ -37,19 +34,19 @@ export async function getStaticProps(context){
             photos: photos
 
         },
-        revalidate: 86400,
+        // revalidate: 86400,
       };
 
 }
 
-export async function getStaticPaths() {
-    return {
-        paths: [],
+// export async function getStaticPaths() {
+//     return {
+//         paths: [],
 
-        // See the fallback section below 
-        fallback: true
-    };
-}
+//         // See the fallback section below 
+//         fallback: true
+//     };
+// }
 
 
 const Artist = ({user, photos}) => {
