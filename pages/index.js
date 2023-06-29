@@ -9,39 +9,52 @@ import { filterArtistListData, filterSliderData } from '@/utils/filterData'
 import { getData } from '@/services/getData'
 import Errors from '@/components/errors/errors'
 import { faker } from '@faker-js/faker'
-const inter = Inter({ subsets: ['latin'] })
+import {lastTimeStampData, artistListData} from '../store/artistList/artistListSlice'
+import { storeWrapper } from '@/store/store'
 
 const numberOfImages = 5;
 const numberOfArtists = 5;
 
-export async function getStaticProps() {
-
-  const key = process.env.API_KEY;
-  const baseURL = process.env.BASE_URL;
+export const  getStaticProps = storeWrapper.getStaticProps(store =>async()=> {
+    const date = new Date();
+    // console.log("testing date",new Date().getTime())
+    const key = process.env.API_KEY;
+    const baseURL = process.env.BASE_URL;
+    
+    const topPicksURL =`${baseURL}/collections/${getRandomInt(1,5)}/photos?per_page=${numberOfImages}&client_id=${key}`;
+    const topPicks = await getData(topPicksURL,filterSliderData )
   
-  const topPicksURL =`${baseURL}/collections/${getRandomInt(1,5)}/photos?per_page=${numberOfImages}&client_id=${key}`;
-  const topPicks = await getData(topPicksURL,filterSliderData )
-
-  const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
-  const recent = await getData(recentURL, filterSliderData);
-
-  const randomName = faker.person.middleName();
-  const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
-  const artistList = await getData(artistListURL, filterArtistListData );
-
-
-  return {
-    props: {
-      topPicks: topPicks,
-      recent: recent,
-      artistList: artistList,
-    },
-    revalidate: 86400, 
-  };
-}
-
+    const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
+    const recent = await getData(recentURL, filterSliderData);
+  
+    const randomName = faker.person.middleName();
+    const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
+    let artistList = null;
+    
+    const lastTimeStamp  = store.getState().artistListReducer.lastTimeStamp
+    
+    if(lastTimeStamp==null || ( date.getTime() - lastTimeStamp > 86400000)){
+      artistList = await getData(artistListURL, filterArtistListData );
+      store.dispatch(artistListData(artistList));
+      store.dispatch(lastTimeStampData(date.getTime() ))
+    }
+    else{
+      artistList = store.getState().artistListReducer.artistList;
+    }
+  
+    return {
+      props: {
+        topPicks: topPicks,
+        recent: recent,
+        artistList: artistList,
+      },
+      revalidate: 86400, 
+    };
+  }
+) 
 
 export default function HomePage({topPicks, recent, artistList}) {
+  // console.log("artistList on client=>", artistList)
   return (
     <>
       <Head>

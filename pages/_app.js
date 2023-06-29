@@ -3,11 +3,15 @@ import NavBar from '@/components/navBar/navBar'
 import '@/styles/globals.scss'
 import '../styles/custom.scss'
 import SideNavBar from '@/components/navBar/sideNavBar'
+import { storeWrapper } from '@/store/store'
+import { Provider } from "react-redux";
 
-
-export default function App({ Component, pageProps }) {
+function App({ Component, ...rest }) {
+  const { store, props } = storeWrapper.useWrappedStore(rest);
+  const { pageProps } = props;
   return (
     <>
+    <Provider store={store}>
       <div className="background"></div>
       <NavBar />
       <SideNavBar />
@@ -15,6 +19,9 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps} />
       </div>
       <Footer/>
+    </Provider>
     </>
   )
 }
+
+export default App

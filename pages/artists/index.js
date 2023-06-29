@@ -8,17 +8,30 @@ import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
 import Head from 'next/head';
 import { faker } from '@faker-js/faker';
+import {lastTimeStampData, artistListData} from '../../store/artistList/artistListSlice'
+import { storeWrapper } from '@/store/store'
 
 const numberOfArtists = 5;
 
-export async function getStaticProps() {
-
+export const getStaticProps =  storeWrapper.getStaticProps(store => async()=>{
+  const date = new Date();
   const key = process.env.API_KEY;
   const baseURL = process.env.BASE_URL;
 
   const randomName = faker.person.middleName();
   const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
-  const artistList = await getData(artistListURL, filterArtistListData );
+  let artistList = null
+
+  const lastTimeStamp  = store.getState().artistListReducer.lastTimeStamp
+    
+  if(lastTimeStamp==null || ( date.getTime() - lastTimeStamp > 86400000)){
+    artistList = await getData(artistListURL, filterArtistListData );
+    store.dispatch(artistListData(artistList));
+    store.dispatch(lastTimeStampData(date.getTime() ))
+  }
+  else{
+    artistList = store.getState().artistListReducer.artistList;
+  }
 
 
   return {
@@ -28,7 +41,7 @@ export async function getStaticProps() {
     revalidate: 86400,
   };
 }
-
+)
 
 const Artists = ({artistList}) => {
   return (
