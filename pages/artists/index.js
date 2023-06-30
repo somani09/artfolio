@@ -8,6 +8,7 @@ import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
 import Head from 'next/head';
 import { faker } from '@faker-js/faker';
+import getArtistList from '@/cache/artistList/artistListCache';
 
 const numberOfArtists = 5;
 
@@ -18,12 +19,13 @@ export async function getStaticProps() {
 
   const randomName = faker.person.middleName();
   const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
-  const artistList = await getData(artistListURL, filterArtistListData );
+  // const artistList = await getData(artistListURL, filterArtistListData );
 
+  const artistsListFromCache = await getArtistList(artistListURL,filterArtistListData)
 
   return {
     props: {
-      artistList: artistList,
+      artistList: artistsListFromCache,
     },
     revalidate: 86400,
   };
