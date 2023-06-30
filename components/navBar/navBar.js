@@ -1,5 +1,6 @@
+'use client';
 import Link from 'next/link'
-import { useRouter } from 'next/router';
+import { useRouter, usePathname } from 'next/navigation';
 import React, { useState } from 'react'
 import styles from './navBar.module.scss'
 import SignInUp from '../signInUp/signInUp';
@@ -9,7 +10,8 @@ const NavBar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [from, setFrom] = useState(null);
   const router = useRouter();
-  const isArtist = router.pathname.startsWith('/artist');
+  const pathname = usePathname()
+  const isArtist = pathname.startsWith('/artists');
   return (
     <header className={styles.navbarContainer}>
 
@@ -19,7 +21,7 @@ const NavBar = () => {
 
         <nav className={styles.pageLinks}>
           <Link href="/">
-              <div className={`${styles.link} ${router.pathname == "/" ? styles.active : ""}`}>Home</div>
+              <div className={`${styles.link} ${pathname == "/" ? styles.active : ""}`}>Home</div>
           </Link>
 
           <Link href="/artists">
@@ -27,11 +29,11 @@ const NavBar = () => {
           </Link>
 
           <Link href="/about">
-              <div className={`${styles.link} ${router.pathname == "/about" ? styles.active : ""}`}>About</div>
+              <div className={`${styles.link} ${pathname == "/about" ? styles.active : ""}`}>About</div>
           </Link>
 
           <Link href="/community">
-              <div className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
+              <div className={`${styles.link} ${pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
           
         </nav>

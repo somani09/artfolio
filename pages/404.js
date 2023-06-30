@@ -2,6 +2,11 @@ import Error404 from '@/components/errors/error404'
 import Head from 'next/head'
 import React from 'react'
 
+export const metadata = {
+  title: '404: Page Stolen',
+  description: '404 error page',
+}
+
 const ErrorPage = () => {
   return (
     <>

@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 
 async function fetchArtistListData(artistListURL, filterArtistListData) {
-  console.log('Fetching artistList data...');
   const artistList = await getData(artistListURL, filterArtistListData);
   return artistList;
 }
@@ -17,7 +16,6 @@ export default async function getArtistList(artistListURL, filterArtistListData)
   try {
     cachedData = JSON.parse(fs.readFileSync(ARTISTLIST_CACHE_PATH, 'utf8'));
   } catch (error) {
-    console.log('ArtistList cache not initialized');
   }
 
   if (!cachedData || isCacheExpired(cachedData.timestamp)) {
@@ -30,9 +28,7 @@ export default async function getArtistList(artistListURL, filterArtistListData)
         JSON.stringify(updatedCache),
         'utf8'
       );
-      console.log('Wrote to artistList cache');
     } catch (error) {
-      console.log('ERROR WRITING artistList CACHE TO FILE');
       console.log(error);
     }
 
