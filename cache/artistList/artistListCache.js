@@ -68,7 +68,7 @@ async function fetchArtistListData(key, baseURL,lastRand) {
     }
 }
 
-const ARTISTLIST_CACHE_PATH = path.join(process.cwd(), '.next', 'cache', '.artistList');
+const ARTISTLIST_CACHE_PATH = path.join(process.cwd(), '.artistList');
 
 export default async function getArtistList(key, baseURL) {
   const date = new Date();
