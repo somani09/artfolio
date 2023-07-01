@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.4.7",
     "@next/font": "13.2.0",
+    "@ngneat/falso": "^6.4.0",
     "axios": "^1.4.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.0",
@@ -25,6 +28,7 @@
     "swr": "^2.1.5"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.0.2"
+    "@faker-js/faker": "^8.0.2",
+    "cross-env": "^7.0.3"
   }
 }

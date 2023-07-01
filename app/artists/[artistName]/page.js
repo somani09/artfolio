@@ -2,7 +2,6 @@ import React from 'react'
 import { filterSliderData, filterUserData } from '@/utils/filterData';
 import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
-import Head from 'next/head';
 import ArtistNameClient from './artistNameClient';
 import { useParams } from 'next/navigation';
 

@@ -1,12 +1,8 @@
-import { Inter } from '@next/font/google'
-
 import styles from './home.module.scss'
 import { getRandomInt } from '@/utils/getRandomInt'
-import { generateRandomWord } from '@/utils/generateRandomWord'
 import { filterArtistListData, filterSliderData } from '@/utils/filterData'
 import { getData } from '@/services/getData'
-import Errors from '@/components/errors/errors'
-import { faker } from '@faker-js/faker'
+import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListCache'
 import HomeClient from './homeClient'
 
@@ -30,7 +26,7 @@ export default async function Home() {
     const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
     const recent = await getData(recentURL, filterSliderData);
   
-    const randomName = faker.person.middleName();
+    const randomName = randFirstName();
     const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
 
     const artistsListFromCache = await getArtistList(artistListURL,filterArtistListData)

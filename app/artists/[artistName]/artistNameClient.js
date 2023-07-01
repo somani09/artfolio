@@ -7,9 +7,9 @@ import {RiUnsplashFill} from 'react-icons/ri'
 import {RiInstagramLine} from 'react-icons/ri'
 import {CgWebsite} from 'react-icons/cg'
 import {AiOutlineTwitter} from 'react-icons/ai'
-import { faker } from '@faker-js/faker';
 import { getRandomInt } from '@/utils/getRandomInt';
 import { unsplashLoader } from '@/utils/unsplashLoader';
+import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat/falso';
 
 const ArtistNameClient = ({user, photos}) => {
 
@@ -30,16 +30,16 @@ const ArtistNameClient = ({user, photos}) => {
 
 
     const getFakeBio = ()=>{
-        const fakeBio =  faker.person.bio() + ", " + faker.person.bio()  + " | " + faker.person.jobTitle() + " | " + "(NOTE: Data created using faker API to populate this area. Real person on unsplash is not accountable for this random information.)"
+        const fakeBio = randQuote() + " | " + randCatchPhrase()  + " | " + randJobTitle() + " | " + "(NOTE: Data created using Falso API to populate this area. Real person on unsplash is not accountable for this random information.)"
         return fakeBio;
     }
     const getStyles = ()=>{
         let something="";
         let count=getRandomInt(1,6);
         for(let i=1; i<=count; i++)
-            something+=faker.music.genre()+" | "
+            something+=randMusicGenre ()+" | "
 
-        return something + "(made using faker API)"
+        return something + "(made using Falso API)"
     }
   return (
     <section className={styles.artistDetails}>

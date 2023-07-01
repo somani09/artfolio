@@ -3,6 +3,7 @@ import React from 'react'
 import SlickCarousel from '@/components/commons/carousel/slickCarousel.js'
 import ImageSlider from '@/components/commons/imageSlider/imageSlider.js'
 import styles from './home.module.scss'
+import Errors from '@/components/errors/errors';
 
 const HomeClient = ({artistList, topPicks, recent}) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { filterArtistListData } from '@/utils/filterData';
 import Error404 from '@/components/errors/error404';
-import { faker } from '@faker-js/faker';
+import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListCache';
 import ArtistClient from './artistClient';
 
@@ -18,7 +18,7 @@ const Artists = async () => {
   const key = process.env.API_KEY;
   const baseURL = process.env.BASE_URL;
 
-  const randomName = faker.person.middleName();
+  const randomName = randFirstName();
   const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
 
   const artistList = await getArtistList(artistListURL,filterArtistListData)

@@ -2,7 +2,6 @@
 import React from 'react'
 import styles from './community.module.scss'
 import Image from 'next/image'
-import Head from 'next/head'
 import { joinTheCommunity, unleashTheArtist } from '@/data/communityData'
 import { unsplashLoader } from '@/utils/unsplashLoader'
 
