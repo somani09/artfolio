@@ -7,10 +7,8 @@ const filterSliderData = (data) =>{
   }
   
   const filterArtistListData = (data)=>{
-    return data.results.map(item => {
-      const { id, username, name, profile_image : { medium : profile_image} } = item;
+      const { id, username, name, profile_image : { medium : profile_image} } = data;
       return {  id, username, name, profile_image};
-    });
   }
 
   const filterUserData = (data)=>{

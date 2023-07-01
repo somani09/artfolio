@@ -14,8 +14,8 @@ export const metadata = {
     description: 'Landing page / Home page for the project',
 }
 
-// export const revalidate = 86400;
-export const revalidate = 60000*5;
+export const revalidate = 86400;
+// export const revalidate = 60000*1;
 
 export default async function Home() {
     const key = process.env.API_KEY;
@@ -26,11 +26,8 @@ export default async function Home() {
   
     const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
     const recent = await getData(recentURL, filterSliderData);
-  
-    const randomName = randFirstName();
-    const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
-
-    const artistsListFromCache = await getArtistList(artistListURL,filterArtistListData)
+    
+    const artistsListFromCache = await getArtistList(key,baseURL)
     const artistList =artistsListFromCache;
 
   return (

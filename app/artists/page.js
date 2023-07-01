@@ -10,8 +10,8 @@ export const metadata = {
   description: 'Artist Page - displays all the Artists on the platform',
 }
 
-// export const revalidate = 86400;
-export const revalidate = 60000*5;
+export const revalidate = 86400;
+// export const revalidate = 60000*5;
 
 
 const numberOfArtists = 5;

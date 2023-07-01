@@ -4,6 +4,7 @@ import styles from './community.module.scss'
 import Image from 'next/image'
 import { joinTheCommunity, unleashTheArtist } from '@/data/communityData'
 import { unsplashLoader } from '@/utils/unsplashLoader'
+import { imageQuality } from '@/utils/customVariables';
 
 const CommunityClient = () => {
     const imageStyle = {
@@ -33,7 +34,7 @@ const CommunityClient = () => {
             <figure onClick={()=>openImage(jtcLink)} className={`${styles.jtcImage} ${styles.imageArea}`}>
                 <Image  
                     loader={unsplashLoader}
-                    quality={75} 
+                    quality={imageQuality} 
                     src={jtcImage}
                     style={imageStyle}
                     fill
@@ -46,7 +47,7 @@ const CommunityClient = () => {
             <figure onClick={()=>openImage(utaLink)} className={`${styles.utaImage} ${styles.imageArea}`}>
                 <Image  
                     loader={unsplashLoader}
-                    quality={75} 
+                    quality={imageQuality} 
                     src={utaImage} 
                     style={imageStyle}
                     fill

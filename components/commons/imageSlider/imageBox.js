@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './imageSlider.module.scss'
 import Image from 'next/image'
 import { unsplashLoader } from '@/utils/unsplashLoader';
+import { imageQuality } from '@/utils/customVariables';
 const ImageBox = ({data,type,from}) => {
   const imageStyle = {
     borderRadius: '10px',
@@ -21,13 +22,13 @@ const ImageBox = ({data,type,from}) => {
 
 // onClick={()=>openImage(data.picLink)} 
   return (
-    <figure className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
+    <figure onClick={()=>openImage(data.picLink)}  className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
       <Image 
           loader={unsplashLoader} 
           fill
           src={data.rawUrl} 
           style={imageStyle}
-          quality={75}
+          quality={imageQuality}
           alt={data.description || data.alt_description}
         />
      {from!='showCase' && 

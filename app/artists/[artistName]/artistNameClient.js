@@ -11,6 +11,7 @@ import {AiOutlineTwitter} from '@react-icons/all-files/ai/AiOutlineTwitter'
 import { getRandomInt } from '@/utils/getRandomInt';
 import { unsplashLoader } from '@/utils/unsplashLoader';
 import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat/falso';
+import { imageQuality } from '@/utils/customVariables';
 
 const ArtistNameClient = ({user, photos}) => {
 
@@ -53,7 +54,7 @@ const ArtistNameClient = ({user, photos}) => {
                             src={user.data.profile_image} 
                             style={imageStyle}
                             fill
-                            quality={75}
+                            quality={imageQuality}
                             alt={`${user.data.name} Profile Picture`}
                             />
                     </figure>
