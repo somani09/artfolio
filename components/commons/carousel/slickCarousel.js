@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { BiChevronsLeft } from 'react-icons/bi'
 import { BiChevronsRight } from 'react-icons/bi'
 const SlickCarousel = ({data}) => {
+  const SlickButtonFix = ({currentSlide, slideCount, children, ...props}) => (
+    <span {...props}>{children}</span>
+  );
   const settings = {
     className: "center",
     centerMode: true,
@@ -18,8 +21,8 @@ const SlickCarousel = ({data}) => {
     // autoplay: true,
     // autoplaySpeed: 2500,
     // lazyLoad: true,
-    nextArrow: <BiChevronsRight className={`${styles.rightKey} ${styles.key}`} />,
-    prevArrow: <BiChevronsLeft  className={`${styles.leftKey} ${styles.key}`} />,
+    nextArrow:<SlickButtonFix> <BiChevronsRight className={`${styles.rightKey} ${styles.key}`} /></SlickButtonFix>,
+    prevArrow:<SlickButtonFix><BiChevronsLeft  className={`${styles.leftKey} ${styles.key}`} /></SlickButtonFix> ,
     responsive: [
       {
         breakpoint: 1024,
