@@ -14,7 +14,8 @@ export const metadata = {
     description: 'Landing page / Home page for the project',
 }
 
-export const revalidate = 86400;
+// export const revalidate = 86400;
+export const revalidate = 60000*5;
 
 export default async function Home() {
     const key = process.env.API_KEY;

@@ -4,8 +4,8 @@ import styles from './slickCarousel.module.scss'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { BiChevronsLeft } from 'react-icons/bi'
-import { BiChevronsRight } from 'react-icons/bi'
+import { BiChevronsLeft } from '@react-icons/all-files/bi/BiChevronsLeft'
+import { BiChevronsRight } from '@react-icons/all-files/bi/BiChevronsRight'
 const SlickCarousel = ({data}) => {
   const SlickButtonFix = ({currentSlide, slideCount, children, ...props}) => (
     <span {...props}>{children}</span>

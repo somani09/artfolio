@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react'
 import styles from './navBar.module.scss'
-import {AiOutlineBars} from 'react-icons/ai'
-import {CgClose} from 'react-icons/cg'
+import {AiOutlineBars} from  '@react-icons/all-files/ai/AiOutlineBars'
+import {CgClose} from  '@react-icons/all-files/cg/CgClose'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation';
 import SignInUp from '../signInUp/signInUp'

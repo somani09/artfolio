@@ -3,10 +3,11 @@ import React from 'react'
 import styles from './artist.module.scss'
 import ImageSlider from '@/components/commons/imageSlider/imageSlider';
 import Image from 'next/image';
-import {RiUnsplashFill} from 'react-icons/ri'
-import {RiInstagramLine} from 'react-icons/ri'
-import {CgWebsite} from 'react-icons/cg'
-import {AiOutlineTwitter} from 'react-icons/ai'
+// import {RiUnsplashFill} from 'react-icons/ri/uns'
+import {RiUnsplashFill} from '@react-icons/all-files/ri/RiUnsplashFill'
+import {RiInstagramLine} from '@react-icons/all-files/ri/RiInstagramLine'
+import {CgWebsite} from '@react-icons/all-files/cg/CgWebsite'
+import {AiOutlineTwitter} from '@react-icons/all-files/ai/AiOutlineTwitter'
 import { getRandomInt } from '@/utils/getRandomInt';
 import { unsplashLoader } from '@/utils/unsplashLoader';
 import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat/falso';

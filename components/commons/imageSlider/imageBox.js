@@ -13,9 +13,15 @@ const ImageBox = ({data,type,from}) => {
     window.open(picLink, "_blank")
   }
 
+  const openArtist = (link) =>{
+    console.log("click registered")
+    window.open(link, "_blank")
 
+  }
+
+// onClick={()=>openImage(data.picLink)} 
   return (
-    <figure onClick={()=>openImage(data.picLink)} className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
+    <figure className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
       <Image 
           loader={unsplashLoader} 
           fill
@@ -24,10 +30,12 @@ const ImageBox = ({data,type,from}) => {
           quality={75}
           alt={data.description || data.alt_description}
         />
-     {from!='showCase' && <div className={styles.artistNameContainer}>
+     {from!='showCase' && 
+      <div onClick={()=>openArtist(data.user.unsplash)} className={styles.artistNameContainer}>
         <div className={styles.artistName}>{data.user.name}</div>
       </div>}
-      {from!='showCase' && <div className={styles.box}>
+      {from!='showCase' && 
+      <div onClick={()=>openArtist(data.user.unsplash)} className={styles.box}>
           <span className={styles.leftBorder}></span>
           <span className={styles.topBorder}></span>
           <span className={styles.bottomBorder}></span>
