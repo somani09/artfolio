@@ -1,12 +1,12 @@
+'use client';
 import React from 'react'
 import styles from './community.module.scss'
-import utaImage from '../../public/assets/uta.jpg'
 import Image from 'next/image'
-import Head from 'next/head'
 import { joinTheCommunity, unleashTheArtist } from '@/data/communityData'
 import { unsplashLoader } from '@/utils/unsplashLoader'
+import { imageQuality } from '@/utils/customVariables';
 
-const Community = () => {
+const CommunityClient = () => {
     const imageStyle = {
         borderRadius: '10px',
         objectFit: "cover"
@@ -25,11 +25,6 @@ const Community = () => {
     const utaLink = "https://unsplash.com/photos/0rlfiRSdVzU"
   return (
     <>
-      <Head>
-        <title>Community</title>
-        <meta name="description" content="Page for the community" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <section className={styles.communityContainer}>
         <div className={styles.jtc}>
             <div  className={`${styles.info} ${styles.jtcText}`}>
@@ -39,7 +34,7 @@ const Community = () => {
             <figure onClick={()=>openImage(jtcLink)} className={`${styles.jtcImage} ${styles.imageArea}`}>
                 <Image  
                     loader={unsplashLoader}
-                    quality={75} 
+                    quality={imageQuality} 
                     src={jtcImage}
                     style={imageStyle}
                     fill
@@ -52,7 +47,7 @@ const Community = () => {
             <figure onClick={()=>openImage(utaLink)} className={`${styles.utaImage} ${styles.imageArea}`}>
                 <Image  
                     loader={unsplashLoader}
-                    quality={75} 
+                    quality={imageQuality} 
                     src={utaImage} 
                     style={imageStyle}
                     fill
@@ -70,4 +65,4 @@ const Community = () => {
   )
 }
 
-export default Community
+export default CommunityClient

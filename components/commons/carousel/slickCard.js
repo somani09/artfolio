@@ -3,6 +3,7 @@ import styles from './slickCarousel.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import { unsplashLoader } from '@/utils/unsplashLoader'
+import { imageQuality } from '@/utils/customVariables'
 const SlickCard = ({data}) => {
   const imageStyle = {
     borderRadius: '10px',
@@ -17,7 +18,7 @@ const SlickCard = ({data}) => {
           src={data.profile_image}
           style={imageStyle}
           fill
-          quality={75}
+          quality={imageQuality}
           alt={`${data.name} Profile Picture`}
         />
       </Link>

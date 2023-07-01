@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './imageSlider.module.scss'
 import Image from 'next/image'
 import { unsplashLoader } from '@/utils/unsplashLoader';
+import { imageQuality } from '@/utils/customVariables';
 const ImageBox = ({data,type,from}) => {
   const imageStyle = {
     borderRadius: '10px',
@@ -13,21 +14,29 @@ const ImageBox = ({data,type,from}) => {
     window.open(picLink, "_blank")
   }
 
+  const openArtist = (link) =>{
+    console.log("click registered")
+    window.open(link, "_blank")
 
+  }
+
+// onClick={()=>openImage(data.picLink)} 
   return (
-    <figure onClick={()=>openImage(data.picLink)} className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
+    <figure onClick={()=>openImage(data.picLink)}  className={`${styles.imageBox} ${type==='vertical'?styles.inVertical:''}`}>
       <Image 
           loader={unsplashLoader} 
           fill
           src={data.rawUrl} 
           style={imageStyle}
-          quality={75}
+          quality={imageQuality}
           alt={data.description || data.alt_description}
         />
-     {from!='showCase' && <div className={styles.artistNameContainer}>
+     {from!='showCase' && 
+      <div onClick={()=>openArtist(data.user.unsplash)} className={styles.artistNameContainer}>
         <div className={styles.artistName}>{data.user.name}</div>
       </div>}
-      {from!='showCase' && <div className={styles.box}>
+      {from!='showCase' && 
+      <div onClick={()=>openArtist(data.user.unsplash)} className={styles.box}>
           <span className={styles.leftBorder}></span>
           <span className={styles.topBorder}></span>
           <span className={styles.bottomBorder}></span>

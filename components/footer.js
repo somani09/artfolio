@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './extra.module.scss'
 
-import { AiFillCopyrightCircle } from 'react-icons/ai'
+import { AiFillCopyrightCircle } from '@react-icons/all-files/ai/AiFillCopyrightCircle'
 
 
 const Footer = () => {

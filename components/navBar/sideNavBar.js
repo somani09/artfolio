@@ -1,9 +1,10 @@
+'use client';
 import React, { useState } from 'react'
 import styles from './navBar.module.scss'
-import {AiOutlineBars} from 'react-icons/ai'
-import {CgClose} from 'react-icons/cg'
+import {AiOutlineBars} from  '@react-icons/all-files/ai/AiOutlineBars'
+import {CgClose} from  '@react-icons/all-files/cg/CgClose'
 import Link from 'next/link'
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 import SignInUp from '../signInUp/signInUp'
 const SideNavBar = () => {
   const[navOpen, setNavOpen] = useState(false);
@@ -12,15 +13,15 @@ const SideNavBar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [from, setFrom] = useState(null);
   const router = useRouter();
-  const isArtist = router.pathname.startsWith('/artist');
-  return (
+  const pathname = usePathname()
+  const isArtist = pathname.startsWith('/artists');  return (
     <header className={styles.sideNavBar}>
       <div className={styles.navButtonArea}>
         {!navOpen?<AiOutlineBars  className={styles.navButton} onClick={()=>setNavOpen(true)}/>:<CgClose  className={styles.navButton} onClick={()=>setNavOpen(false)}/>}
       </div>
      <nav className={`${styles.navArea} ${navOpen?styles.open:styles.close}`}>
           <Link href="/">
-              <div  onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/" ? styles.active : ""}`}>Home</div>
+              <div  onClick={()=>setNavOpen(false)} className={`${styles.link} ${pathname == "/" ? styles.active : ""}`}>Home</div>
           </Link>
 
           <Link href="/artists">
@@ -28,11 +29,11 @@ const SideNavBar = () => {
           </Link>
 
           <Link href="/about">
-              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/about" ? styles.active : ""}`}>About</div>
+              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${pathname == "/about" ? styles.active : ""}`}>About</div>
           </Link>
 
           <Link href="/community">
-              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${router.pathname == "/community" ? styles.active : ""}`}>Community</div>
+              <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
           <div className={styles.logArea}>
             <button className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignIn);}} >Log In</button>

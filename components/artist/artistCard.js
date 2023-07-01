@@ -3,6 +3,7 @@ import styles from './artist.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 import { unsplashLoader } from '@/utils/unsplashLoader';
+import { imageQuality } from '@/utils/customVariables';
 
 const ArtistCard = ({data}) => {
   const imageStyle = {
@@ -18,7 +19,7 @@ const ArtistCard = ({data}) => {
           src={data.profile_image}
           style={imageStyle}
           fill
-          quality={75}
+          quality={imageQuality}
           alt={`${data.name} Profile Picture`}
           />
       </Link>

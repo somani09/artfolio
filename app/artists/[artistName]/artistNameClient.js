@@ -1,56 +1,29 @@
+'use client';
 import React from 'react'
 import styles from './artist.module.scss'
-import { useRouter } from 'next/router';
 import ImageSlider from '@/components/commons/imageSlider/imageSlider';
 import Image from 'next/image';
-import {RiUnsplashFill} from 'react-icons/ri'
-import {RiInstagramLine} from 'react-icons/ri'
-import {CgWebsite} from 'react-icons/cg'
-import {AiOutlineTwitter} from 'react-icons/ai'
-import { filterSliderData, filterUserData } from '@/utils/filterData';
-import { getData } from '@/services/getData';
-import Error404 from '@/components/errors/error404';
-import Head from 'next/head';
-import { faker } from '@faker-js/faker';
+// import {RiUnsplashFill} from 'react-icons/ri/uns'
+import {RiUnsplashFill} from '@react-icons/all-files/ri/RiUnsplashFill'
+import {RiInstagramLine} from '@react-icons/all-files/ri/RiInstagramLine'
+import {CgWebsite} from '@react-icons/all-files/cg/CgWebsite'
+import {AiOutlineTwitter} from '@react-icons/all-files/ai/AiOutlineTwitter'
 import { getRandomInt } from '@/utils/getRandomInt';
 import { unsplashLoader } from '@/utils/unsplashLoader';
+import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat/falso';
+import { imageQuality } from '@/utils/customVariables';
 
-const photosPerPage = 10
+const ArtistNameClient = ({user, photos}) => {
 
-export async function getServerSideProps(context){
-    const {params} = context;
-    const key = process.env.API_KEY;
-    const baseURL = process.env.BASE_URL;
-    const userURL = `${baseURL}/users/${params.artistName}?client_id=${key}`;
-    const user = await getData(userURL, filterUserData);
-    const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
-    const photos = await getData(photosURL, filterSliderData);
+    const [hydrated, setHydrated] = React.useState(false);
+    React.useEffect(() => {
+        setHydrated(true);
+    }, []);
+    if (!hydrated) {
+        // Returns null on first render, so the client and server match
+        return null;
+    }
 
-
-    
-    return {
-        props: {
-            user:  user,
-            photos: photos
-
-        },
-        // revalidate: 86400,
-      };
-
-}
-
-// export async function getStaticPaths() {
-//     return {
-//         paths: [],
-
-//         // See the fallback section below 
-//         fallback: true
-//     };
-// }
-
-
-const Artist = ({user, photos}) => {
-    const router = useRouter();
     var type = 'vertical'
     const imageStyle = {
         borderRadius: '10px',
@@ -59,28 +32,19 @@ const Artist = ({user, photos}) => {
 
 
     const getFakeBio = ()=>{
-        const fakeBio =  faker.person.bio() + ", " + faker.person.bio()  + " | " + faker.person.jobTitle() + " | " + "(NOTE: Data created using faker API to populate this area. Real person on unsplash is not accountable for this random information.)"
+        const fakeBio = randQuote() + " | " + randCatchPhrase()  + " | " + randJobTitle() + " | " + "(NOTE: Data created using Falso API to populate this area. Real person on unsplash is not accountable for this random information.)"
         return fakeBio;
     }
     const getStyles = ()=>{
         let something="";
         let count=getRandomInt(1,6);
         for(let i=1; i<=count; i++)
-            something+=faker.music.genre()+" | "
+            something+=randMusicGenre ()+" | "
 
-        return something + "(made using faker API)"
+        return something + "(made using Falso API)"
     }
-
-    return (
-        <>
-        <Head>
-            <title>{user.data!=null?user.data.name:"User Does Not Exist"}</title>
-            <meta name="description" content="Artist Page - displays information about an artist" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
-        {
-        user.status==200?
-        <section className={styles.artistDetails}>
+  return (
+    <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
                 <div className={styles.artistImageContact}>
@@ -90,7 +54,7 @@ const Artist = ({user, photos}) => {
                             src={user.data.profile_image} 
                             style={imageStyle}
                             fill
-                            quality={75}
+                            quality={imageQuality}
                             alt={`${user.data.name} Profile Picture`}
                             />
                     </figure>
@@ -135,12 +99,8 @@ const Artist = ({user, photos}) => {
                 <h1 className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</h1>
                 <ImageSlider data={photos.data} type={'vertical'} from={'showCase'}/>
             </div>
-        </section>:<Error404/>
-        }
-        </>
-        
-
+        </section>
   )
 }
 
-export default Artist
+export default ArtistNameClient

@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './signInUp.module.scss'
-import {FcGoogle} from 'react-icons/fc'
-import {ImFacebook2} from 'react-icons/im'
-import {CgCloseR} from 'react-icons/cg'
+import {FcGoogle} from  '@react-icons/all-files/fc/FcGoogle'
+import {ImFacebook2} from  '@react-icons/all-files/im/ImFacebook2'
+import {CgCloseR} from  '@react-icons/all-files/cg/CgCloseR'
 const SignInUp = ({from, setShowSignIn, showSignIn}) => {
     let fromSignIn = "signIn";
     let fromSignUp = "signUp";

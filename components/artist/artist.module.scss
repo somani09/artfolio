@@ -30,7 +30,7 @@
     @include row_center_horizontally;
     position: absolute;
     height: 8%;
-    width: 70%;
+    max-width: 70%;
     bottom:50px;
     right: 0;
     background-color: #F5F5F5;
@@ -39,7 +39,12 @@
 
 .artistName{
     position: relative;
-    left:10px
+    padding:0 10px;
+    flex: 1; 
+    width:fit-content;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
