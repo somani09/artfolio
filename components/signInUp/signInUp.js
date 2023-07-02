@@ -10,7 +10,7 @@ const SignInUp = ({from, setShowSignIn, showSignIn}) => {
         <section>
             <div className={`${styles.outer} ${showSignIn==true?styles.open:styles.close} `} onClick={()=>setShowSignIn(false)}></div>
             <div className={`${styles.signForm} ${showSignIn==true?styles.open:styles.close}`}>
-                <button className={styles.closeButton} onClick={()=>setShowSignIn(false)}><CgCloseR size={30} /></button>
+                <button aria-label="Close" className={styles.closeButton} onClick={()=>setShowSignIn(false)}><CgCloseR size={30} /></button>
                 <p className={styles.greetings}>Hello there</p>
                 <div className={styles.logArea}>
                     <div className={styles.usingEmail}>
@@ -26,23 +26,23 @@ const SignInUp = ({from, setShowSignIn, showSignIn}) => {
                                 <span class={styles.input__label}>password</span>
                             </label>
                         </div>    */}
-                    <label htmlFor="inp" className={styles.inp}>
-                        <input type="email" id="inp" placeholder="&nbsp;"/>
+                    <label htmlFor="emailInp" className={styles.inp}>
+                        <input type="email" id="emailInp" placeholder="&nbsp;"/>
                         <h1 className={styles.label}>Email</h1>
                         <span className={styles.focus_bg}></span>
                     </label>
-                    <label htmlFor="inp" className={styles.inp}>
-                        <input type="pasword" id="inp" placeholder="&nbsp;"/>
+                    <label htmlFor="passwordInp" className={styles.inp}>
+                        <input type="pasword" id="passwordInp" placeholder="&nbsp;"/>
                         <h2 className={styles.label}>password</h2>
                         <span className={styles.focus_bg}></span>
                     </label>
-                    <button className={styles.submit}>{from==fromSignIn?"Sign In":"Sign Up"}</button>
+                    <button aria-label="Sign in/up" className={styles.submit}>{from==fromSignIn?"Sign In":"Sign Up"}</button>
                     </div>
                     <div className={styles.usingServices}>
                         <p className={styles.requestText}>Sign {from==fromSignIn?"in":"up"} with</p>
                         <div className={styles.services}>
-                            <button className={styles.serviceIconsWrapper}><FcGoogle className={`${styles.google} ${styles.icons}`}/> <span className={styles.serviceText}>Google</span> </button>
-                            <button className={styles.serviceIconsWrapper}><ImFacebook2 className={`${styles.facebook} ${styles.icons}`}/> <span className={styles.serviceText}>Facebook</span></button>
+                            <button aria-label="Login with Facebook" className={styles.serviceIconsWrapper}><FcGoogle className={`${styles.google} ${styles.icons}`}/> <span className={styles.serviceText}>Google</span> </button>
+                            <button aria-label="Login With Google" className={styles.serviceIconsWrapper}><ImFacebook2 className={`${styles.facebook} ${styles.icons}`}/> <span className={styles.serviceText}>Facebook</span></button>
                         </div>
                     
                     </div>

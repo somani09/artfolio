@@ -2,7 +2,7 @@ import React from 'react'
 import { filterArtistListData } from '@/utils/filterData';
 import Error404 from '@/components/errors/error404';
 import { randFirstName } from '@ngneat/falso';
-import getArtistList from '@/cache/artistList/artistListCache';
+import getArtistList from '@/cache/artistList/artistListPreCache';
 import ArtistClient from './artistClient';
 
 export const metadata = {
@@ -10,8 +10,8 @@ export const metadata = {
   description: 'Artist Page - displays all the Artists on the platform',
 }
 
-export const revalidate = 86400;
-// export const revalidate = 60000*5;
+// export const revalidate = 86400;
+export const revalidate = 60000*10;
 
 
 const numberOfArtists = 5;

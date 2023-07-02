@@ -16,9 +16,9 @@ const SideNavBar = () => {
   const pathname = usePathname()
   const isArtist = pathname.startsWith('/artists');  return (
     <header className={styles.sideNavBar}>
-      <div className={styles.navButtonArea}>
+      <button aria-label="Close" className={styles.navButtonArea}>
         {!navOpen?<AiOutlineBars  className={styles.navButton} onClick={()=>setNavOpen(true)}/>:<CgClose  className={styles.navButton} onClick={()=>setNavOpen(false)}/>}
-      </div>
+      </button>
      <nav className={`${styles.navArea} ${navOpen?styles.open:styles.close}`}>
           <Link href="/">
               <div  onClick={()=>setNavOpen(false)} className={`${styles.link} ${pathname == "/" ? styles.active : ""}`}>Home</div>
@@ -36,8 +36,8 @@ const SideNavBar = () => {
               <div onClick={()=>setNavOpen(false)} className={`${styles.link} ${pathname == "/community" ? styles.active : ""}`}>Community</div>
           </Link>
           <div className={styles.logArea}>
-            <button className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignIn);}} >Log In</button>
-            <button className={`${styles.signup}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignUp);}} >Sign Up</button>
+            <button aria-label="Log In" className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignIn);}} >Log In</button>
+            <button aria-label="Sign Up" className={`${styles.signup}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setNavOpen(false); setFrom(fromSignUp);}} >Sign Up</button>
           </div>
       </nav>
 

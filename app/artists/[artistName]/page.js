@@ -4,7 +4,7 @@ import { getData } from '@/services/getData';
 import Error404 from '@/components/errors/error404';
 import ArtistNameClient from './artistNameClient';
 import { useParams } from 'next/navigation';
-import { fetchPathList } from '@/cache/artistList/artistListCache';
+import { fetchPathList } from '@/cache/artistList/artistListPreCache';
 
 const photosPerPage = 10
 
