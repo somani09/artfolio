@@ -1,17 +1,35 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SlickCarousel from '@/components/commons/carousel/slickCarousel.js'
 import ImageSlider from '@/components/commons/imageSlider/imageSlider.js'
 import styles from './home.module.scss'
 import Errors from '@/components/errors/errors';
+import { getRandomInt } from '@/utils/getRandomInt';
 
 const HomeClient = ({artistList, topPicks, recent}) => {
+  // const [sliceStart, setSliceStart] = useState(0);
+  // useEffect(() => {
+  //   setSliceStart(getRandomInt(0,23))   
+  // }, [])
+
+  let sliceStart = getRandomInt(0,23)
+
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+      setHydrated(true);
+  }, []);
+
+  if (!hydrated) {
+      // Returns null on first render, so the client and server match
+      return null;
+  }
+  
   return (
     <div className={styles.home}>
         <section className={styles.carousel}>
         <h1 className={`${styles.artist} ${styles.sectionHeading}`}>Artists</h1>
         <div className={styles.carouselContainer}>
-            {artistList.status==200?<SlickCarousel data={artistList.data} />:<Errors />}
+            {artistList.status==200?<SlickCarousel data={artistList.data.slice(sliceStart,sliceStart+10)} />:<Errors />}
             
         </div>
         </section>

@@ -40,8 +40,8 @@ const NavBar = () => {
 
 
         <div className={styles.logArea}>
-          <button className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setFrom(fromSignIn);}} >Log In</button>
-          <button className={`${styles.signup}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setFrom(fromSignUp);}} >Sign Up</button>
+          <button aria-label="Log In" className={`${styles.signin}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setFrom(fromSignIn);}} >Log In</button>
+          <button aria-label="Sign Up" className={`${styles.signup}  ${styles.signButton}`} onClick={()=>{setShowSignIn(true); setFrom(fromSignUp);}} >Sign Up</button>
         </div>
 
       

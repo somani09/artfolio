@@ -3,7 +3,7 @@ import { getRandomInt } from '@/utils/getRandomInt'
 import { filterArtistListData, filterSliderData } from '@/utils/filterData'
 import { getData } from '@/services/getData'
 import { randFirstName } from '@ngneat/falso';
-import getArtistList from '@/cache/artistList/artistListCache'
+import getArtistList from '@/cache/artistList/artistListPreCache'
 import HomeClient from './homeClient'
 
 const numberOfImages = 5;
@@ -14,8 +14,8 @@ export const metadata = {
     description: 'Landing page / Home page for the project',
 }
 
-export const revalidate = 86400;
-// export const revalidate = 60000*1;
+// export const revalidate = 86400;
+export const revalidate = 60000*10;
 
 export default async function Home() {
     const key = process.env.API_KEY;

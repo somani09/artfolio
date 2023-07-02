@@ -15,7 +15,7 @@ const ImageBox = ({data,type,from}) => {
   }
 
   const openArtist = (link) =>{
-    console.log("click registered")
+    // console.log("click registered")
     window.open(link, "_blank")
 
   }
