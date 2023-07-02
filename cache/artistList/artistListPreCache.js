@@ -21,20 +21,23 @@ const date = new Date();
 
 export async function fetchPathList(){
   
-  if(!artistData)
-    return []
-  else{
-    return artistData.data.map(item=>{
-      const {username} = item;
-      return {artistName:username}
-    })
-  }
+  // if(!artistData)
+  //   return []
+  // else{
+  //   return artistData.data.map(item=>{
+  //     const {username} = item;
+  //     return {artistName:username}
+  //   })
+  // }
+  return artistNames.map(item=>{
+    const username = item;
+    return {artistName:username}
+  })
 }
 
 async function fetchArtistListData(cachedData) {
   let artistList =[]
-  let randomInt =  getRandomInt(0,2);
-  for(let i=randomInt; i<cachedData.length;i=i+3){
+  for(let i=0; i<cachedData.length;i++){
     artistList.push(cachedData[i]);
   }
 
@@ -52,23 +55,19 @@ async function fetchArtistListData(cachedData) {
     }
 }
 
-
 export default async function getArtistList(key, baseURL) {
-//    console.log("testingVar=",testingVar);
-//    console.log("timeStamp=",lastTimeStamp);
    testingVar++;
    if(!cachedData){
     await lock.acquire('cacheLock', async () => {
         try {
           cachedData = JSON.parse(fs.readFileSync(ARTISTLIST_CACHE_PATH, 'utf8'));
-        //   console.log(cachedData.data.data)
         } catch (error) {
           console.log("error opening file")
         }
       })    
    }
 
-  if(!artistData || isCacheExpired(lastTimeStamp) )
+  if(!artistData)
     {
         artistData = fetchArtistListData(cachedData.data.data);
         lastTimeStamp = date.getTime();
@@ -77,10 +76,3 @@ export default async function getArtistList(key, baseURL) {
   return artistData;
 }
 
-function isCacheExpired(timestamp) {
-    // const cacheDuration = 24 * 60 * 60 * 1000 - 200000; // 24 hours in milliseconds
-    const cacheDuration = 60000*10 - 50000; // 
-
-    const currentTime = date.getTime();
-    return currentTime - timestamp > cacheDuration;
-}

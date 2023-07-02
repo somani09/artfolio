@@ -1,9 +1,14 @@
 @use '/customStyles/index.module' as *;
 
+.main{
+    min-height: 100vh;
+}
+
 .home{
     @include flex_column;
     align-items: center;
     position: relative;
+    min-height: 100vh;
 }
 
 .carousel{
