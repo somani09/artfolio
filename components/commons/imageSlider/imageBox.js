@@ -33,7 +33,7 @@ const ImageBox = ({data,type,from}) => {
         />
      {from!='showCase' && 
       <div onClick={()=>openArtist(data.user.unsplash)} className={styles.artistNameContainer}>
-        <div className={styles.artistName}>{data.user.name}</div>
+        <p className={styles.artistName}>{data.user.name}</p>
       </div>}
       {from!='showCase' && 
       <div onClick={()=>openArtist(data.user.unsplash)} className={styles.box}>
