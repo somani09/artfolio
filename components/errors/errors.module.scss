@@ -11,11 +11,7 @@
     z-index: -10;
     @include row_center;
     text-align: center;
-    height: 90vh;
     width: 100%;
-
-    // background-image: url("../../public/assets/wallMayBe.jpg");
-    // background-size: cover
 }
 
 
@@ -23,9 +19,7 @@
 .errorMessage404{
     @include column_center;
     text-align: center;
-    width: 100%;
-    height: 100%;
-    // background-color: yellow;
+    width: 100vw;
 }
 
 .frame {
@@ -39,10 +33,9 @@
   border-top-color:#ddd;
   box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
   box-sizing:border-box;
-  margin:100px;
+  margin:20px;
   height:400px;
-//   padding:100px;
-    width: 400px;
+  width: 400px;
   position:relative;
   text-align:center;
   &:before {
@@ -84,4 +77,17 @@
     border-top-color:#ccb;
     max-height:100%;
     max-width:100%;
+}
+
+@media screen and (max-width: 768px){
+  .error404{
+    margin-top: 120px;
+  }
+
+}
+
+@media screen and (max-width: 335px){
+  .messageInfo{
+    font-size: $paragraphTextMd_font_mobile;
+  }
 }

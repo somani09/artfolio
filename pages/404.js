@@ -1,6 +1,8 @@
 import Error404 from '@/components/errors/error404'
 import React from 'react'
 import Head from 'next/head'
+import NavBar from '@/components/navBar/navBar'
+import SideNavBar from '@/components/navBar/sideNavBar'
 export const metadata = {
   title: '404: Page Stolen',
   description: '404 error page',

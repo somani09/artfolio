@@ -21,8 +21,8 @@ const SlickCarousel = ({data}) => {
     autoplay: true,
     autoplaySpeed: 2500,
     // lazyLoad: true,
-    nextArrow:<SlickButtonFix> <BiChevronsRight className={`${styles.rightKey} ${styles.key}`} /></SlickButtonFix>,
-    prevArrow:<SlickButtonFix><BiChevronsLeft  className={`${styles.leftKey} ${styles.key}`} /></SlickButtonFix> ,
+    // nextArrow:<SlickButtonFix> <BiChevronsRight className={`${styles.rightKey} ${styles.key}`} /></SlickButtonFix>,
+    // prevArrow:<SlickButtonFix><BiChevronsLeft  className={`${styles.leftKey} ${styles.key}`} /></SlickButtonFix> ,
     responsive: [
       {
         breakpoint: 1024,

@@ -13,7 +13,6 @@
 .sectionHeading{
     font-size: $sectionHeading_font;
     color: $sectionHeading_color;
-    // margin-bottom: 20px;
 }
 
 
@@ -27,7 +26,6 @@
 @media screen and (max-width: 1440px){
     
     .sectionHeading{
-        // font-size: $sectionsHeading_lg;
         margin-bottom: -15px;
 
     }
@@ -44,11 +42,12 @@
     .sectionHeading{
         font-size: $sectionHeading_font_mobile;
     }
+
+    .artistsCardArea{
+        margin-top: 10px;
+    }
 }
 //phone
 @media screen and (max-width: 425px){
     
-    .sectionHeading{
-        // font-size: $sectionsHeading_sm;
-    }
 }

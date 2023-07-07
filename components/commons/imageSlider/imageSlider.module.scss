@@ -24,7 +24,6 @@
         width:200px;
         height: 100px;
         background-color:rgb(255, 255, 255, 0.5);
-        // transform: rotate(-10deg);
         z-index: 10;
         opacity: 0;
         transition:.3s ease-in-out;
@@ -36,7 +35,6 @@
         flex: 1;
         align-items: center;
         position: relative;
-        // width: 90%;
         left: 50%;
         top: 50%;
         white-space: nowrap; 
@@ -46,6 +44,7 @@
         opacity: 0;
         transform: translate(-50%,-50%) ;
         transition:.3s ease-in-out;
+        color: $text_Color_darker;
 
     }
 
@@ -58,7 +57,6 @@
         z-index: 11;
         opacity: 1;
         transform: rotate(10deg);
-        // background-color: aqua;
 
         .leftBorder{
             position: absolute;

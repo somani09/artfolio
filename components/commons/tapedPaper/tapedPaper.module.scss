@@ -26,7 +26,6 @@ width: 70%;
 display: flex;
 align-items: center;
 justify-content: center;
-// font-family: "Caveat", cursive;
 font-size: 18px;
 box-shadow: $shadow-size $shadow-size 2px $paper-dark;
 
@@ -58,7 +57,6 @@ background: linear-gradient(
     position: absolute;
     top: 2px;
     left: -28px;
-    // width: 100%;    
 }
 
 .tape_section2::before{
