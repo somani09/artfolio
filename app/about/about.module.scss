@@ -9,7 +9,7 @@
 .aboutAuthor{
     @include column_center;
     width: 100%;
-
+    color: $text_Color;
 }
 
 .imageArea{
@@ -67,7 +67,7 @@
 .subSection{
     margin: 10px;
     margin-left: 30px ;
-
+    color: $text_Color_darker;
 }
 
 .subSectionHeading{
@@ -77,61 +77,38 @@
 }
 
 .point{
-    font-size: $paragraphText_font;
+    font-size: $paragraphTextLg_font;
     margin: 5px;
     margin-left: 30px ;
     color: $text_Color;
 }
 
+.thanks{
+    margin:20px;
+    
+}
+
+.thanksText{
+    text-decoration:underline;
+    text-decoration-style: dotted;
+    text-decoration-color: $active_link ;
+    color: $sectionHeading_color;
+}
+
+.stars{
+    color: $active_link;
+    font-size: $minorHeading_font;
+}
+
+.unsplash{
+    color: $active_link;
+    text-decoration:underline;
+    text-decoration-style: dotted;
+    text-decoration-color: $sectionHeading_color ;
+}
+
 
 @media screen and (max-width: 1440px){
-    .aboutPage{
-
-    }
-    
-    .aboutAuthor{
-    
-    }
-    
-    .authorImage{
-    
-    }
-    
-    .authorInfo{
-    
-    }
-    
-    .authorName{
-    
-    }
-    
-    .websiteInfo{
-    
-    }
-    
-    .aboutWebsiteHeading{
-    
-    }
-    
-    .sectionArea{
-    
-    }
-    
-    .sectionHeading{
-    
-    }
-    
-    .subSection{
-    
-    }
-    
-    .subSectionHeading{
-    
-    }
-    
-    .point{
-    
-    }
     
 }
 
@@ -139,34 +116,16 @@
 @media screen and (max-width: 768px){
     .aboutPage{
         margin-top: 100px;
-        padding: 5px;
-        
+        padding: 5px;   
     }
 
     .imageArea{
         width:100%;
     }
     
-    .aboutAuthor{
-    
-    }
-    
-    .authorImage{
-    
-    }
-    
     .authorInfo{
         width: 90%;
         // text-align: left;
-
-    }
-    
-    .authorName{
-    
-    }
-    
-    .websiteInfo{
-    
     }
     
     .aboutWebsiteHeading{
@@ -192,59 +151,12 @@
     }
     
     .point{
-        font-size: $paragraphText_font_mobile;
+        font-size: $paragraphTextLg_font_mobile;
     }
     
 }
 
 //phone
 @media screen and (max-width: 425px){
-    .aboutPage{
-        
-    }
-    
-    .aboutAuthor{
-    
-    }
-    
-    .authorImage{
-    
-    }
-    
-    .authorInfo{
-    
-    }
-    
-    .authorName{
-    
-    }
-    
-    .websiteInfo{
-    
-    }
-    
-    .aboutWebsiteHeading{
-    
-    }
-    
-    .sectionArea{
-    
-    }
-    
-    .sectionHeading{
-    
-    }
-    
-    .subSection{
-    
-    }
-    
-    .subSectionHeading{
-    
-    }
-    
-    .point{
-    
-    }
-    
+       
 }

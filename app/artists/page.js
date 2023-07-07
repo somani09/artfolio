@@ -11,7 +11,7 @@ export const metadata = {
 }
 
 // export const revalidate = 86400;
-export const revalidate = 60000*10;
+export const revalidate = 3600 * 4;
 
 
 const numberOfArtists = 5;

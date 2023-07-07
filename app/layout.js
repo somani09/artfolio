@@ -9,6 +9,7 @@ import backgroundImage from '../public/assets/wallMayBe.jpg'
 export const metadata = {
     title: 'Gallery by Vaibhav Somani',
     description: 'The website is for self learning purpose. I\'m learning Next.js',
+    colorScheme: 'light only'
   }
 
 

@@ -36,10 +36,6 @@
     object-fit:cover;
 }
 
-.jtcImage{ 
-   
-}
-
 .uta{
     @include flex_row;
     justify-content: space-between;
@@ -55,22 +51,12 @@
 }
 
 .infoText{
-    font-size: $paragraphText_font;
+    font-size: $paragraphTextLg_font;
     font-weight: 400;
 }
 
-.utaImage{ 
-
-}
-
 @media screen and (max-width: 1440px){
-    .infoHeader{
-        // font-size: $sectionsHeading_lg;
-    }
-    
-    .infoText{
-        // font-size: $paraText_lg;
-    }
+
 }
 
 @media screen and (max-width: 768px){
@@ -83,14 +69,16 @@
         width: 100%;
     }
     .info{
-        width: 70%;
+        width: 90%;
+        padding: 0;
     }
     .infoHeader{
-        font-size: $font_xlg;
+        font-size: $sectionHeading_font_mobile;
     }
     
     .infoText{
-        font-size: $font_md2;
+        font-size: $paragraphTextLg_font_mobile;
+        color: $text_Color;
     }
     .jtcText{
         order: 2;
@@ -121,14 +109,7 @@
 }
 
 @media screen and (max-width: 425px){
-    .infoHeader{
-        font-size: $font_md2;
-    }
-    
-    .infoText{
-        font-size: $font_md1;
-    }
     .info{
-        width: 90%;
+        width: 100%;
     }
 }

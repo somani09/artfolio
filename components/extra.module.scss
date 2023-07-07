@@ -1,6 +1,9 @@
+@use '../customStyles/index.module' as *;
+
 .footer{
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px;
+    color: $text_Color;
 }

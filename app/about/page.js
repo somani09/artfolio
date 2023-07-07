@@ -36,6 +36,11 @@ const About = () => {
               <a href="https://somani09.github.io/portfolio/" target='_blank' className={styles.portfolio}>somani09.github.io/portfolio/</a>
             </p>
           </section>
+          <div className={styles.thanks}>
+            <span className={styles.stars}>**</span>
+            <span className={styles.thanksText}>Big thanks to <a className={styles.unsplash} href='https://unsplash.com/' target='_blank'>Unsplash</a> for exposing APIS to developers. All the images when clicked takes you to that image on the <a className={styles.unsplash} href='https://unsplash.com/' target='_blank'>Unsplash Website.</a></span>
+            <span className={styles.stars}>**</span>
+          </div>
           <section className={styles.websiteInfo}>
            <h1 className={styles.aboutWebsiteHeading}>About the Website</h1> 
             {aboutPageData.map(sectionData=>(

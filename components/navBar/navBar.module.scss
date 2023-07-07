@@ -16,7 +16,6 @@
 .logo{
     display: flex;
     justify-content: flex-start;
-    // font-family:  'MedievalSharp', cursive;
     font-size: $font_logo;
     font-weight: 800;
     opacity: 70%;
@@ -24,10 +23,6 @@
 
 }
 .logoText{
-    // background: #aa4b6b;  /* fallback for old browsers */
-    // background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  /* Chrome 10-25, Safari 5.1-6 */
-    // background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
-
     background: #b92b27;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -69,15 +64,14 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    color: $text_Color;
 }
 
 .signButton:after {
   content: "";
   @include logoBackground;
   opacity: 0.4;
-//   background-color: #ffe54c;
-border-radius: 2px;
-
+  border-radius: 2px;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -113,6 +107,7 @@ border-radius: 2px;
     cursor: pointer;
     font-size: $font_link;
     font-weight: 400;
+    color: $text_Color;
 
 }
 
@@ -126,14 +121,7 @@ border-radius: 2px;
 }
 
 @media screen and (max-width: 1440px){
-    .navbarContainer{
-        .logo{
-        //   font-size: $font_logo_lg;
-        }
-        .link{
-            // font-size: $font_link_lg;
-        }
-    }
+
 }
 
 
@@ -163,6 +151,7 @@ border-radius: 2px;
         z-index: 100;
 
         .navButton{
+            color: black;
             height: 30px;
             width: 30px;
         }
@@ -252,15 +241,5 @@ border-radius: 2px;
 
 
 @media screen and (max-width: 425px){
-    .sideNavBar{
-        .logo{
-        // font-size: $font_logo_sm;
 
-        }
-        .navArea{
-            .link{
-            // font-size: $font_link_sm;  
-            }
-        }
-    }
 }

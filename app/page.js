@@ -6,16 +6,16 @@ import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListPreCache'
 import HomeClient from './homeClient'
 
-const numberOfImages = 5;
-const numberOfArtists = 5;
+const numberOfImages = 10;
 
 export const metadata = {
     title: 'Home page',
     description: 'Landing page / Home page for the project',
+    colorScheme: 'light only'
 }
 
 // export const revalidate = 86400;
-export const revalidate = 60000*10;
+export const revalidate = 3600 * 4;
 
 export default async function Home() {
     const key = process.env.API_KEY;

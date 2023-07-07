@@ -3,7 +3,8 @@ $active_link:#aa4b6b;
 $sectionHeading_color:#005C97;
 $sectionSubHeading_Color: red;
 $sectionSuperHeading_Color: purple;
-$text_Color: rgb(73, 73, 73);
+$text_Color: rgb(59, 59, 59);
+$text_Color_darker: black;
 
 @mixin logoBackground{
     background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
