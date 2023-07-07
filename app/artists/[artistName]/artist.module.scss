@@ -76,15 +76,23 @@
 
 .detailsInfo{
     margin: 5px;
-    font-size: $font_md1;
+    font-size: $paragraphText_font;
 }
 
 .detailsHeading{
-    font-size: $font_md2;
+    font-size: $minorHeading_font;
+    color: $active_link;
+}
+
+.artistName{
+    font-size: $sectionHeading_font;
+    border-bottom: grey dashed 3px;
+    color: $sectionHeading_color;
 }
 
 .showCase{
-
+    font-size: $sectionHeading_font;
+    color: $sectionHeading_color
 }
 
 .imagesArea{
