@@ -1,0 +1,250 @@
+@use '../../customStyles/index.module' as *;
+
+.aboutPage{
+    @include column_center;
+    width: 100%;
+    padding: 50px;
+}
+
+.aboutAuthor{
+    @include column_center;
+    width: 100%;
+
+}
+
+.imageArea{
+    width:40%;
+    @include row_center;
+}
+
+.authorImage{
+    position: relative;
+    width:200px;
+    // aspect-ratio: $aspect_ratio_artist_card;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.authorInfo{
+    width: 60%;
+}
+
+.authorName{
+    font-weight: bolder;
+    color: $active_link;
+
+}
+
+.portfolio{
+    font-weight: bolder;
+    color: $sectionHeading_color;
+
+}
+
+.websiteInfo{
+    @include column_center_horizontally;
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+.aboutWebsiteHeading{
+    font-size: $sectionSuperHeading_font;
+    color:$active_link;
+}
+
+.sectionArea{
+    margin: 20px;
+    margin-left: 30px ;
+
+}
+
+.sectionHeading{
+    font-size: $sectionHeading_font;
+    color: $sectionHeading_color;
+}
+
+.subSection{
+    margin: 10px;
+    margin-left: 30px ;
+
+}
+
+.subSectionHeading{
+    font-size: $sectionSubHeading_font;
+    // font-weight: bolder;
+
+}
+
+.point{
+    font-size: $paragraphText_font;
+    margin: 5px;
+    margin-left: 30px ;
+    color: $text_Color;
+}
+
+
+@media screen and (max-width: 1440px){
+    .aboutPage{
+
+    }
+    
+    .aboutAuthor{
+    
+    }
+    
+    .authorImage{
+    
+    }
+    
+    .authorInfo{
+    
+    }
+    
+    .authorName{
+    
+    }
+    
+    .websiteInfo{
+    
+    }
+    
+    .aboutWebsiteHeading{
+    
+    }
+    
+    .sectionArea{
+    
+    }
+    
+    .sectionHeading{
+    
+    }
+    
+    .subSection{
+    
+    }
+    
+    .subSectionHeading{
+    
+    }
+    
+    .point{
+    
+    }
+    
+}
+
+
+@media screen and (max-width: 768px){
+    .aboutPage{
+        margin-top: 100px;
+        padding: 5px;
+        
+    }
+
+    .imageArea{
+        width:100%;
+    }
+    
+    .aboutAuthor{
+    
+    }
+    
+    .authorImage{
+    
+    }
+    
+    .authorInfo{
+        width: 90%;
+        // text-align: left;
+
+    }
+    
+    .authorName{
+    
+    }
+    
+    .websiteInfo{
+    
+    }
+    
+    .aboutWebsiteHeading{
+        font-size: $sectionSuperHeading_font_mobile;
+    }
+    
+    .sectionArea{
+        margin: 10px;
+        margin-left: 10px ;
+    }
+    
+    .sectionHeading{
+        font-size: $sectionHeading_font_mobile;
+    }
+    
+    .subSection{
+        margin: 5px;
+        margin-left: 10px ;
+    }
+    
+    .subSectionHeading{
+        font-size: $sectionSubHeading_font_mobile;
+    }
+    
+    .point{
+        font-size: $paragraphText_font_mobile;
+    }
+    
+}
+
+//phone
+@media screen and (max-width: 425px){
+    .aboutPage{
+        
+    }
+    
+    .aboutAuthor{
+    
+    }
+    
+    .authorImage{
+    
+    }
+    
+    .authorInfo{
+    
+    }
+    
+    .authorName{
+    
+    }
+    
+    .websiteInfo{
+    
+    }
+    
+    .aboutWebsiteHeading{
+    
+    }
+    
+    .sectionArea{
+    
+    }
+    
+    .sectionHeading{
+    
+    }
+    
+    .subSection{
+    
+    }
+    
+    .subSectionHeading{
+    
+    }
+    
+    .point{
+    
+    }
+    
+}

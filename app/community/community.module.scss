@@ -49,13 +49,13 @@
 
 
 .infoHeader{
-    font-size: $sectionsHeading_xlg;
+    font-size: $sectionHeading_font;
     color:$sectionHeading_color;
     margin: 10px;
 }
 
 .infoText{
-    font-size: $paraText_xlg;
+    font-size: $paragraphText_font;
     font-weight: 400;
 }
 
@@ -65,11 +65,11 @@
 
 @media screen and (max-width: 1440px){
     .infoHeader{
-        font-size: $sectionsHeading_lg;
+        // font-size: $sectionsHeading_lg;
     }
     
     .infoText{
-        font-size: $paraText_lg;
+        // font-size: $paraText_lg;
     }
 }
 

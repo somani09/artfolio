@@ -17,7 +17,7 @@
     display: flex;
     justify-content: flex-start;
     // font-family:  'MedievalSharp', cursive;
-    font-size: $font_logo_xlg;
+    font-size: $font_logo;
     font-weight: 800;
     opacity: 70%;
     width: 25%;
@@ -111,7 +111,7 @@ border-radius: 2px;
 
 .link{
     cursor: pointer;
-    font-size: $font_link_xlg;
+    font-size: $font_link;
     font-weight: 400;
 
 }
@@ -128,10 +128,10 @@ border-radius: 2px;
 @media screen and (max-width: 1440px){
     .navbarContainer{
         .logo{
-          font-size: $font_logo_lg;
+        //   font-size: $font_logo_lg;
         }
         .link{
-            font-size: $font_link_lg;
+            // font-size: $font_link_lg;
         }
     }
 }
@@ -148,7 +148,7 @@ border-radius: 2px;
         display: flex;
     }
     .logo{
-        font-size: $font_logo_md;
+        font-size: $font_logo_mobile;
         position: absolute;
         top: 20px;
         left: 50%;
@@ -178,7 +178,6 @@ border-radius: 2px;
         position: fixed;
         top:0;
         left:0;
-        z-index: 95;
         height: 100vh;
         width: 50%;
         transition: 500ms;
@@ -186,19 +185,21 @@ border-radius: 2px;
     }
     .link{
         margin: 20px 0;
-        font-size: $font_link_md;
+        font-size: $font_link_mobile;
     }
 
     .open{
         opacity: 1;
         transition: 1000ms;
         border-radius: 10px;
+        z-index: 95;
     }
     .close{
         transform: translateX(-50%) ;
         transition: 1000ms;
         opacity: 0.0;
         border-radius: 80%;
+        z-index: -95;
 
     }
 
@@ -206,7 +207,6 @@ border-radius: 2px;
         position: fixed;
         top:0;
         left:0;
-        z-index: 90;
         height: 100vh;
         width: 100vw;
         background-color: rgba(255, 255, 255, 0.7);
@@ -218,6 +218,7 @@ border-radius: 2px;
         filter: blur(0px);
         -webkit-filter: blur(0px);
         border-radius: 10px;
+        z-index: 90;
 
     }
     .navAreaBackClose{
@@ -227,6 +228,7 @@ border-radius: 2px;
         filter: blur(50px);
         -webkit-filter: blur(50px);
         border-radius: 80%;
+        z-index: -100;
 
     }
 
@@ -252,12 +254,12 @@ border-radius: 2px;
 @media screen and (max-width: 425px){
     .sideNavBar{
         .logo{
-        font-size: $font_logo_sm;
+        // font-size: $font_logo_sm;
 
         }
         .navArea{
             .link{
-            font-size: $font_link_sm;  
+            // font-size: $font_link_sm;  
             }
         }
     }

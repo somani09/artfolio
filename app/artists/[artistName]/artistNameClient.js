@@ -62,8 +62,9 @@ const ArtistNameClient = ({user, photos}) => {
                 </div>
                 <div className={styles.detailsContact}>
                     <div className={styles.details}>
-                        <p className={styles.detailsInfo}>
-                            <span className={styles.detailsHeading}>Name : </span>{user.data.name}
+                        <p className={`${styles.detailsInfo} ${styles.artistName}`} >
+                            {/* <span className={styles.detailsHeading}>Name : </span> */}
+                            {user.data.name}
                         </p>
                         <p className={styles.detailsInfo}>
                             <span className={styles.detailsHeading}>About : </span>{user.data.bio||getFakeBio()}</p>

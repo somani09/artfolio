@@ -23,7 +23,7 @@ const SlickCard = ({data}) => {
         />
       </Link>
       <div className={styles.artistNameArea}>
-        <div className={styles.artistName} >{data.name}</div>  
+        <p className={styles.artistName} >{data.name}</p>  
       </div>  
     </figure>
   )

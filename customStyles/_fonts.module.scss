@@ -11,25 +11,44 @@ $font_xxhg: 89px;
 
 
 //logo
-$font_logo_xlg : 55px;
-$font_logo_lg : 50px;
-$font_logo_md: 55px;
-$font_logo_sm: 55px;
+$font_logo : 55px;
+// $font_logo_lg : 50px;
+$font_logo_mobile: 55px;
+// $font_logo_sm: 55px;
 
 
-$font_link_xlg:$font_md2;
-$font_link_lg:20px;
-$font_link_md:$font_lg;
-$font_link_sm:$font_md2;
+$font_link:21px;
+// $font_link_lg:20px;
+$font_link_mobile:28px;
+// $font_link_sm:$font_md2;
 
 
-$sectionsHeading_xxlg:$font_xlg;
-$sectionsHeading_xlg:$font_xlg;
-$sectionsHeading_lg:$font_lg;
-$sectionsHeading_md:$font_lg;
-$sectionsHeading_sm:$font_lg;
+// $sectionsHeading_xxlg:$font_xlg;
+// $sectionsHeading_xlg:$font_xlg;
+// $sectionsHeading_lg:$font_lg;
+// $sectionsHeading_md:$font_lg;
+// $sectionsHeading_sm:$font_lg;
 
-$paraText_xlg:$font_md2;
-$paraText_lg:$font_md1;
-$paraText_md:$font_sm;
-$paraText_sm:$font_sm;
+// $paraText_xlg:$font_md2;
+// $paraText_lg:$font_md1;
+// $paraText_md:$font_sm;
+// $paraText_sm:$font_sm;
+
+$pageHeading_font: 67px;
+$sectionSuperHeading_font: 50px;
+$sectionHeading_font:37px ;
+$sectionSubHeading_font: 28px;
+$minorHeading_font:21px;
+$paragraphText_font: 16px;
+
+$pageHeading_font_mobile: 50px;
+$sectionSuperHeading_font_mobile: 37px;
+$sectionHeading_font_mobile: 28px;
+$sectionSubHeading_font_mobile:21px ;
+$minorHeadings_font_mobile:16px;
+$paragraphText_font_mobile: 12px;
+
+@media screen and (max-width: 768px){
+
+}
+
