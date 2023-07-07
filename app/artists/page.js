@@ -4,10 +4,26 @@ import Error404 from '@/components/errors/error404';
 import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListPreCache';
 import ArtistClient from './artistClient';
+const imageUrl = "/assets/previewImage.png"
 
 export const metadata = {
   title: 'Artists',
-  description: 'Artist Page - displays all the Artists on the platform',
+  description: 'Step into the world of artistic brilliance at the Gallery\'s Artist Page: Unveil the extraordinary works of talented artists who inspire and captivate.',
+  openGraph: {
+    type:'website',
+    url:'https://gallery-eight-kappa.vercel.app/',
+    title: 'Artists',
+    description: 'Step into the world of artistic brilliance at the Gallery\'s Artist Page: Unveil the extraordinary works of talented artists who inspire and captivate.',
+    images:[{
+      url: imageUrl,
+    }] ,
+    siteName:'Gallery by Somani'
+  },
+  twitter: {
+    title: 'Artists',
+    description: 'Step into the world of artistic brilliance at the Gallery\'s Artist Page: Unveil the extraordinary works of talented artists who inspire and captivate.',
+    images: [imageUrl]
+  }
 }
 
 // export const revalidate = 86400;
@@ -23,7 +39,7 @@ const Artists = async () => {
   const randomName = randFirstName();
   const artistListURL = `${baseURL}/search/users?per_page=${numberOfArtists}&query=${randomName}&client_id=${key}`;
 
-  const artistList = await getArtistList(artistListURL,filterArtistListData)
+  const artistList = await getArtistList()
 
   return (
     <>

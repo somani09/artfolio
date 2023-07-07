@@ -95,5 +95,57 @@ export const aboutPageData = [
                 ]
             }
         ]
+    },
+    {   
+        id:2,
+        sectionHeading: "Future Development:",
+        subSection :[
+            {
+                id:1,
+                subHeading:"Implementing a backend system:",
+                points:[
+                    {                
+                        id:1,
+                        point:"Login integration with Google and Meta: This feature will enable users to create accounts on the website, unlocking a range of interactive functionalities. Users can engage with artwork by liking, sharing, and commenting, fostering a vibrant community. Additionally, it facilitates communication among artists, encouraging idea-sharing and collaboration.",
+                    },
+                    {                 
+                        id:2,
+                        point:  "A database system that will enable the storage of user information and their interactions with the site. This backend will also provide a secure platform for artists to upload and showcase their images.",
+                    },              
+                ]
+            },
+            {
+                id:2,
+                subHeading:"Expanding the Community Page for Enhanced User Engagement and Collaboration:",
+                points: [
+                    {   
+                        id:1,          
+                        point:"User Engagement: Expand the community page to facilitate interaction and feedback among artists and photographers.",
+                    },
+                    {   
+                        id:2,              
+                        point:  "Collaboration Focus: Foster collaboration and idea-sharing within the artistic community.",
+                    },
+                    {   
+                        id:3,              
+                        point:  "Empowering Artists: The community page offers a supportive environment for artists and photographers to showcase their work, gain recognition, and utilize the platform as a personal portfolio.",
+                    },                
+                ]
+            },
+            {
+                id:2,
+                subHeading:"Enhancing Performance: Leveraging Redis and Redux:",
+                points: [
+                    {   
+                        id:1,          
+                        point:"Tntegrate Redis caching to optimize performance by storing frequently accessed data, reducing database queries, and improving response times.",
+                    },
+                    {   
+                        id:2,              
+                        point:  "Implement Redux to streamline state management, ensuring efficient data flow and enhancing overall performance and scalability of the application.",
+                    },              
+                ]
+            }
+        ]
     }
 ]

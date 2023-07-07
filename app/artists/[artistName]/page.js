@@ -5,13 +5,30 @@ import Error404 from '@/components/errors/error404';
 import ArtistNameClient from './artistNameClient';
 import { useParams } from 'next/navigation';
 import { fetchPathList } from '@/cache/artistList/artistListPreCache';
+const imageUrl = "/assets/previewImage.png"
 
 const photosPerPage = 10
 
 export const metadata = {
     title:"Artists",
-    description: "Artist Page - displays information about an artist"
-}
+    description: "Step into the world of artistic brilliance at the Gallery's Artist Page: Unveil the extraordinary works of talented artists who inspire and captivate.",
+    openGraph: {
+      type:'website',
+      url:'https://gallery-eight-kappa.vercel.app/',
+       title:"Artists",
+      description: "Step into the world of artistic brilliance at the Gallery's Artist Page: Unveil the extraordinary works of talented artists who inspire and captivate.",
+      images:[{
+        url: imageUrl,
+      }] ,
+      siteName:'Gallery by Somani'
+    },
+    twitter: {
+       title:"Artists",
+      description: "Step into the world of artistic brilliance at the Gallery's Artist Page: Unveil the extraordinary works of talented artists who inspire and captivate.",
+      images: [imageUrl]
+    }
+
+  }
 
 export const dynamicParams = true;
 export async function generateStaticParams() {

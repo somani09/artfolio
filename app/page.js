@@ -5,13 +5,27 @@ import { getData } from '@/services/getData'
 import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListPreCache'
 import HomeClient from './homeClient'
-
 const numberOfImages = 10;
-
+const imageUrl = "/assets/previewImage.png"
 export const metadata = {
     title: 'Home page',
-    description: 'Landing page / Home page for the project',
-    colorScheme: 'light only'
+    description: 'Embark on an artistic odyssey at the Gallery: Where visionaries and enthusiasts converge, celebrating the boundless beauty of creativity',
+    colorScheme: 'light only',
+    openGraph: {
+      type:'website',
+      url:'https://gallery-eight-kappa.vercel.app/',
+      title: 'Home page',
+      description:'Embark on an artistic odyssey at the Gallery: Where visionaries and enthusiasts converge, celebrating the boundless beauty of creativity',
+      images:[{
+        url: imageUrl,
+      }] ,
+      siteName:'Gallery by Somani'
+    },
+    twitter: {
+      title: 'Home page',
+      description:'Embark on an artistic odyssey at the Gallery: Where visionaries and enthusiasts converge, celebrating the boundless beauty of creativity',
+      images: [imageUrl]
+    }
 }
 
 // export const revalidate = 86400;
@@ -27,7 +41,7 @@ export default async function Home() {
     const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
     const recent = await getData(recentURL, filterSliderData);
     
-    const artistsListFromCache = await getArtistList(key,baseURL)
+    const artistsListFromCache = await getArtistList()
     const artistList =artistsListFromCache;
 
   return (
