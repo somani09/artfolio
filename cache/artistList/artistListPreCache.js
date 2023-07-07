@@ -55,7 +55,7 @@ async function fetchArtistListData(cachedData) {
     }
 }
 
-export default async function getArtistList(key, baseURL) {
+export default async function getArtistList() {
    testingVar++;
    if(!cachedData){
     await lock.acquire('cacheLock', async () => {

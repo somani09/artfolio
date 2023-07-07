@@ -172,11 +172,12 @@ button, input[type="submit"], input[type="reset"] {
 
 .background{
   position: fixed;
-  top: -50px;
+  // top: -50px;
   width: 100vw;
   height: calc(100vh + 50px) ;
   // background-image: url("../public/assets/wallMayBe.jpg");
-  background-size: cover;
+  background-size:cover;
+  // background-position: center;
   opacity: 0.3;
   z-index: -20;
 }

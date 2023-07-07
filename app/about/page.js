@@ -3,11 +3,26 @@ import styles from './about.module.scss'
 import { aboutPageData } from '@/data/aboutPageData'
 import authorImage from '../../assets/author.jpg'
 import Image from 'next/image'
-
+const imageUrl = "/assets/previewImage.png"
 
 export const metadata = {
   title: 'About the Website',
-  description: 'Information about the site and the creator of the site.',
+  description: "Unveiling the Gallery: Delve into the vision of the website's developer, and explore the innovative features that empower artists and photographers to showcase their work.",
+  openGraph: {
+    type:'website',
+    url:'https://gallery-eight-kappa.vercel.app/',
+    title: 'About the Website',
+    description: "Unveiling the Gallery: Delve into the vision of the website's developer, and explore the innovative features that empower artists and photographers to showcase their work.",
+    images:[{
+      url: imageUrl,
+    }] ,
+    siteName:'Gallery by Somani'
+  },
+  twitter: {
+    title: 'About the Website',
+    description: "Unveiling the Gallery: Delve into the vision of the website's developer, and explore the innovative features that empower artists and photographers to showcase their work.",
+    images: [imageUrl]
+  }
 }
 
 const About = () => {
