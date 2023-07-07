@@ -55,7 +55,7 @@ export const aboutPageData = [
         ]
     },
     {   
-        id:1,
+        id:2,
         sectionHeading: "Challenges faced during Development:",
         subSection :[
             {

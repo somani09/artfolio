@@ -42,11 +42,11 @@ const About = () => {
               <div className={styles.sectionArea} key={sectionData.id}>
                 <h2 className={styles.sectionHeading}>{sectionData.sectionHeading}</h2>
                   {sectionData.subSection.map(subSectionData=>(
-                    <div className={styles.subSection}>
+                    <div key={subSectionData.id} className={styles.subSection}>
                     <h3 className={styles.subSectionHeading}>=&#62;{subSectionData.subHeading}</h3>
                     {
                       subSectionData.points.map(point=>(
-                        <p className={styles.point}>
+                        <p key={point.id} className={styles.point}>
                         - {point.point}
                         </p>
                       ))
