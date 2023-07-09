@@ -70,6 +70,7 @@
 .detailsContact{
     @include column_center;
     width: 55%;
+    color: $text_Color;
 }
 
 .detailsInfo{
