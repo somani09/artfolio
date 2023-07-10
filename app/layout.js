@@ -5,7 +5,8 @@ import { Inter } from '@next/font/google'
 import Footer from '@/components/footer'
 import NavBar from '@/components/navBar/navBar'
 import SideNavBar from '@/components/navBar/sideNavBar'
-import backgroundImage from '../public/assets/wallMayBe.jpg'
+import backgroundImageMobile from '../public/assets/background4.2.jpg'
+import backgroundImageDesktop from '../public/assets/background4.jpg'
 export const metadata = {
     title: 'Gallery by Vaibhav Somani',
     description: 'The website is for self learning purpose. I\'m learning Next.js',
@@ -20,7 +21,8 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body >
-                <div style={{backgroundImage: `url(${backgroundImage.src})`}} className="background"></div>
+                <div style={{backgroundImage: `url(${backgroundImageMobile.src})`}} className="backgroundMobile"></div>
+                <div style={{backgroundImage: `url(${backgroundImageDesktop.src})`}} className="backgroundDesktop"></div>
                 <NavBar />
                 <SideNavBar />
                 <div className='w100'>
