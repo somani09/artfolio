@@ -3,6 +3,10 @@ import styles from './imageSlider.module.scss'
 import Image from 'next/image'
 import { unsplashLoader } from '@/utils/unsplashLoader';
 import { imageQuality } from '@/utils/customVariables';
+
+const imageUrl = "/assets/loading.jpg"
+
+
 const ImageBox = ({data,type,from}) => {
   const imageStyle = {
     borderRadius: '10px',
@@ -30,6 +34,8 @@ const ImageBox = ({data,type,from}) => {
           style={imageStyle}
           quality={imageQuality}
           alt={data.description || data.alt_description}
+          placeholder="blur"
+          blurDataURL={imageUrl}
         />
      {from!='showCase' && 
       <div onClick={()=>openArtist(data.user.unsplash)} className={styles.artistNameContainer}>

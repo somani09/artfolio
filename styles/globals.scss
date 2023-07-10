@@ -170,7 +170,7 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
-.background{
+.backgroundDesktop{
   position: fixed;
   // top: -50px;
   width: 100vw;
@@ -180,4 +180,49 @@ button, input[type="submit"], input[type="reset"] {
   // background-position: center;
   opacity: 0.3;
   z-index: -20;
+  display:flex;
+
+}
+
+.backgroundMobile{
+  position: fixed;
+  // top: -50px;
+  width: 100vw;
+  height: calc(100vh + 50px) ;
+  // background-image: url("../public/assets/wallMayBe.jpg");
+  background-size:cover;
+  // background-position: center;
+  opacity: 0.3;
+  z-index: -20;
+  display:none;
+}
+
+//phone
+@media screen and (max-width: 425px){
+  .backgroundDesktop{
+    position: fixed;
+    // top: -50px;
+    width: 100vw;
+    height: calc(100vh + 50px) ;
+    // background-image: url("../public/assets/wallMayBe.jpg");
+    background-size:cover;
+    // background-position: center;
+    opacity: 0.3;
+    z-index: -20;
+    display:none;
+
+  }
+
+  .backgroundMobile{
+    position: fixed;
+    // top: -50px;
+    width: 100vw;
+    height: calc(100vh + 50px) ;
+    // background-image: url("../public/assets/wallMayBe.jpg");
+    background-size:cover;
+    // background-position: center;
+    opacity: 0.3;
+    z-index: -20;
+    display:flex;
+  }
 }
