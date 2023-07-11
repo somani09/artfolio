@@ -43,7 +43,7 @@ const Artists = async () => {
 
   return (
     <>
-      {artistList.status==200?<ArtistClient artistList={artistList} />
+      {artistList.status!=null && artistList.status==200?<ArtistClient artistList={artistList} />
      :<Error404 />}
     </>
     

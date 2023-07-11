@@ -29,17 +29,17 @@ const HomeClient = ({artistList, topPicks, recent}) => {
         <section className={styles.carousel}>
         <h1 className={`${styles.artist} ${styles.sectionHeading}`}>Artists</h1>
         <div className={styles.carouselContainer}>
-            {artistList.status==200?<SlickCarousel data={artistList.data.slice(sliceStart,sliceStart+10)} />:<Errors />}
+            {artistList.status!=null && artistList.status==200?<SlickCarousel data={artistList.data.slice(sliceStart,sliceStart+10)} />:<Errors />}
             
         </div>
         </section>
         <section className={styles.topPicks}>
         <h1 className={styles.sectionHeading}>Top Picks</h1>
-        {topPicks.status==200?<ImageSlider data={topPicks.data} /> :<Errors />}
+        {topPicks.status!=null && topPicks.status==200?<ImageSlider data={topPicks.data} /> :<Errors />}
         </section>
         <section className={styles.recent}>
         <h1 className={styles.sectionHeading}>Recent Uploads</h1>
-        {recent.status==200?<ImageSlider data={recent.data} />  :<Errors />}
+        {recent.status!=null && recent.status==200?<ImageSlider data={recent.data} />  :<Errors />}
         </section>
     </div>
   )
