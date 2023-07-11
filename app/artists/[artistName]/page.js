@@ -48,7 +48,7 @@ const Artist = async (context) => {
     return (
         <>
         {
-        user.status==200?
+         user.status!=null && user.status==200?
         <ArtistNameClient user={user} photos={photos} />:<Error404/>
         }
         </>
