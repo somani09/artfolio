@@ -17,7 +17,7 @@ import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
 
 const ArtistNameClient = ({user, photos, params}) => {
 
-    const [hydrated, setHydrated] = useState(false);
+    const [hydrated, setHydrated] = useState(user.data==null||user.data==undefined ? true:false);
     const [errorLoadingAPI, setErrorLoadingAPI] = useState(false);
     let userData=user;
     let photosData = photos;
@@ -42,11 +42,8 @@ const ArtistNameClient = ({user, photos, params}) => {
                     photosData.data==null)
                         setErrorLoadingAPI(true);
             }
-
         }
-        
         setHydrated(true);
-
     }, []);
     if (!hydrated) {
         // Returns null on first render, so the client and server match
@@ -73,7 +70,7 @@ const ArtistNameClient = ({user, photos, params}) => {
         return something + "(made using Falso API)"
     }
   return (
-    errorLoadingAPI? <ErrorOutOfCalls /> :
+    errorLoadingAPI||userData.data==null||photosData.data==null? <ErrorOutOfCalls /> :
     <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
