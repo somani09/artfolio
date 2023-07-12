@@ -73,7 +73,7 @@ const ArtistNameClient = ({user, photos, params}) => {
         return something + "(made using Falso API)"
     }
   return (
-    errorLoadingAPI? <ErrorOutOfCalls /> :
+    errorLoadingAPI||userData.data==null||photosData.data==null? <ErrorOutOfCalls /> :
     <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
