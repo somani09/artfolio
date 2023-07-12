@@ -1,6 +1,6 @@
 import React from 'react'
 import CommunityClient from './communityClient'
-const imageUrl = "/assets/previewImage.png"
+const imageUrl = "/assets/previewImage.jpg"
 
 export const metadata = {
   title: 'Community',

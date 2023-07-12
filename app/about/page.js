@@ -3,7 +3,7 @@ import styles from './about.module.scss'
 import { aboutPageData } from '@/data/aboutPageData'
 import authorImage from '../../assets/author.jpg'
 import Image from 'next/image'
-const imageUrl = "/assets/previewImage.png"
+const imageUrl = "/assets/previewImage.jpg"
 
 export const metadata = {
   title: 'About the Website',

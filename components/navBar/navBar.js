@@ -16,7 +16,7 @@ const NavBar = () => {
     <header className={styles.navbarContainer}>
 
         <div className={styles.logo}>
-          <h1 className={styles.logoText}>Gallery</h1> 
+          <h1 className={styles.logoText}>Artfolio</h1> 
         </div>  
 
         <nav className={styles.pageLinks}>

@@ -4,7 +4,8 @@ import Error404 from '@/components/errors/error404';
 import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListPreCache';
 import ArtistClient from './artistClient';
-const imageUrl = "/assets/previewImage.png"
+import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
+const imageUrl = "/assets/previewImage.jpg"
 
 export const metadata = {
   title: 'Artists',
@@ -43,8 +44,12 @@ const Artists = async () => {
 
   return (
     <>
-      {artistList.status!=null && artistList.status==200?<ArtistClient artistList={artistList} />
-     :<Error404 />}
+      {
+        artistList!=null && artistList.status==404?<Error404 context={"List"}/>
+        :artistList!=null && artistList.status==500?<ErrorOutOfCalls />
+        :artistList!=null && artistList.status==200?<ArtistClient artistList={artistList} />:<div>Wow ok that was not expected at all.</div>
+      
+      }
     </>
     
   )

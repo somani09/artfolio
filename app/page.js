@@ -6,7 +6,7 @@ import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListPreCache'
 import HomeClient from './homeClient'
 const numberOfImages = 10;
-const imageUrl = "/assets/previewImage.png"
+const imageUrl = "/assets/previewImage.jpg"
 export const metadata = {
     title: 'Home page',
     description: 'Embark on an artistic odyssey at the Gallery: Where visionaries and enthusiasts converge, celebrating the boundless beauty of creativity',

@@ -5,7 +5,8 @@ import Error404 from '@/components/errors/error404';
 import ArtistNameClient from './artistNameClient';
 import { useParams } from 'next/navigation';
 import { fetchPathList } from '@/cache/artistList/artistListPreCache';
-const imageUrl = "/assets/previewImage.png"
+import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
+const imageUrl = "/assets/previewImage.jpg"
 
 const photosPerPage = 10
 
@@ -44,12 +45,13 @@ const Artist = async (context) => {
     const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
     const photos = await getData(photosURL, filterSliderData);
 
-
     return (
         <>
         {
-         user.status!=null && user.status==200?
-        <ArtistNameClient user={user} photos={photos} />:<Error404/>
+          user!=null && user.status==404?<Error404 context={"artist"}/>
+          :user!=null && user.status==500?<ErrorOutOfCalls />
+          :user!=null && user.status==200?<ArtistNameClient user={user} photos={photos} />:<div>Wow ok that was not expected at all.</div>
+        
         }
         </>
   )
