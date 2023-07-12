@@ -82,7 +82,7 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
         return <Loader />
 
     if(userData==undefined||userData==null||photosData==undefined||photosData==null)
-        return <div>I really don't know what to do</div>
+        return <div>I really don&#39;t know what to do</div>
 
     if( userData.status==500 || photosData.status==500)
         return <ErrorOutOfCalls /> 
