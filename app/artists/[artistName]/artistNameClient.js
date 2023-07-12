@@ -13,8 +13,7 @@ import { unsplashLoader } from '@/utils/unsplashLoader';
 import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat/falso';
 import { imageQuality } from '@/utils/customVariables';
 import { getData } from '@/services/getData';
-
-export const dynamic =  'force-dynamic';
+import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
 
 const ArtistNameClient = ({user, photos, params}) => {
 
