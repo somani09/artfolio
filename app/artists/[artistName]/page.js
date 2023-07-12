@@ -44,7 +44,6 @@ const Artist = async (context) => {
     const user = await getData(userURL, filterUserData);
     const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
     const photos = await getData(photosURL, filterSliderData);
-    console.log("key =", key)
     return (
         <>
           <ArtistNameClient user={user} photos={photos} params={params}  baseURL={baseURL} />
