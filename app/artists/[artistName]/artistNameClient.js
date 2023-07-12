@@ -1,5 +1,5 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './artist.module.scss'
 import ImageSlider from '@/components/commons/imageSlider/imageSlider';
 import Image from 'next/image';
@@ -12,12 +12,37 @@ import { getRandomInt } from '@/utils/getRandomInt';
 import { unsplashLoader } from '@/utils/unsplashLoader';
 import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat/falso';
 import { imageQuality } from '@/utils/customVariables';
+import { getData } from '@/services/getData';
+import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
 
-const ArtistNameClient = ({user, photos}) => {
+const ArtistNameClient = ({user, photos, params}) => {
 
-    const [hydrated, setHydrated] = React.useState(false);
-    React.useEffect(() => {
-        setHydrated(true);
+    const [hydrated, setHydrated] = useState(false);
+    const [errorLoadingAPI, setErrorLoadingAPI] = useState(false);
+    let userData=user;
+    let photosData = photos;
+    useEffect(() => {
+        if(user==undefined||user==null){
+            async ()=>{
+                const key = process.env.API_KEY;
+                const baseURL = process.env.BASE_URL;
+                const userURL = `${baseURL}/users/${params.artistName}?client_id=${key}`;
+                userData = await getData(userURL, filterUserData);
+                const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
+                photosData = await getData(photosURL, filterSliderData);
+                if(userData==undefined||
+                    userData==null||
+                    userData.status==500||
+                    userData.status==400||
+                    photosData==undefined||
+                    photosData==null||
+                    photosData.status==500||
+                    photosData.status==400)
+                        setErrorLoadingAPI(true);
+            }
+        }
+        else setHydrated(true);
+
     }, []);
     if (!hydrated) {
         // Returns null on first render, so the client and server match
@@ -44,6 +69,7 @@ const ArtistNameClient = ({user, photos}) => {
         return something + "(made using Falso API)"
     }
   return (
+    errorLoadingAPI? <ErrorOutOfCalls /> :
     <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
@@ -51,11 +77,11 @@ const ArtistNameClient = ({user, photos}) => {
                     <figure className={styles.artistImage}>
                         <Image  
                             loader={unsplashLoader} 
-                            src={user.data.profile_image} 
+                            src={userData.data.profile_image} 
                             style={imageStyle}
                             fill
                             quality={imageQuality}
-                            alt={`${user.data.name} Profile Picture`}
+                            alt={`${userData.data.name} Profile Picture`}
                             />
                     </figure>
                     
@@ -64,10 +90,10 @@ const ArtistNameClient = ({user, photos}) => {
                     <div className={styles.details}>
                         <p className={`${styles.detailsInfo} ${styles.artistName}`} >
                             {/* <span className={styles.detailsHeading}>Name : </span> */}
-                            {user.data.name}
+                            {userData.data.name}
                         </p>
                         <p className={styles.detailsInfo}>
-                            <span className={styles.detailsHeading}>About : </span>{user.data.bio||getFakeBio()}</p>
+                            <span className={styles.detailsHeading}>About : </span>{userData.data.bio||getFakeBio()}</p>
                         <p className={styles.detailsInfo}>
                             <span className={styles.detailsHeading}>Art Styles  : </span>{getStyles()}
                         </p>
@@ -75,17 +101,17 @@ const ArtistNameClient = ({user, photos}) => {
                     <div className={styles.contacts}>
                             <h1 className={styles.contactHeading}>Connect With the Artist</h1>   
                             <div className={styles.contactIcons}>
-                                <a href={user.data.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
-                                {user.data.instagram_username && 
-                                <a href={`https://www.instagram.com/${user.data.instagram_username}`} target="_blank">
+                                <a href={userData.data.unsplash_page} target="_blank"> <RiUnsplashFill className={styles.icons} /></a>
+                                {userData.data.instagram_username && 
+                                <a href={`https://www.instagram.com/${userData.data.instagram_username}`} target="_blank">
                                     <RiInstagramLine className={styles.icons}/>
                                 </a>}
-                                {user.data.twitter_username && 
-                                <a href={`https://twitter.com/${user.data.twitter_username}`} target="_blank">
+                                {userData.data.twitter_username && 
+                                <a href={`https://twitter.com/${userData.data.twitter_username}`} target="_blank">
                                     <AiOutlineTwitter className={styles.icons}/>
                                 </a>}
-                                {user.data.portfolio_url && 
-                                <a href={user.data.portfolio_url} target="_blank"> 
+                                {userData.data.portfolio_url && 
+                                <a href={userData.data.portfolio_url} target="_blank"> 
                                     <CgWebsite className={styles.icons} />
                                 </a>
 
@@ -98,7 +124,7 @@ const ArtistNameClient = ({user, photos}) => {
             </div>
             <div className={styles.imagesArea}>
                 <h1 className={`${styles.showCase} ${styles.sectionHeading}`}>ShowCase</h1>
-                <ImageSlider data={photos.data} type={'vertical'} from={'showCase'}/>
+                <ImageSlider data={photosData.data} type={'vertical'} from={'showCase'}/>
             </div>
         </section>
   )

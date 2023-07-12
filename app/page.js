@@ -35,7 +35,7 @@ export default async function Home() {
     const key = process.env.API_KEY;
     const baseURL = process.env.BASE_URL;
     
-    const topPicksURL =`${baseURL}/collections/${getRandomInt(1,5)}/photos?per_page=${numberOfImages}&client_id=${key}`;
+    const topPicksURL =`${baseURL}/collections/${getRandomInt(1,11)}/photos?per_page=${numberOfImages}&client_id=${key}`;
     const topPicks = await getData(topPicksURL,filterSliderData )
   
     const recentURL =`${baseURL}/photos?page=1&per_page=${numberOfImages}&client_id=${key}`;
