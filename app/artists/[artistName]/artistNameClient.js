@@ -22,7 +22,7 @@ const ArtistNameClient = ({user, photos, params}) => {
     let userData=user;
     let photosData = photos;
     useEffect(() => {
-        if(user==undefined||user==null){
+        if(userData==undefined||userData==null||userData.data==null||photosData==undefined||photosData==null||photosData.data==null){
             async ()=>{
                 const key = process.env.API_KEY;
                 const baseURL = process.env.BASE_URL;
@@ -34,14 +34,18 @@ const ArtistNameClient = ({user, photos, params}) => {
                     userData==null||
                     userData.status==500||
                     userData.status==400||
+                    userData.data==null||
                     photosData==undefined||
                     photosData==null||
                     photosData.status==500||
-                    photosData.status==400)
+                    photosData.status==400||
+                    photosData.data==null)
                         setErrorLoadingAPI(true);
             }
+
         }
-        else setHydrated(true);
+        
+        setHydrated(true);
 
     }, []);
     if (!hydrated) {
