@@ -14,37 +14,45 @@ import { randJobTitle, randQuote, randCatchPhrase, randMusicGenre} from '@ngneat
 import { imageQuality } from '@/utils/customVariables';
 import { getData } from '@/services/getData';
 import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
+import Error404 from '@/components/errors/error404';
+import { filterSliderData, filterUserData } from '@/utils/filterData';
+import Loader from '@/components/loader/loader';
 
-const ArtistNameClient = ({user, photos, params}) => {
+const photosPerPage = 20;
 
-    const [hydrated, setHydrated] = useState(user.data==null||user.data==undefined ? true:false);
-    const [errorLoadingAPI, setErrorLoadingAPI] = useState(false);
-    let userData=user;
-    let photosData = photos;
+const ArtistNameClient = ({user, photos, params, baseURL}) => {
+    const key = process.env.NEXT_PUBLIC_KEY
+    const [hydrated, setHydrated] = 
+        useState(user.data==null||user.data==undefined || photos.data==undefined || photos.data==null ? true:false);
+    const [errorLoadingAPI, setErrorLoadingAPI] = 
+        useState(user.data==null||user.data==undefined || photos.data==undefined || photos.data==null ? true:false);
+    const [userData, setUserData] = useState(user);
+    const [photosData, setPhotosData] = useState(photos)
     useEffect(() => {
         if(userData==undefined||userData==null||userData.data==null||photosData==undefined||photosData==null||photosData.data==null){
-            async ()=>{
-                const key = process.env.API_KEY;
-                const baseURL = process.env.BASE_URL;
+            const getDataOnClient = async ()=>{    
                 const userURL = `${baseURL}/users/${params.artistName}?client_id=${key}`;
-                userData = await getData(userURL, filterUserData);
+                let userDataClient = await getData(userURL, filterUserData);
+                setUserData(userDataClient)
                 const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
-                photosData = await getData(photosURL, filterSliderData);
-                if(userData==undefined||
-                    userData==null||
-                    userData.status==500||
-                    userData.status==400||
-                    userData.data==null||
-                    photosData==undefined||
-                    photosData==null||
-                    photosData.status==500||
-                    photosData.status==400||
-                    photosData.data==null)
-                        setErrorLoadingAPI(true);
+                let photosDataClient = await getData(photosURL, filterSliderData);
+                setPhotosData(photosDataClient)        
             }
+            getDataOnClient();
         }
         setHydrated(true);
-    }, []);
+    }, [userData ,photosData]);
+    
+    useEffect(() => {
+        if(userData==undefined||
+            userData==null||
+            photosData==undefined||
+            photosData==null)
+                setErrorLoadingAPI(true);
+        else
+           setErrorLoadingAPI(false);       
+    }, [userData, photosData])
+    
     if (!hydrated) {
         // Returns null on first render, so the client and server match
         return null;
@@ -69,9 +77,21 @@ const ArtistNameClient = ({user, photos, params}) => {
 
         return something + "(made using Falso API)"
     }
-  return (
-    errorLoadingAPI||userData.data==null||photosData.data==null? <ErrorOutOfCalls /> :
-    <section className={styles.artistDetails}>
+
+    if(errorLoadingAPI)
+        return <Loader />
+
+    if(userData==undefined||userData==null||photosData==undefined||photosData==null)
+        return <div>I really don&#39;t know what to do</div>
+
+    if( userData.status==500 || photosData.status==500)
+        return <ErrorOutOfCalls /> 
+    
+    if(userData.status==404 || photosData.status==404)
+        return <Error404 />
+    
+    return (
+        <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
                 <div className={styles.artistImageContact}>

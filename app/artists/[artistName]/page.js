@@ -44,15 +44,9 @@ const Artist = async (context) => {
     const user = await getData(userURL, filterUserData);
     const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
     const photos = await getData(photosURL, filterSliderData);
-
     return (
         <>
-        {
-          (user!=null && user.status==404) || (photos!=null && photos.status==404)?<Error404 context={"artist"}/>
-          :(user!=null && user.status==500) || (photos!=null && photos.status==500)?<ErrorOutOfCalls />
-          :<ArtistNameClient user={user} photos={photos} params={params} />
-        
-        }
+          <ArtistNameClient user={user} photos={photos} params={params}  baseURL={baseURL} />
         </>
   )
 }
