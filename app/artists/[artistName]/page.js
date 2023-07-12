@@ -48,9 +48,9 @@ const Artist = async (context) => {
     return (
         <>
         {
-          user!=null && user.status==404?<Error404 context={"artist"}/>
-          :user!=null && user.status==500?<ErrorOutOfCalls />
-          :user!=null && user.status==200?<ArtistNameClient user={user} photos={photos} />:<div>Wow ok that was not expected at all.</div>
+          (user!=null && user.status==404) || (photos!=null && photos.status==404)?<Error404 context={"artist"}/>
+          :(user!=null && user.status==500) || (photos!=null && photos.status==500)?<ErrorOutOfCalls />
+          :<ArtistNameClient user={user} photos={photos} params={params} />
         
         }
         </>
