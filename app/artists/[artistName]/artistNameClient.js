@@ -34,10 +34,12 @@ const ArtistNameClient = ({user, photos, params}) => {
                     userData==null||
                     userData.status==500||
                     userData.status==400||
+                    userData.data==null||
                     photosData==undefined||
                     photosData==null||
                     photosData.status==500||
-                    photosData.status==400)
+                    photosData.status==400||
+                    photosData.data==null)
                         setErrorLoadingAPI(true);
             }
         }
