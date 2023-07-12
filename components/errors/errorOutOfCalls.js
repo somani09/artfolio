@@ -11,7 +11,7 @@ const ErrorOutOfCalls = () => {
                     <p className={styles.fourOfour}>
                         Sooooo...
                     </p>
-                    <p className={styles.messageInfo}>I can't afford more API calls right now, Sorry.</p>
+                    <p className={styles.messageInfo}>I can&#39;t afford more API calls right now, Sorry.</p>
                 </div>
             </TapedPaper>
             
