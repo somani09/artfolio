@@ -21,16 +21,17 @@ const date = new Date();
 
 export async function fetchPathList(){
   
-  // if(!artistData)
-  //   return []
-  // else{
-  //   return artistData.data.map(item=>{
-  //     const {username} = item;
-  //     return {artistName:username}
-  //   })
-  // }
-  return artistNames.map(item=>{
-    const username = item;
+  if(!cachedData){
+    await lock.acquire('cacheLock', async () => {
+        try {
+          cachedData = JSON.parse(fs.readFileSync(ARTISTLIST_CACHE_PATH, 'utf8'));
+        } catch (error) {
+          console.log("error opening file")
+        }
+      })    
+   }
+  return cachedData.data.data.map(item=>{
+    const username = item.username;
     return {artistName:username}
   })
 }
