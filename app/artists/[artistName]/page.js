@@ -9,6 +9,7 @@ import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
 const imageUrl = "/assets/previewImage.jpg"
 
 const photosPerPage = 10
+export const revalidate = 3600 * 4;
 
 export const metadata = {
     title:"Artists",
@@ -31,7 +32,7 @@ export const metadata = {
 
   }
 
-export const dynamicParams = true;
+// export const dynamicParams = true;
 export async function generateStaticParams() {
     return fetchPathList()
   }

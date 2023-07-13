@@ -17,41 +17,56 @@ import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
 import Error404 from '@/components/errors/error404';
 import { filterSliderData, filterUserData } from '@/utils/filterData';
 import Loader from '@/components/loader/loader';
+import Error from '@/components/errors/error';
 
 const photosPerPage = 20;
+let counter = 0;
 
 const ArtistNameClient = ({user, photos, params, baseURL}) => {
+    function checkDataEmpty (){
+        return  user==undefined
+                ||user==null
+                ||user.data==null
+                ||photos==undefined
+                ||photos==null
+                ||photos.data==null
+    }
+    
     const key = process.env.NEXT_PUBLIC_KEY
     const [hydrated, setHydrated] = 
-        useState(user.data==null||user.data==undefined || photos.data==undefined || photos.data==null ? true:false);
-    const [errorLoadingAPI, setErrorLoadingAPI] = 
-        useState(user.data==null||user.data==undefined || photos.data==undefined || photos.data==null ? true:false);
+        useState(checkDataEmpty() ? true:false);
+    const [loading, setLoading] = 
+        useState(()=>checkDataEmpty()?true:false);
     const [userData, setUserData] = useState(user);
-    const [photosData, setPhotosData] = useState(photos)
+    const [photosData, setPhotosData] = useState(photos);
+    
     useEffect(() => {
-        if(userData==undefined||userData==null||userData.data==null||photosData==undefined||photosData==null||photosData.data==null){
-            const getDataOnClient = async ()=>{    
-                const userURL = `${baseURL}/users/${params.artistName}?client_id=${key}`;
-                let userDataClient = await getData(userURL, filterUserData);
-                setUserData(userDataClient)
-                const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
-                let photosDataClient = await getData(photosURL, filterSliderData);
-                setPhotosData(photosDataClient)        
+        if(checkDataEmpty()){
+            const getDataOnClient = async ()=>{  
+                if(userData==undefined||userData==null||userData.data==null){
+                    const userURL = `/api/proxy?target=${encodeURIComponent(
+                        `${baseURL}/users/${params.artistName}?client_id=${key}`
+                        )}`;
+                    let userDataClient = await getData(userURL, filterUserData);
+                    setUserData(userDataClient);
+                }
+                if(photosData==undefined||photosData==null||photosData.data==null){
+                    const photosURL = `/api/proxy?target=${encodeURIComponent(
+                        `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
+                        )}`;
+                    let photosDataClient = await getData(photosURL, filterSliderData);
+                    setPhotosData(photosDataClient);  
+                }
+                setLoading(false);
             }
             getDataOnClient();
         }
         setHydrated(true);
-    }, [userData ,photosData]);
-    
-    useEffect(() => {
-        if(userData==undefined||
-            userData==null||
-            photosData==undefined||
-            photosData==null)
-                setErrorLoadingAPI(true);
-        else
-           setErrorLoadingAPI(false);       
-    }, [userData, photosData])
+
+        return ()=>{
+            return;
+        }
+    }, []);
     
     if (!hydrated) {
         // Returns null on first render, so the client and server match
@@ -77,20 +92,11 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
 
         return something + "(made using Falso API)"
     }
-
-    if(errorLoadingAPI)
-        return <Loader />
-
-    if(userData==undefined||userData==null||photosData==undefined||photosData==null)
-        return <div>I really don&#39;t know what to do</div>
-
-    if( userData.status==500 || photosData.status==500)
-        return <ErrorOutOfCalls /> 
-    
-    if(userData.status==404 || photosData.status==404)
-        return <Error404 />
     
     return (
+        loading?<Loader />:
+        userData.data==undefined||userData.data==null || photosData.data==undefined || photosData.data==null?<Error />:
+        userData.status!=200 || photosData.status!=200?<Error code={userData.status} />:
         <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
