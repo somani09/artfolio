@@ -29,18 +29,19 @@ const HomeClient = ({artistList, topPicks, recent}) => {
         <section className={styles.carousel}>
         <h1 className={`${styles.artist} ${styles.sectionHeading}`}>Artists</h1>
         <div className={styles.carouselContainer}>
-            {artistList.status!=null && artistList.status==200?<SlickCarousel data={artistList.data.slice(sliceStart,sliceStart+10)} />
-            :<ErrorComponent code={artistList.status} />}
-            
+          {artistList==undefined||artistList==null || artistList.data==null || artistList.status!=200?<ErrorComponent code={artistList.status} />
+          :<SlickCarousel data={artistList.data.slice(sliceStart,sliceStart+10)} />}       
         </div>
         </section>
         <section className={styles.topPicks}>
-        <h1 className={styles.sectionHeading}>Top Picks</h1>
-        {topPicks.status!=null && topPicks.status==200?<ImageSlider data={topPicks.data} /> :<ErrorComponent code={artistList.status} />}
+          <h1 className={styles.sectionHeading}>Top Picks</h1>
+          {topPicks==undefined||topPicks==null || topPicks.data==null || topPicks.status!=200?<ErrorComponent code={topPicks.status} />
+          :<ImageSlider data={topPicks.data} />}
         </section>
         <section className={styles.recent}>
-        <h1 className={styles.sectionHeading}>Recent Uploads</h1>
-        {recent.status!=null && recent.status==200?<ImageSlider data={recent.data} />  :<ErrorComponent code={artistList.status} />}
+          <h1 className={styles.sectionHeading}>Recent Uploads</h1>
+          {recent==undefined||recent==null || recent.data==null || recent.status!=200?<ErrorComponent code={recent.status} />
+          :<ImageSlider data={recent.data} />  }
         </section>
     </div>
   )
