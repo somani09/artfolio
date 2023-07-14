@@ -9,19 +9,19 @@ const ErrorComponent = ({code}) => {
 
   useEffect(() => {
     switch(code){
-      case '404':
+      case 404:
         setMessage("Seems like someone took this art off for an unauthorized exhibition. We&#39;re on the hunt to reclaim it.");
         break;
-      case '400':
+      case 400:
         setMessage("Looks like someone misplaced the paintbrushes. Our server couldn't make sense of the colorful chaos.");
         break;
-      case '401':
+      case 401:
         setMessage("The artwork whispered, 'You shall not pass!' Only the chosen brush wielders may step into this realm.");
         break;
-      case '402':
+      case 403:
         setMessage("The gallery gates stand tall, silently guarding the secrets of artistic enlightenment. Only the worthy shall enter.");
         break;
-      case '500':
+      case 500:
         setMessage("Our art server stumbled upon a palette malfunction. The colors got tangled in a whimsical chaos!");
         break;
       default:
