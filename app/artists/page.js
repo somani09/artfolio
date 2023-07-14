@@ -1,10 +1,10 @@
 import React from 'react'
 import { filterArtistListData } from '@/utils/filterData';
-import Error404 from '@/components/errors/error404';
 import { randFirstName } from '@ngneat/falso';
 import getArtistList from '@/cache/artistList/artistListPreCache';
 import ArtistClient from './artistClient';
 import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
+import ErrorComponent from '@/components/errors/errorComponent';
 const imageUrl = "/assets/previewImage.jpg"
 
 export const metadata = {
@@ -45,9 +45,8 @@ const Artists = async () => {
   return (
     <>
       {
-        artistList!=null && artistList.status==404?<Error404 context={"List"}/>
-        :artistList!=null && artistList.status==500?<ErrorOutOfCalls />
-        :artistList!=null && artistList.status==200?<ArtistClient artistList={artistList} />:<div>Wow ok that was not expected at all.</div>
+        artistList.data==null || artistList.status!=200?<ErrorComponent code={artistList.status}/>
+        :<ArtistClient artistList={artistList} />
       
       }
     </>

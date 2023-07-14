@@ -3,7 +3,9 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
   const { method, query, body } = req;
-  const targetUrl = req.query.target;
+  const key = process.env.API_KEY;
+  const baseURL = process.env.BASE_URL;
+  const targetUrl = baseURL + req.query.target + key;
   try {
     const response = await axios({
       method,

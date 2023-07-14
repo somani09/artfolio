@@ -17,7 +17,7 @@ import ErrorOutOfCalls from '@/components/errors/errorOutOfCalls';
 import Error404 from '@/components/errors/error404';
 import { filterSliderData, filterUserData } from '@/utils/filterData';
 import Loader from '@/components/loader/loader';
-import Error from '@/components/errors/error';
+import ErrorComponent from '@/components/errors/errorComponent';
 
 const photosPerPage = 20;
 let counter = 0;
@@ -43,20 +43,26 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
     useEffect(() => {
         if(checkDataEmpty()){
             const getDataOnClient = async ()=>{  
-                if(userData==undefined||userData==null||userData.data==null){
-                    const userURL = `/api/proxy?target=${encodeURIComponent(
-                        `${baseURL}/users/${params.artistName}?client_id=${key}`
-                        )}`;
-                    let userDataClient = await getData(userURL, filterUserData);
-                    setUserData(userDataClient);
+                try{
+                    if(userData==undefined||userData==null||userData.data==null){
+                        const userURL = `/api/proxy?target=${encodeURIComponent(
+                            `/users/${params.artistName}?client_id=`
+                            )}`;
+                        let userDataClient = await getData(userURL, filterUserData);
+                        setUserData(userDataClient);
+                    }
+                    if(photosData==undefined||photosData==null||photosData.data==null){
+                        const photosURL = `/api/proxy?target=${encodeURIComponent(
+                            `/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=`
+                            )}`;
+                        let photosDataClient = await getData(photosURL, filterSliderData);
+                        setPhotosData(photosDataClient);  
+                    }
                 }
-                if(photosData==undefined||photosData==null||photosData.data==null){
-                    const photosURL = `/api/proxy?target=${encodeURIComponent(
-                        `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
-                        )}`;
-                    let photosDataClient = await getData(photosURL, filterSliderData);
-                    setPhotosData(photosDataClient);  
+                catch(error){
+                    setLoading(false);
                 }
+                
                 setLoading(false);
             }
             getDataOnClient();
@@ -64,7 +70,7 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
         setHydrated(true);
 
         return ()=>{
-            return;
+            return null;
         }
     }, []);
     
@@ -95,8 +101,12 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
     
     return (
         loading?<Loader />:
-        userData.data==undefined||userData.data==null || photosData.data==undefined || photosData.data==null?<Error />:
-        userData.status!=200 || photosData.status!=200?<Error code={userData.status} />:
+        userData==null
+        ||userData==undefined
+        ||userData.status!=200
+        ||photosData==null
+        ||photosData==undefined
+        ||photosData.status!=200?<ErrorComponent code={userData.status} />:
         <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
