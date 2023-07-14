@@ -6,7 +6,7 @@ const error = ({error,reset}) => {
     console.log("Error caught")
   return (
     <div>
-        <ErrorComponent />
+        <ErrorComponent code={error} />
     </div>  
   )
 }

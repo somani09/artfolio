@@ -46,11 +46,9 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
                 try{
                     if(userData==undefined||userData==null||userData.data==null){
                         const userURL = `/api/proxy?target=${encodeURIComponent(
-                            `/users/${params.artistName}?client_id=s`
+                            `/users/${params.artistName}?client_id=`
                             )}`;
                         let userDataClient = await getData(userURL, filterUserData);
-                        if(userDataClient.data==null)
-                            throw new Error(userDataClient.status);
                         setUserData(userDataClient);
                     }
                     if(photosData==undefined||photosData==null||photosData.data==null){
@@ -58,8 +56,6 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
                             `/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=`
                             )}`;
                         let photosDataClient = await getData(photosURL, filterSliderData);
-                        if(photosDataClient.data==null)
-                            throw new Error(photosDataClient.status);
                         setPhotosData(photosDataClient);  
                     }
                 }
@@ -74,7 +70,7 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
         setHydrated(true);
 
         return ()=>{
-            return;
+            return null;
         }
     }, []);
     
@@ -105,8 +101,12 @@ const ArtistNameClient = ({user, photos, params, baseURL}) => {
     
     return (
         loading?<Loader />:
-        userData.data==undefined||userData.data==null || photosData.data==undefined || photosData.data==null?<ErrorComponent />:
-        userData.status!=200 || photosData.status!=200?<ErrorComponent code={userData.status} />:
+        userData==null
+        ||userData==undefined
+        ||userData.status!=200
+        ||photosData==null
+        ||photosData==undefined
+        ||photosData.status!=200?<ErrorComponent code={userData.status} />:
         <section className={styles.artistDetails}>
             <div className={styles.artistInfoArea}>
     
