@@ -4,8 +4,7 @@ import SlickCarousel from '@/components/commons/carousel/slickCarousel.js'
 import ImageSlider from '@/components/commons/imageSlider/imageSlider.js'
 import styles from './home.module.scss'
 import { getRandomInt } from '@/utils/getRandomInt';
-import Error404 from '@/components/errors/error404';
-import Error from '@/components/errors/error';
+import ErrorComponent from '@/components/errors/errorComponent';
 
 const HomeClient = ({artistList, topPicks, recent}) => {
   // const [sliceStart, setSliceStart] = useState(0);
@@ -31,17 +30,17 @@ const HomeClient = ({artistList, topPicks, recent}) => {
         <h1 className={`${styles.artist} ${styles.sectionHeading}`}>Artists</h1>
         <div className={styles.carouselContainer}>
             {artistList.status!=null && artistList.status==200?<SlickCarousel data={artistList.data.slice(sliceStart,sliceStart+10)} />
-            :<Error code={artistList.status} />}
+            :<ErrorComponent code={artistList.status} />}
             
         </div>
         </section>
         <section className={styles.topPicks}>
         <h1 className={styles.sectionHeading}>Top Picks</h1>
-        {topPicks.status!=null && topPicks.status==200?<ImageSlider data={topPicks.data} /> :<Error code={artistList.status} />}
+        {topPicks.status!=null && topPicks.status==200?<ImageSlider data={topPicks.data} /> :<ErrorComponent code={artistList.status} />}
         </section>
         <section className={styles.recent}>
         <h1 className={styles.sectionHeading}>Recent Uploads</h1>
-        {recent.status!=null && recent.status==200?<ImageSlider data={recent.data} />  :<Error code={artistList.status} />}
+        {recent.status!=null && recent.status==200?<ImageSlider data={recent.data} />  :<ErrorComponent code={artistList.status} />}
         </section>
     </div>
   )

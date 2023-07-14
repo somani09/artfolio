@@ -41,7 +41,7 @@ const Artist = async (context) => {
     const {params} = context;
     const key = process.env.API_KEY;
     const baseURL = process.env.BASE_URL;
-    const userURL = `${baseURL}/users/${params.artistName}?client_id=${key}`;
+    const userURL = `${baseURL}/userss/${params.artistName}?client_id=${key}`;
     const user = await getData(userURL, filterUserData);
     const photosURL = `${baseURL}/users/${params.artistName}/photos?per_page=${photosPerPage}&client_id=${key}`
     const photos = await getData(photosURL, filterSliderData);

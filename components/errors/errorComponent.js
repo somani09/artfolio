@@ -1,8 +1,9 @@
+'use client'
 import React, { useState } from 'react'
 import styles from './errors.module.scss'
 import TapedPaper from '../commons/tapedPaper/tapedPaper'
 
-const Error = ({code="oops"}) => {
+const ErrorComponent = ({code}) => {
 
   const [message, setMessage] = useState("");
 
@@ -23,7 +24,8 @@ const Error = ({code="oops"}) => {
       setMessage("Our art server stumbled upon a palette malfunction. The colors got tangled in a whimsical chaos!");
       break;
     default:
-      setMessage("Looks like even our artistic genius is stumped. We're scratching our heads as to why this happened. Please bear with us")
+      setMessage("Looks like even our artistic genius is stumped. We're scratching our heads as to why this happened. Please bear with us");
+      break;
 
   }
 
@@ -33,7 +35,7 @@ const Error = ({code="oops"}) => {
             <TapedPaper>
                 <div className={styles.message}>
                     <p className={styles.fourOfour}>
-                        {code}
+                        {code||"Oops!"}
                     </p>
                     <p className={styles.messageInfo}>{message}</p>
                 </div>
@@ -44,4 +46,4 @@ const Error = ({code="oops"}) => {
   )
 }
 
-export default Error
+export default ErrorComponent
